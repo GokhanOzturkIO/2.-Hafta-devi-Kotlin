@@ -10,3 +10,10 @@
 10 ilkel bir degişken nullable olursa arka planda bir nesne gibi davranır ve bellekteki kapladıgı yer arar
 11 null almış degişken daha cok yer kaplar
 12 ?: elvis operatoru bir deger null ise bir deger atarız ?. güveli çagrı bir işlem yapmadan önce degerin null olup olmadıgını konrtol ederiz
+13 byte short int float double
+14int
+15 bilmiyorum
+16
+
+
+
