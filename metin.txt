@@ -8,3 +8,5 @@
 8 null safety bir degişkenin degerinin null olup olmadıgını o degişkeni kullanmadan önce kontrol etmemizdir
 9 kotlin bu degişkeni nullable olarak yorumlar
 10 ilkel bir degişken nullable olursa arka planda bir nesne gibi davranır ve bellekteki kapladıgı yer arar
+11 null almış degişken daha cok yer kaplar
+12 ?: elvis operatoru bir deger null ise bir deger atarız ?. güveli çagrı bir işlem yapmadan önce degerin null olup olmadıgını konrtol ederiz
