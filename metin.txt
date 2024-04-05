@@ -1,0 +1,5 @@
+1 basitçe val içine birkere deger atadığımızda deger degişmez varda sonradan degiştirebiliriz
+2 var degişkenin set'ini private yaparız
+3 immutable bir deger ilk aldıgı deger neyse odur degişmez readonly keza aynı şekilde degişmez ama bazı yollarla degişebilir
+4 type inference bir deger sonradan atanacaksa baslangıcta bunun type belirtilmelidir
+5 bilmiyorum
