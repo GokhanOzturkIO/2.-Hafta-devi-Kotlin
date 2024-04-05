@@ -1,0 +1,19 @@
+1 basitçe val içine birkere deger atadığımızda deger degişmez varda sonradan degiştirebiliriz
+2 var degişkenin set'ini private yaparız
+3 immutable bir deger ilk aldıgı deger neyse odur degişmez readonly keza aynı şekilde degişmez ama bazı yollarla degişebilir
+4 type inference bir deger sonradan atanacaksa baslangıcta bunun type belirtilmelidir
+5 bilmiyorum
+6 type safety derleme zamanında tür uyumsuzlukrını tespit ederek hataları engeller
+7 type inference yaparken type yanına bir soru işareti koyarız
+8 null safety bir degişkenin degerinin null olup olmadıgını o degişkeni kullanmadan önce kontrol etmemizdir
+9 kotlin bu degişkeni nullable olarak yorumlar
+10 ilkel bir degişken nullable olursa arka planda bir nesne gibi davranır ve bellekteki kapladıgı yer arar
+11 null almış degişken daha cok yer kaplar
+12 ?: elvis operatoru bir deger null ise bir deger atarız ?. güveli çagrı bir işlem yapmadan önce degerin null olup olmadıgını konrtol ederiz
+13 byte short int float double
+14int
+15 bilmiyorum
+16
+
+
+
