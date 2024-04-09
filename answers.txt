@@ -7,3 +7,8 @@ var name = "Ziya"
 Bu kullanim class icinde tanimlanmis degiskenler icinde gecerlidir. Degiskenin degerini class icinde degise bilmesini ancak class disinda degismemesini istiyorsak bunu kullana biliriz.
 
 3) readonly degeri sadece okuna bilen ama set edilemeyen demekti. Immutable ise ilk basdaki degeri hic bir sekilde dgismeyen degiskendir. val readonlydir cunku val degiskenine return edilen bir deger degise bilir. Orneyin val degiskenine toplama sonucunu return ediyoruzdur, bu zaman topladigimiz degerleri degisirsek val degiskeninin degeride degismis olucak. Ancak immutbale degiskende bu soz konusu degil.
+
+4) Kotlinde bir degisken tanimlarken onun tipini belirtmeye gerek yoktur cunki, ide degiskene verdigimiz degere bakarak onun hangi tipde oldugunu anlar. Mesela:
+
+val name: String = "Selam" burada int yazmamiz gerekli degildir cunki Selam degerinin String tipinde oldunu ide kendi anlayacakdir. 
+val name = "Selam" yukardaki kullanim yerine bunu yazmak daha iyi olur, ancak yuarideki kullanim yanlis degildir, buna ragmen oyle yapilmasi zorunlu durumlar haric onerilmez. Buna type inference denir.
