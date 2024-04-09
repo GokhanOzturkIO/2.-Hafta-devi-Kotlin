@@ -1,2 +1,7 @@
 1) val ile tanimlanan degiskenler degeri sonradan belirlenemyen degiskenler. var ile olanlar degeri sonradan degisen degiskenlerdir. val vara nisbeten daha yavasdir, ancaq bu fark yok denecek kadar azdir. Bunun sebebi val icinde bir kosul olmasidir. ANcak multithreading olan bir uygulamada val daha avantajlidir, cunki var ile tanimlanan degisken deyise bileceyi icin ide geri donub bu deyiskenin degerinin ne oldugunu kontrol eder, valda bu durum yoktur cunki degeri sonradan degisemez.
 
+2) var degiskeninin set fonsiyonunu private yapa biliriz. ornek:
+var name = "Ziya"
+    private set
+
+Bu kullanim class icinde tanimlanmis degiskenler icinde gecerlidir. Degiskenin degerini class icinde degise bilmesini ancak class disinda degismemesini istiyorsak bunu kullana biliriz.
