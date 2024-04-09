@@ -16,3 +16,7 @@ val name = "Selam" yukardaki kullanim yerine bunu yazmak daha iyi olur, ancak yu
 5) Hayir cunki o degiskenler arka planda byte codeye cevrilirken primitiv tipe karsilik gelir.
 
 6) Type safety programlama dilinin tur hatalarini azaltmak icin kullanilan bir ozelliktir. Mesela nullability bir type safety ifadesidir. 
+
+7) degiskenin turunun sonuna ? isareti koymaliyiz. Mesela
+
+val num: Int? = null
