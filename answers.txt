@@ -24,3 +24,5 @@ val num: Int? = null
 8) NUll guvenligi bir degiskenin null olup olmadigini bildirmek icin son derece onemlidir, null degeri donduren bir degisken kritik noktalarda olursa uygulamayi cokerte bilir. Mesela serverden bekledigimiz deger gelmiyorsa biz bunu null guvenligi ile kontrol ede bilir ve ona gore bir islem yapa biliriz.
 
 9) null degiskenin tipi belirlenmezse bu zaman ide onu Nothing tipinde kabul eder. null tipinde olan deger icin type iference calismaz.
+
+10) nullable olmayan bir deyer bellekte sabit yer tutar. nullable olan deger icin bellekde ek yer ayrilir bu nullable degerin sonradan degismesi ve null olmayan bir deger almasi ihtimaline karsi yapilir. Bu yuzden nullable deger daha maliyetlidir.
