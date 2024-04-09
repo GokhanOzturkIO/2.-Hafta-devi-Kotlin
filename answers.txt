@@ -5,3 +5,5 @@ var name = "Ziya"
     private set
 
 Bu kullanim class icinde tanimlanmis degiskenler icinde gecerlidir. Degiskenin degerini class icinde degise bilmesini ancak class disinda degismemesini istiyorsak bunu kullana biliriz.
+
+3) readonly degeri sadece okuna bilen ama set edilemeyen demekti. Immutable ise ilk basdaki degeri hic bir sekilde dgismeyen degiskendir. val readonlydir cunku val degiskenine return edilen bir deger degise bilir. Orneyin val degiskenine toplama sonucunu return ediyoruzdur, bu zaman topladigimiz degerleri degisirsek val degiskeninin degeride degismis olucak. Ancak immutbale degiskende bu soz konusu degil.
