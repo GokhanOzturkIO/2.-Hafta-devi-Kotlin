@@ -20,3 +20,5 @@ val name = "Selam" yukardaki kullanim yerine bunu yazmak daha iyi olur, ancak yu
 7) degiskenin turunun sonuna ? isareti koymaliyiz. Mesela
 
 val num: Int? = null
+
+8) NUll guvenligi bir degiskenin null olup olmadigini bildirmek icin son derece onemlidir, null degeri donduren bir degisken kritik noktalarda olursa uygulamayi cokerte bilir. Mesela serverden bekledigimiz deger gelmiyorsa biz bunu null guvenligi ile kontrol ede bilir ve ona gore bir islem yapa biliriz.
