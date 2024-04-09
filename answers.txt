@@ -14,3 +14,5 @@ val name: String = "Selam" burada int yazmamiz gerekli degildir cunki Selam dege
 val name = "Selam" yukardaki kullanim yerine bunu yazmak daha iyi olur, ancak yuarideki kullanim yanlis degildir, buna ragmen oyle yapilmasi zorunlu durumlar haric onerilmez. Buna type inference denir.
 
 5) Hayir cunki o degiskenler arka planda byte codeye cevrilirken primitiv tipe karsilik gelir.
+
+6) Type safety programlama dilinin tur hatalarini azaltmak icin kullanilan bir ozelliktir. Mesela nullability bir type safety ifadesidir. 
