@@ -42,3 +42,13 @@ Sayilar:
 16) nokta ve virgul kullanilir. BUnlarin hangisinin kullanildigi ulkeden ulkeye degismektedir.
 
 17) Float 6-7 basmaga kadar, double ise 15-16 basamaga kadar islem yapa bilir. Bu sinir asildiginda yuvarlama hatasi olur. Daha yuksek hassasiyete ve daha yuksek bellek araligina ihtiyac varsa double, daha kucuyune ihtiyac varsa float kullanilir.
+
+18) Asagidaki gibi tanimlanir
+val decimalNumber: Int = 10
+val decimalNumber: Double = 3.14
+
+val hexadedecimalNumber: Int = 0x1A
+val hexadedecimalNumber: Long = 0xABCD1234
+
+val binaryNumber: Int = 0b1010
+val binaryNumber: Long = 0b1010101001
