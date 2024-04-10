@@ -34,3 +34,5 @@ Sayilar:
 12) 6 esas number sinifi mevcuttur. BUnlar byte, short, int, long, float, double. Deger araliklari onemlidir, cunki yazdigmiz sayinin hangi number tipinde oldugunu bu araliklar belirler. Sayinin istdigimiz araliga dahil olup olmadigina dikkat etmeliyiz, cunki eger sayi belirlenmis araligin disindaysa bu bir takim sorunlara yol aca bilir.
 
 13) Esitligin sag tarafindaki deyere gore tip cikarimi yapilir.
+
+14) Cunki kucuk l-in yazlimi 1-e benzemektedir ve bu kafa karikligina yol aca bilir.
