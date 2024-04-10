@@ -60,3 +60,5 @@ val binaryNumber: Long = 0b1010101001
 21) Alt cizgi(underscore) buyuk sayilari daha anlasilir sekilde gormemize yardimci olur. Mesela:
 val num = 1_000_000
 Kotlin 1_000_000 deyerini 1000000 gibi yorumlar. 
+
+22) == ile degiskenlerin degerlerini karsilastiriyoruz.
