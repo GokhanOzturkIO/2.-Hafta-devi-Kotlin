@@ -38,3 +38,5 @@ Sayilar:
 14) Cunki kucuk l-in yazlimi 1-e benzemektedir ve bu kafa karikligina yol aca bilir.
 
 15) BUnlar kesirli sayilari temsil eden formatlari ifade eder. Single Precision float turuyle, Double precision double turuyle temsil edilir.
+
+16) nokta ve virgul kullanilir. BUnlarin hangisinin kullanildigi ulkeden ulkeye degismektedir.
