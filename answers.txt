@@ -30,3 +30,5 @@ val num: Int? = null
 11)Evet, null değer almış bir değişken, bellekte yer kaplamaz. Nullable bir değişken, değere sahip olabilir veya null olabilir. Bir değişken null olduğunda, bu, bellekte herhangi bir değer içermediği anlamına gelir ve dolayısıyla bellekte yer kaplamaz. 
 
 Sayilar:
+
+12) 6 esas number sinifi mevcuttur. BUnlar byte, short, int, long, float, double. Deger araliklari onemlidir, cunki yazdigmiz sayinin hangi number tipinde oldugunu bu araliklar belirler. Sayinin istdigimiz araliga dahil olup olmadigina dikkat etmeliyiz, cunki eger sayi belirlenmis araligin disindaysa bu bir takim sorunlara yol aca bilir.
