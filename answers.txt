@@ -52,3 +52,5 @@ val hexadedecimalNumber: Long = 0xABCD1234
 
 val binaryNumber: Int = 0b1010
 val binaryNumber: Long = 0b1010101001
+
+19) Hayir tanimlanamaz Kotlin sekizlik degiskenler desteklenmiyor
