@@ -36,3 +36,5 @@ Sayilar:
 13) Esitligin sag tarafindaki deyere gore tip cikarimi yapilir.
 
 14) Cunki kucuk l-in yazlimi 1-e benzemektedir ve bu kafa karikligina yol aca bilir.
+
+15) BUnlar kesirli sayilari temsil eden formatlari ifade eder. Single Precision float turuyle, Double precision double turuyle temsil edilir.
