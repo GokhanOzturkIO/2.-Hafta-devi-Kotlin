@@ -28,3 +28,5 @@ val num: Int? = null
 10) nullable olmayan bir deyer bellekte sabit yer tutar. nullable olan deger icin bellekde ek yer ayrilir bu nullable degerin sonradan degismesi ve null olmayan bir deger almasi ihtimaline karsi yapilir. Bu yuzden nullable deger daha maliyetlidir.
 
 11)Evet, null değer almış bir değişken, bellekte yer kaplamaz. Nullable bir değişken, değere sahip olabilir veya null olabilir. Bir değişken null olduğunda, bu, bellekte herhangi bir değer içermediği anlamına gelir ve dolayısıyla bellekte yer kaplamaz. 
+
+Sayilar:
