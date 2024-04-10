@@ -73,3 +73,5 @@ Kotlin 1_000_000 deyerini 1000000 gibi yorumlar.
 and iki bit 1 ise result 1, her hangi biri 0 ise result 0 olur
 OR - her hangi bit 1 olursa sonuc 1 olur
 XOR - her iki bit ayni olursa 0 farkli olursa 1 olur
+
+27) Kotlin'de büyük sayılarla çalışırken, genellikle BigInteger ve BigDecimal gibi sınıflardan yararlanılır. Bu turlerin siniri yoktur.
