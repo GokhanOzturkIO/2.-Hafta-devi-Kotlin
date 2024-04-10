@@ -62,3 +62,5 @@ val num = 1_000_000
 Kotlin 1_000_000 deyerini 1000000 gibi yorumlar. 
 
 22) == ile degiskenlerin degerlerini karsilastiriyoruz.
+
+23) === ile dgiskenlerin nereye referans verdigini karsilastiriyoruz. Yalniz byte araligina dusen ve nullable olan degiskenler farkli degisken olsa bile ayni memory alanlarina isaret eder. Byte araliginin disinda ise farkli memory alanlarina isret eder
