@@ -56,3 +56,7 @@ val binaryNumber: Long = 0b1010101001
 19) Hayir tanimlanamaz Kotlin sekizlik degiskenler desteklenmiyor
 
 20) "Geleneksel Notasyon" bir sayının standart ondalık gösterimini ifade eder. Geleneksel notasyon, genellikle günlük yaşamda kullandığımız sayıların temsili şeklidir. Örneğin, "123" veya "-45.678" gibi sayılar geleneksel notasyonla gösterilir.
+
+21) Alt cizgi(underscore) buyuk sayilari daha anlasilir sekilde gormemize yardimci olur. Mesela:
+val num = 1_000_000
+Kotlin 1_000_000 deyerini 1000000 gibi yorumlar. 
