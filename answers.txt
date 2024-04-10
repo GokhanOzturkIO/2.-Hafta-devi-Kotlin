@@ -40,3 +40,5 @@ Sayilar:
 15) BUnlar kesirli sayilari temsil eden formatlari ifade eder. Single Precision float turuyle, Double precision double turuyle temsil edilir.
 
 16) nokta ve virgul kullanilir. BUnlarin hangisinin kullanildigi ulkeden ulkeye degismektedir.
+
+17) Float 6-7 basmaga kadar, double ise 15-16 basamaga kadar islem yapa bilir. Bu sinir asildiginda yuvarlama hatasi olur. Daha yuksek hassasiyete ve daha yuksek bellek araligina ihtiyac varsa double, daha kucuyune ihtiyac varsa float kullanilir.
