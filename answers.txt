@@ -68,3 +68,8 @@ Kotlin 1_000_000 deyerini 1000000 gibi yorumlar.
 24) sayisal degiskenlerde kullanilan matematiksel operatorler: +,*,/,%,-
 
 25) sayisal degiskenlerde kullanilan karsilastirma operatorleri: ==, ===, <, >, <=, >=
+
+26) Bitwise operatorlar bunlardir: AND(&), OR(|), XOR(^) 
+and iki bit 1 ise result 1, her hangi biri 0 ise result 0 olur
+OR - her hangi bit 1 olursa sonuc 1 olur
+XOR - her iki bit ayni olursa 0 farkli olursa 1 olur
