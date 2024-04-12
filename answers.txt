@@ -77,3 +77,6 @@ XOR - her iki bit ayni olursa 0 farkli olursa 1 olur
 27) Kotlin'de büyük sayılarla çalışırken, genellikle BigInteger ve BigDecimal gibi sınıflardan yararlanılır. Bu turlerin siniri yoktur.
 
 28) Double ve Float'in yavrlama islemi ondalik kisma bakilarak yapilir. Sayi bir sonraki sayiya yakinsa yukari, onceki sayiya yakinsa asagi yuvarlanir. 3.4 3-e 3.5 ise 4-e yuvarlanicaktir. Math.floor, Math.ceil gibi fonksiyonlarla bu durum deyise bilir. Math.floor sayiyi her zaman bir onceki tam sayiya kadar yuvarlar, Math.ceil ise bor sonraki tam sayiya kadar yuvarlar 
+
+--Isaretsiz sayilar--
+
