@@ -99,3 +99,5 @@ al a2 = 0xFFFF_FFFF_FFFFu burada a2 hexadecimal yapidadir. sondaki u unsigned ol
 
 33) Kotlinde isretsiz long sayilari tanimlamak icin degisken tpinin onune U eklenir. Yani, 
 val num: ULong = 23456 
+
+34) Isretsiz degiskenler pozitif tam sayilari tanimlarken kullanila bilir. Bunlar signed degiskenlere nazaran bellekde daha az yer kaplar, ve daha hizli calisir, cunki bellege dogrudan erisimleri vardir.
