@@ -88,3 +88,7 @@ val signedInt: Int = -24
 val signedInt2: Int = 34
 
 30) Unsigned degiskenler her hangi bir sinif yapisinda tutulmazlar. Bunun yerine dogrudan bellekde belirli br=ir yer tutarlar. Usigned degiskenler bellekde daha az yer tutar ve bellge direk erisimi oldugu icin daha performansli calisirlar.
+
+31) isretsiz degiskenlerin harf gosterimi degisken tipinin onune U yazilmakla yapilir. Mesela
+val num: ULong = 12
+val num2: UInt = 23
