@@ -96,3 +96,6 @@ val num2: UInt = 23
 32) val a1 = 42u burada sondaki u isratesiz degisken tipine isret eder. 42 ise int tipinde bir deyerdir. Yani kotlin 42u deyerini UInt olarak yorumlar
 
 al a2 = 0xFFFF_FFFF_FFFFu burada a2 hexadecimal yapidadir. sondaki u unsigned oluguna isaret eder. Kotlin bunu ULong olarak yorumlayacakdir. Cunki a2 degiskeni 32 bitlik araligi asiyor yani UInt degil ULong olucak.
+
+33) Kotlinde isretsiz long sayilari tanimlamak icin degisken tpinin onune U eklenir. Yani, 
+val num: ULong = 23456 
