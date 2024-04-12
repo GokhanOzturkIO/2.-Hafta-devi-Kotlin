@@ -86,3 +86,5 @@ val unsignedInt: UInt = 24
 
 val signedInt: Int = -24
 val signedInt2: Int = 34
+
+30) Unsigned degiskenler her hangi bir sinif yapisinda tutulmazlar. Bunun yerine dogrudan bellekde belirli br=ir yer tutarlar. Usigned degiskenler bellekde daha az yer tutar ve bellge direk erisimi oldugu icin daha performansli calisirlar.
