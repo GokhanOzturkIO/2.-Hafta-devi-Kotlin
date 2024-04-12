@@ -101,3 +101,5 @@ al a2 = 0xFFFF_FFFF_FFFFu burada a2 hexadecimal yapidadir. sondaki u unsigned ol
 val num: ULong = 23456 
 
 34) Isretsiz degiskenler pozitif tam sayilari tanimlarken kullanila bilir. Bunlar signed degiskenlere nazaran bellekde daha az yer kaplar, ve daha hizli calisir, cunki bellege dogrudan erisimleri vardir.
+
+35) Isretsiz degiskenlerle islem yapildiginda tasma olmazsa aldigmiz cevap buyuk degisken tipinde olur. Mesela int ve long tipinde iki degiskeni topluyorsak cavap long tipinde olucak. Ayni tipde olan iki degiskenle islem yaptigimizda cevap yine ayni degisken tipinde olucak. Eger tasma olursa kotlin bunu umursamaz, ve anlamsiz bir sayi vere bilir. BU yuzden eger islem sonucunda tasma olursa tur donusumu yapilmalidir. Kotlin bunu otomatik olarak yapmaz.
