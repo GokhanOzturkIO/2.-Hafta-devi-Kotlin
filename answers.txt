@@ -80,3 +80,9 @@ XOR - her iki bit ayni olursa 0 farkli olursa 1 olur
 
 --Isaretsiz sayilar--
 
+29)Isretsiz degiskenler pozitiv deyerleri temsil etmek icin kullanilir. uInt, ULong, UByte, UShort gibi degiskenler isartesiz degiskenlerdir. Isretli degiskenler hem pozitiv, hem de neqativ degerleri temsil eder ama isretsiz degiskenler kendi kapsamlari icinde yalnizca pozitiv sayilari temsil ede bilir.
+
+val unsignedInt: UInt = 24
+
+val signedInt: Int = -24
+val signedInt2: Int = 34
