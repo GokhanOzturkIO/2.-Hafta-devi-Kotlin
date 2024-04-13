@@ -148,4 +148,6 @@ Akilli donusum ancak belirli durumlarda kullanila bilir. Genellikle if, when, wh
 
 46)val result = Int.MAX_VALUE + Int.MAX_VALUE burada result int tipinde olucaktir. Kotlinde bu gibi durumlarda otomatik tip donusumu yapilmaz ve toplanan degerler hangi tipdeyse ve ya hangisi daha buyuk tipe sahipse cevap o tipde olacaktir. Ornekde result degiskeni int araligini asiyor ama yinede kotlin burada tip donusumu yapmaz ve cavabi int tipinde tutmaya calisir. Ancak bu tasma dedigimiz soruna yol acar, bu sorunu asmak icin kendimiz tip donusumu yapmaliyiz.
 
-47) val x = 5 / 2 println(x == 2) buradaki islemin sonucu true olucaktir. Cunki == ile degiskenlerin deyeri karsilastirilir. 5/2 2 deyerini verir. buda x = 2 anlamina gelir. BU yuzden true doner. 
+47) val x = 5 / 2 println(x == 2) buradaki islemin sonucu true olucaktir. Cunki == ile degiskenlerin deyeri karsilastirilir. 5/2 2 deyerini verir. buda x = 2 anlamina gelir. BU yuzden true doner.
+
+48) val x = 5L / 2 println(x == 2L) bu islemin sonucu true olucaktir, cunki == degiskenlerin degerlerini karsilastirir. 
