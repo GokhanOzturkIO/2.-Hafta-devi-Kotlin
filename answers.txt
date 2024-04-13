@@ -155,3 +155,18 @@ Akilli donusum ancak belirli durumlarda kullanila bilir. Genellikle if, when, wh
 49) val x = 5L / 2 println(x == 2L) bu islemin sonucu true olacaktir.
 
 50) val x = 5 / 2.toDouble() println(x == 2.5) burada sonuc true olucaktir. 5 i double tipinde olan 2 e boldugumuzde sonuc 2.5 olacaktir. 
+
+51) Kotlinde donusum hatalarini ele almak icin. try catch kullana biliriz. Mesela
+try {
+    val intValue: Int = "abc".toInt()
+} catch (e: NumberFormatException) {
+    println("Dönüşüm başarısız")
+}
+
+yada if ile kontrol ede biliriz. Mesela
+val intValue: Int? = "123".toIntOrNull()
+if (intValue != null) {
+    // Dönüşüm başarılı
+} else {
+    // Dönüşüm başarısız
+}
