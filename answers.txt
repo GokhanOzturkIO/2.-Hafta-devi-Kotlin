@@ -142,3 +142,4 @@ Akilli donusum ancak belirli durumlarda kullanila bilir. Genellikle if, when, wh
 
 43) Cikti yine true olur cunki == ile deyerler kontrol edilir ve bu durumda deyerler aynidir.
 
+44) Acik donusum yaparken toInt, code, toFloat, toDouble, toShort, toByte, toLong, digittoInt gibi fonksiyonlar kullanila bilir.
