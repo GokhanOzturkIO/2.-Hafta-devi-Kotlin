@@ -145,3 +145,5 @@ Akilli donusum ancak belirli durumlarda kullanila bilir. Genellikle if, when, wh
 44) Acik donusum yaparken toInt, code, toFloat, toDouble, toShort, toByte, toLong, digittoInt gibi fonksiyonlar kullanila bilir.
 
 45) val result = 1L + 3 burada result degiskenin tipi long olur. Cunki iki ayri tipdeki sayisal degeri topladigimizda cevap buyuk tipe sahip degiskenin tipinde olur. Long ile int tipindeki degeri toplarsak aldigimiz cevap matiken long araligina duser. Orenkde oldugu gibi kucuk sayialrda dahi bu kural gecerlidir.
+
+46)val result = Int.MAX_VALUE + Int.MAX_VALUE burada result int tipinde olucaktir. Kotlinde bu gibi durumlarda otomatik tip donusumu yapilmaz ve toplanan degerler hangi tipdeyse ve ya hangisi daha buyuk tipe sahipse cevap o tipde olacaktir. Ornekde result degiskeni int araligini asiyor ama yinede kotlin burada tip donusumu yapmaz ve cavabi int tipinde tutmaya calisir. Ancak bu tasma dedigimiz soruna yol acar, bu sorunu asmak icin kendimiz tip donusumu yapmaliyiz. 
