@@ -109,3 +109,15 @@ val num: ULong = 23456
 37) Javada isretsiz degiskenler dogrudan deteklenmez ve APIden gelen veriler otomatik olarak isretsiz tiplere donusturulmez bu yuzden bazi sorunlar ola bilir. BUnlari cozmek icin isretsiz degiskenler yerine israteli degiskenleri kullana biliriz ya da APIdan gelen verilerideki degiskenleri isaretsiz degiskenlere cevire biliriz.
 
 --Tur Donusumu--
+
+38) is ve !is bir degiskenin belirli bir tipe ait olup olmadigini kontrol etmek icin kullanilir. Mesela
+
+val a: String = "Hello World"
+if(a is String){
+	println(true)
+}
+
+val a: Int = 14
+if(a !is String){
+	println(true)
+}
