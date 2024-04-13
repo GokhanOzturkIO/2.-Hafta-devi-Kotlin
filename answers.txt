@@ -139,3 +139,6 @@ Akilli donusum ancak belirli durumlarda kullanila bilir. Genellikle if, when, wh
 41) Ortuk tip genisletme bir veri tipinden digerine otomatik gecisi ifade eder. Kotlinde bu yapilamaz bunun nedeni bilincli kod yazilmasi ve bur tip islemler sirasinda olan hatalardan kacinmaktir. Kotlinde acik tip donusumu vardir, yani kod yazan kisi bu donusumu kendisi bilincli olarak yapmalidir. Ayrica bu tipli donusumlerde tasma riski ola bilir, yazilimcilar donsumu kendileri yaptiklarinda bu tasmanin onune gece bilir.
 
 42) Burada cikti true olacaktir cunki, == ile degiskenin deyerini karsilastiririz, bu durumda her iki degiskenin deyeri 1 oldugu icin true donucektir.
+
+43) Cikti yine true olur cunki == ile deyerler kontrol edilir ve bu durumda deyerler aynidir.
+
