@@ -133,3 +133,5 @@ fun process(obj: Any) {
 }
 
 Akilli donusum ancak belirli durumlarda kullanila bilir. Genellikle if, when, while gibi ifadelerle kullanila bilir.
+
+40) Guvensiz operatorler islem yaptigimizda tasma gibi sikintilara sebep olma potansiyeli tasiyan operatorlerdir. Mesela bir tam sayiyi baska birine carpmak guvensiz operatorlere bir ornektir. GUvenli operatorler kotlin gibi modern dillerde bu turden sikintilari asmak icin kullanilir. Otomaktik tur donusumu gibi fonksiyonlarla bu durumlar azaltilir vr ya engellenmeye calisilir.
