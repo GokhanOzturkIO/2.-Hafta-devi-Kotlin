@@ -137,3 +137,5 @@ Akilli donusum ancak belirli durumlarda kullanila bilir. Genellikle if, when, wh
 40) Guvensiz operatorler islem yaptigimizda tasma gibi sikintilara sebep olma potansiyeli tasiyan operatorlerdir. Mesela bir tam sayiyi baska birine carpmak guvensiz operatorlere bir ornektir. GUvenli operatorler kotlin gibi modern dillerde bu turden sikintilari asmak icin kullanilir. Otomaktik tur donusumu gibi fonksiyonlarla bu durumlar azaltilir vr ya engellenmeye calisilir.
 
 41) Ortuk tip genisletme bir veri tipinden digerine otomatik gecisi ifade eder. Kotlinde bu yapilamaz bunun nedeni bilincli kod yazilmasi ve bur tip islemler sirasinda olan hatalardan kacinmaktir. Kotlinde acik tip donusumu vardir, yani kod yazan kisi bu donusumu kendisi bilincli olarak yapmalidir. Ayrica bu tipli donusumlerde tasma riski ola bilir, yazilimcilar donsumu kendileri yaptiklarinda bu tasmanin onune gece bilir.
+
+42) Burada cikti true olacaktir cunki, == ile degiskenin deyerini karsilastiririz, bu durumda her iki degiskenin deyeri 1 oldugu icin true donucektir.
