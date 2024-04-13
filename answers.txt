@@ -150,4 +150,8 @@ Akilli donusum ancak belirli durumlarda kullanila bilir. Genellikle if, when, wh
 
 47) val x = 5 / 2 println(x == 2) buradaki islemin sonucu true olucaktir. Cunki == ile degiskenlerin deyeri karsilastirilir. 5/2 2 deyerini verir. buda x = 2 anlamina gelir. BU yuzden true doner.
 
-48) val x = 5L / 2 println(x == 2L) bu islemin sonucu true olucaktir, cunki == degiskenlerin degerlerini karsilastirir. 
+48) val x = 5L / 2 println(x == 2L) bu islemin sonucu true olucaktir, cunki == degiskenlerin degerlerini karsilastirir.
+
+49) val x = 5L / 2 println(x == 2L) bu islemin sonucu true olacaktir.
+
+50) val x = 5 / 2.toDouble() println(x == 2.5) burada sonuc true olucaktir. 5 i double tipinde olan 2 e boldugumuzde sonuc 2.5 olacaktir. 
