@@ -121,3 +121,15 @@ val a: Int = 14
 if(a !is String){
 	println(true)
 }
+
+39) Bu özellik, belirli koşullar altında değişkenlerin türlerini otomatik olarak algılayarak, onları belirli türlere dönüştürür. Böylece, kod yazarken gereksiz tür dönüşümlerinden kaçınmak mumkun olur. Mesela
+
+fun process(obj: Any) {
+    when (obj) {
+        is Int -> println(obj * 2) // Akıllı dönüşüm: obj değişkeni Int türüne otomatik olarak dönüşür.
+        is String -> println(obj.toUpperCase()) // Akıllı dönüşüm: obj değişkeni String türüne otomatik olarak dönüşür.
+        else -> println("Unknown type") // Akıllı dönüşüm: obj değişkeni Any türünden diğer türlerine otomatik olarak dönüşür.
+    }
+}
+
+Akilli donusum ancak belirli durumlarda kullanila bilir. Genellikle if, when, while gibi ifadelerle kullanila bilir.
