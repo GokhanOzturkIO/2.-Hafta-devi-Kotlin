@@ -1,0 +1,172 @@
+1) val ile tanimlanan degiskenler degeri sonradan belirlenemyen degiskenler. var ile olanlar degeri sonradan degisen degiskenlerdir. val vara nisbeten daha yavasdir, ancaq bu fark yok denecek kadar azdir. Bunun sebebi val icinde bir kosul olmasidir. ANcak multithreading olan bir uygulamada val daha avantajlidir, cunki var ile tanimlanan degisken deyise bileceyi icin ide geri donub bu deyiskenin degerinin ne oldugunu kontrol eder, valda bu durum yoktur cunki degeri sonradan degisemez.
+
+2) var degiskeninin set fonsiyonunu private yapa biliriz. ornek:
+var name = "Ziya"
+    private set
+
+Bu kullanim class icinde tanimlanmis degiskenler icinde gecerlidir. Degiskenin degerini class icinde degise bilmesini ancak class disinda degismemesini istiyorsak bunu kullana biliriz.
+
+3) readonly degeri sadece okuna bilen ama set edilemeyen demekti. Immutable ise ilk basdaki degeri hic bir sekilde dgismeyen degiskendir. val readonlydir cunku val degiskenine return edilen bir deger degise bilir. Orneyin val degiskenine toplama sonucunu return ediyoruzdur, bu zaman topladigimiz degerleri degisirsek val degiskeninin degeride degismis olucak. Ancak immutbale degiskende bu soz konusu degil.
+
+4) Kotlinde bir degisken tanimlarken onun tipini belirtmeye gerek yoktur cunki, ide degiskene verdigimiz degere bakarak onun hangi tipde oldugunu anlar. Mesela:
+
+val name: String = "Selam" burada int yazmamiz gerekli degildir cunki Selam degerinin String tipinde oldunu ide kendi anlayacakdir. 
+val name = "Selam" yukardaki kullanim yerine bunu yazmak daha iyi olur, ancak yuarideki kullanim yanlis degildir, buna ragmen oyle yapilmasi zorunlu durumlar haric onerilmez. Buna type inference denir.
+
+5) Hayir cunki o degiskenler arka planda byte codeye cevrilirken primitiv tipe karsilik gelir.
+
+6) Type safety programlama dilinin tur hatalarini azaltmak icin kullanilan bir ozelliktir. Mesela nullability bir type safety ifadesidir. 
+
+7) degiskenin turunun sonuna ? isareti koymaliyiz. Mesela
+
+val num: Int? = null
+
+8) NUll guvenligi bir degiskenin null olup olmadigini bildirmek icin son derece onemlidir, null degeri donduren bir degisken kritik noktalarda olursa uygulamayi cokerte bilir. Mesela serverden bekledigimiz deger gelmiyorsa biz bunu null guvenligi ile kontrol ede bilir ve ona gore bir islem yapa biliriz.
+
+9) null degiskenin tipi belirlenmezse bu zaman ide onu Nothing tipinde kabul eder. null tipinde olan deger icin type iference calismaz.
+
+10) nullable olmayan bir deyer bellekte sabit yer tutar. nullable olan deger icin bellekde ek yer ayrilir bu nullable degerin sonradan degismesi ve null olmayan bir deger almasi ihtimaline karsi yapilir. Bu yuzden nullable deger daha maliyetlidir.
+
+11)Evet, null değer almış bir değişken, bellekte yer kaplamaz. Nullable bir değişken, değere sahip olabilir veya null olabilir. Bir değişken null olduğunda, bu, bellekte herhangi bir değer içermediği anlamına gelir ve dolayısıyla bellekte yer kaplamaz. 
+
+Sayilar:
+
+12) 6 esas number sinifi mevcuttur. BUnlar byte, short, int, long, float, double. Deger araliklari onemlidir, cunki yazdigmiz sayinin hangi number tipinde oldugunu bu araliklar belirler. Sayinin istdigimiz araliga dahil olup olmadigina dikkat etmeliyiz, cunki eger sayi belirlenmis araligin disindaysa bu bir takim sorunlara yol aca bilir.
+
+13) Esitligin sag tarafindaki deyere gore tip cikarimi yapilir.
+
+14) Cunki kucuk l-in yazlimi 1-e benzemektedir ve bu kafa karikligina yol aca bilir.
+
+15) BUnlar kesirli sayilari temsil eden formatlari ifade eder. Single Precision float turuyle, Double precision double turuyle temsil edilir.
+
+16) nokta ve virgul kullanilir. BUnlarin hangisinin kullanildigi ulkeden ulkeye degismektedir.
+
+17) Float 6-7 basmaga kadar, double ise 15-16 basamaga kadar islem yapa bilir. Bu sinir asildiginda yuvarlama hatasi olur. Daha yuksek hassasiyete ve daha yuksek bellek araligina ihtiyac varsa double, daha kucuyune ihtiyac varsa float kullanilir.
+
+18) Asagidaki gibi tanimlanir
+val decimalNumber: Int = 10
+val decimalNumber: Double = 3.14
+
+val hexadedecimalNumber: Int = 0x1A
+val hexadedecimalNumber: Long = 0xABCD1234
+
+val binaryNumber: Int = 0b1010
+val binaryNumber: Long = 0b1010101001
+
+19) Hayir tanimlanamaz Kotlin sekizlik degiskenler desteklenmiyor
+
+20) "Geleneksel Notasyon" bir sayının standart ondalık gösterimini ifade eder. Geleneksel notasyon, genellikle günlük yaşamda kullandığımız sayıların temsili şeklidir. Örneğin, "123" veya "-45.678" gibi sayılar geleneksel notasyonla gösterilir.
+
+21) Alt cizgi(underscore) buyuk sayilari daha anlasilir sekilde gormemize yardimci olur. Mesela:
+val num = 1_000_000
+Kotlin 1_000_000 deyerini 1000000 gibi yorumlar. 
+
+22) == ile degiskenlerin degerlerini karsilastiriyoruz.
+
+23) === ile dgiskenlerin nereye referans verdigini karsilastiriyoruz. Yalniz byte araligina dusen ve nullable olan degiskenler farkli degisken olsa bile ayni memory alanlarina isaret eder. Byte araliginin disinda ise farkli memory alanlarina isret eder
+
+24) sayisal degiskenlerde kullanilan matematiksel operatorler: +,*,/,%,-
+
+25) sayisal degiskenlerde kullanilan karsilastirma operatorleri: ==, ===, <, >, <=, >=
+
+26) Bitwise operatorlar bunlardir: AND(&), OR(|), XOR(^) 
+and iki bit 1 ise result 1, her hangi biri 0 ise result 0 olur
+OR - her hangi bit 1 olursa sonuc 1 olur
+XOR - her iki bit ayni olursa 0 farkli olursa 1 olur
+
+27) Kotlin'de büyük sayılarla çalışırken, genellikle BigInteger ve BigDecimal gibi sınıflardan yararlanılır. Bu turlerin siniri yoktur.
+
+28) Double ve Float'in yavrlama islemi ondalik kisma bakilarak yapilir. Sayi bir sonraki sayiya yakinsa yukari, onceki sayiya yakinsa asagi yuvarlanir. 3.4 3-e 3.5 ise 4-e yuvarlanicaktir. Math.floor, Math.ceil gibi fonksiyonlarla bu durum deyise bilir. Math.floor sayiyi her zaman bir onceki tam sayiya kadar yuvarlar, Math.ceil ise bor sonraki tam sayiya kadar yuvarlar 
+
+--Isaretsiz sayilar--
+
+29)Isretsiz degiskenler pozitiv deyerleri temsil etmek icin kullanilir. uInt, ULong, UByte, UShort gibi degiskenler isartesiz degiskenlerdir. Isretli degiskenler hem pozitiv, hem de neqativ degerleri temsil eder ama isretsiz degiskenler kendi kapsamlari icinde yalnizca pozitiv sayilari temsil ede bilir.
+
+val unsignedInt: UInt = 24
+
+val signedInt: Int = -24
+val signedInt2: Int = 34
+
+30) Unsigned degiskenler her hangi bir sinif yapisinda tutulmazlar. Bunun yerine dogrudan bellekde belirli br=ir yer tutarlar. Usigned degiskenler bellekde daha az yer tutar ve bellge direk erisimi oldugu icin daha performansli calisirlar.
+
+31) isretsiz degiskenlerin harf gosterimi degisken tipinin onune U yazilmakla yapilir. Mesela
+val num: ULong = 12
+val num2: UInt = 23
+
+32) val a1 = 42u burada sondaki u isratesiz degisken tipine isret eder. 42 ise int tipinde bir deyerdir. Yani kotlin 42u deyerini UInt olarak yorumlar
+
+al a2 = 0xFFFF_FFFF_FFFFu burada a2 hexadecimal yapidadir. sondaki u unsigned oluguna isaret eder. Kotlin bunu ULong olarak yorumlayacakdir. Cunki a2 degiskeni 32 bitlik araligi asiyor yani UInt degil ULong olucak.
+
+33) Kotlinde isretsiz long sayilari tanimlamak icin degisken tpinin onune U eklenir. Yani, 
+val num: ULong = 23456 
+
+34) Isretsiz degiskenler pozitif tam sayilari tanimlarken kullanila bilir. Bunlar signed degiskenlere nazaran bellekde daha az yer kaplar, ve daha hizli calisir, cunki bellege dogrudan erisimleri vardir.
+
+35) Isretsiz degiskenlerle islem yapildiginda tasma olmazsa aldigmiz cevap buyuk degisken tipinde olur. Mesela int ve long tipinde iki degiskeni topluyorsak cavap long tipinde olucak. Ayni tipde olan iki degiskenle islem yaptigimizda cevap yine ayni degisken tipinde olucak. Eger tasma olursa kotlin bunu umursamaz, ve anlamsiz bir sayi vere bilir. BU yuzden eger islem sonucunda tasma olursa tur donusumu yapilmalidir. Kotlin bunu otomatik olarak yapmaz.
+
+36) Isretsiz tam sayilarin sinirlari 0-dan baslar ve tipe gore degisir. Mesela UInt 0-2^32-1 kadar, ULong 0-2^64-1, ushort 0-2^16-2, UByte 0-2^8-1.
+
+37) Javada isretsiz degiskenler dogrudan deteklenmez ve APIden gelen veriler otomatik olarak isretsiz tiplere donusturulmez bu yuzden bazi sorunlar ola bilir. BUnlari cozmek icin isretsiz degiskenler yerine israteli degiskenleri kullana biliriz ya da APIdan gelen verilerideki degiskenleri isaretsiz degiskenlere cevire biliriz.
+
+--Tur Donusumu--
+
+38) is ve !is bir degiskenin belirli bir tipe ait olup olmadigini kontrol etmek icin kullanilir. Mesela
+
+val a: String = "Hello World"
+if(a is String){
+	println(true)
+}
+
+val a: Int = 14
+if(a !is String){
+	println(true)
+}
+
+39) Bu özellik, belirli koşullar altında değişkenlerin türlerini otomatik olarak algılayarak, onları belirli türlere dönüştürür. Böylece, kod yazarken gereksiz tür dönüşümlerinden kaçınmak mumkun olur. Mesela
+
+fun process(obj: Any) {
+    when (obj) {
+        is Int -> println(obj * 2) // Akıllı dönüşüm: obj değişkeni Int türüne otomatik olarak dönüşür.
+        is String -> println(obj.toUpperCase()) // Akıllı dönüşüm: obj değişkeni String türüne otomatik olarak dönüşür.
+        else -> println("Unknown type") // Akıllı dönüşüm: obj değişkeni Any türünden diğer türlerine otomatik olarak dönüşür.
+    }
+}
+
+Akilli donusum ancak belirli durumlarda kullanila bilir. Genellikle if, when, while gibi ifadelerle kullanila bilir.
+
+40) Guvensiz operatorler islem yaptigimizda tasma gibi sikintilara sebep olma potansiyeli tasiyan operatorlerdir. Mesela bir tam sayiyi baska birine carpmak guvensiz operatorlere bir ornektir. GUvenli operatorler kotlin gibi modern dillerde bu turden sikintilari asmak icin kullanilir. Otomaktik tur donusumu gibi fonksiyonlarla bu durumlar azaltilir vr ya engellenmeye calisilir.
+
+41) Ortuk tip genisletme bir veri tipinden digerine otomatik gecisi ifade eder. Kotlinde bu yapilamaz bunun nedeni bilincli kod yazilmasi ve bur tip islemler sirasinda olan hatalardan kacinmaktir. Kotlinde acik tip donusumu vardir, yani kod yazan kisi bu donusumu kendisi bilincli olarak yapmalidir. Ayrica bu tipli donusumlerde tasma riski ola bilir, yazilimcilar donsumu kendileri yaptiklarinda bu tasmanin onune gece bilir.
+
+42) Burada cikti true olacaktir cunki, == ile degiskenin deyerini karsilastiririz, bu durumda her iki degiskenin deyeri 1 oldugu icin true donucektir.
+
+43) Cikti yine true olur cunki == ile deyerler kontrol edilir ve bu durumda deyerler aynidir.
+
+44) Acik donusum yaparken toInt, code, toFloat, toDouble, toShort, toByte, toLong, digittoInt gibi fonksiyonlar kullanila bilir.
+
+45) val result = 1L + 3 burada result degiskenin tipi long olur. Cunki iki ayri tipdeki sayisal degeri topladigimizda cevap buyuk tipe sahip degiskenin tipinde olur. Long ile int tipindeki degeri toplarsak aldigimiz cevap matiken long araligina duser. Orenkde oldugu gibi kucuk sayialrda dahi bu kural gecerlidir.
+
+46)val result = Int.MAX_VALUE + Int.MAX_VALUE burada result int tipinde olucaktir. Kotlinde bu gibi durumlarda otomatik tip donusumu yapilmaz ve toplanan degerler hangi tipdeyse ve ya hangisi daha buyuk tipe sahipse cevap o tipde olacaktir. Ornekde result degiskeni int araligini asiyor ama yinede kotlin burada tip donusumu yapmaz ve cavabi int tipinde tutmaya calisir. Ancak bu tasma dedigimiz soruna yol acar, bu sorunu asmak icin kendimiz tip donusumu yapmaliyiz.
+
+47) val x = 5 / 2 println(x == 2) buradaki islemin sonucu true olucaktir. Cunki == ile degiskenlerin deyeri karsilastirilir. 5/2 2 deyerini verir. buda x = 2 anlamina gelir. BU yuzden true doner.
+
+48) val x = 5L / 2 println(x == 2L) bu islemin sonucu true olucaktir, cunki == degiskenlerin degerlerini karsilastirir.
+
+49) val x = 5L / 2 println(x == 2L) bu islemin sonucu true olacaktir.
+
+50) val x = 5 / 2.toDouble() println(x == 2.5) burada sonuc true olucaktir. 5 i double tipinde olan 2 e boldugumuzde sonuc 2.5 olacaktir. 
+
+51) Kotlinde donusum hatalarini ele almak icin. try catch kullana biliriz. Mesela
+try {
+    val intValue: Int = "abc".toInt()
+} catch (e: NumberFormatException) {
+    println("Dönüşüm başarısız")
+}
+
+yada if ile kontrol ede biliriz. Mesela
+val intValue: Int? = "123".toIntOrNull()
+if (intValue != null) {
+    // Dönüşüm başarılı
+} else {
+    // Dönüşüm başarısız
+}
