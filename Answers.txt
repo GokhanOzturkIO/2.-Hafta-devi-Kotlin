@@ -643,3 +643,51 @@ Cevap: İlkel bir değişkenin nullable olması ile null değer alamaması aras�
 Her iki yaklaşımın da avantajları ve dezavantajları vardır ve hangi yaklaşımın kullanılacağı, uygulamanın gereksinimlerine ve performans hedeflerine bağlıdır.
 
 =================================================================================
+
+11. - Nullable bir değişkenin bir değere sahip olması ile null olması arasında bellek yönetimi açısından nasıl bir fark vardır? Null değer almış bir değişken bellekte yer kaplamaz diyebilir miyiz?
+
+Cevap: Nullable bir değişkenin bir değere sahip olması ile `null` olması arasında bellek yönetimi açısından önemli farklar bulunmaktadır. Bu farklar, bellek kullanımı, performans ve bellek overhead'i ile ilgilidir.
+
+### 1. Bellek Kullanımı
+
+#### Nullable Bir Değişkenin Bir Değere Sahip Olması:
+- **Nesne Referansı ve Bellek Tüketimi**: Eğer bir değişken nullable olarak tanımlanmışsa ve bir değere sahipse, bu değişken tipine bağlı olarak, bellekte veri saklaması gerekir. Örneğin, Java'da `Integer` gibi bir wrapper sınıfı kullanıldığında, değişken bir `Integer` nesnesi referansı içerir ve bu nesne bellek üzerinde saklanır.
+  
+  ```java
+  Integer myInteger = 10;  // Bellekte bir Integer nesnesi saklanır.
+  ```
+
+  Bu durumda, değişkenin bellekte yer kaplaması, tipine ve nesne referanslarına bağlı olarak değişir. Bellekte, `Integer` nesnesinin verileri (örneğin, `10`) ve nesnenin kendisi için ek bir alan bulunur.
+
+#### Nullable Bir Değişkenin `null` Olması:
+- **Referanslar ve Bellek Tüketimi**: Bir nullable değişken `null` olduğunda, bu değişkenin kendisi için bir nesne referansı bellek üzerinde yer kaplar, ancak bu referans `null` olduğunda veri saklanmaz. Bellekte, bu durumda sadece bir referans işareti bulunur, ancak gerçek veri saklanmaz.
+
+  ```java
+  Integer myInteger = null;  // Bellekte sadece bir referans işareti saklanır.
+  ```
+
+  `null` değeri, bellek üzerinde gerçek bir veri saklamaz. Ancak, referans türleri için, değişkenin kendisi bir bellek alanı kaplar (örneğin, bir nesne referansı).
+
+### 2. Bellek Overhead ve Performans
+
+#### Bellek Overhead:
+- **Nullable ve Değerli Değişkenler**: Nullable değişkenler, bir değer içerdiğinde, bu değişkenin bellekte yer kaplaması gerekir. Özellikle wrapper sınıfları veya nesneler kullanılıyorsa, bu nesnelerin bellekte yer kaplaması ve yönetimi gerekir.
+
+- **Null Referanslar**: Bir değişken `null` olduğunda, gerçek veri saklanmaz. Ancak, referans türleri için, `null` olan bir değişkenin kendisi bellekte bir referans alanı kaplar (bu genellikle çok küçük bir bellek miktarıdır).
+
+#### Performans:
+- **Nullable Türler**: Nullable türlerle çalışırken, `null` kontrolleri ve `null` değerlerinin yönetilmesi performans üzerinde etkilidir. Nullable türlerin boxing ve unboxing işlemleri de performansı etkileyebilir.
+
+- **İlkel Türler**: İlkel türler, `null` değerlerini kabul etmedikleri için daha basit ve doğrudan bellek erişimi sağlar. Bu nedenle, ilkel türler genellikle daha az bellek overhead'i ve daha yüksek performans sunar.
+
+### Özet
+
+- **Bellek Yönetimi**: Nullable değişkenler için, bir değer atandığında bu değer bellekte yer kaplar. Ancak, değişken `null` olduğunda, gerçek veri saklanmadığı için yalnızca bir referans alanı kaplanır. Bu referans alanı küçük bir bellek kullanımı sağlar, ancak veri saklamaz.
+
+- **Bellek Kullanımı**: `null` olan bir değişken, veri saklamaz ve bu nedenle bellekte gerçek veri kaplamaz. Ancak, bir nesne referansı içerdiği için bazı bellek alanı kaplar.
+
+- **Performans ve Overhead**: Nullable türlerin performansı, `null` kontrolleri ve boxing/unboxing işlemleri nedeniyle etkilenebilir. İlkel türler, genellikle daha düşük bellek overhead'i ve daha yüksek performans sağlar.
+
+Sonuç olarak, `null` değerine sahip bir değişkenin bellekte yer kaplamadığı ve gerçek veri saklamadığı doğru olsa da, değişkenin kendisi bir referans alanı kaplar. Değişkenin değeri `null` olduğunda, bellek kullanımı genellikle daha düşüktür, ancak referans türleri ile ilgili bazı ek maliyetler olabilir.
+
+=================================================================================
