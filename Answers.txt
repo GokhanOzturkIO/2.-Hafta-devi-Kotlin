@@ -40,4 +40,108 @@ Kotlin'de `val` kullanarak kodunu daha güvenilir ve hatasız hale getirebilirsi
 'val' Value yani değer demektir.
 'var' Variable yani değişken demektir.
 
+=================================================================================
+
+2. - Bir `var` değişkeni `val` gibi davranmasını nasıl sağlayabiliriz `val` kelimesini kullanmadan?
+
+Cevap: Bir `var` değişkeninin `val` gibi davranmasını sağlamak, genellikle bir değişkenin değerinin değişmeyeceğini garanti etmek için uygulanabilecek çeşitli yöntemleri içerir. Bununla birlikte, `val` anahtar kelimesini kullanmadan bir `var` değişkenini `val` gibi davranmasını sağlamak için aşağıdaki yöntemlerden bazılarını kullanabilirsin:
+
+### 1. **Kapsülleme (Encapsulation) Kullanarak**
+Kapsülleme, bir değişkenin değerinin sadece belirli bir şekilde değişmesini sağlar. Bu, genellikle getter ve setter'lar aracılığıyla yapılır. 
+
+```kotlin
+class MyClass {
+    private var _value: Int = 0
+
+    val value: Int
+        get() = _value
+
+    fun updateValue(newValue: Int) {
+        _value = newValue
+    }
+}
+```
+
+Burada `_value` değişkeni `var` olarak tanımlanmıştır, ancak dışarıdan sadece `value` ile erişim sağlanır ve bu erişim sadece okunabilir (sadece getter kullanılır). `updateValue` fonksiyonu ise değeri güncelleyebilir.
+
+### 2. **Özel Bir Setter Kullanarak**
+Eğer bir `var` değişkeninin değerinin dışarıdan değiştirilemez olmasını istiyorsan, değişkeni `var` olarak tanımlayıp özel bir setter kullanarak bu davranışı sağlayabilirsin.
+
+```kotlin
+class MyClass {
+    private var _value: Int = 0
+
+    var value: Int
+        get() = _value
+        private set(value) {
+            _value = value
+        }
+}
+```
+
+Burada `value` değişkeni `private set` ile tanımlanmıştır, yani sadece sınıfın içinde değiştirilebilir.
+
+### 3. **Fonksiyonlar Kullanarak**
+Bir değişkenin değerini doğrudan değiştiremezsin, ancak onu bir fonksiyon aracılığıyla değiştirebilirsin. Bu, değişkenin dışarıdan erişimini ve değiştirilmesini kısıtlar.
+
+```kotlin
+class MyClass {
+    private var _value: Int = 0
+
+    fun getValue(): Int {
+        return _value
+    }
+
+    fun updateValue(newValue: Int) {
+        _value = newValue
+    }
+}
+```
+
+Burada `_value` değişkenine sadece `updateValue` fonksiyonu aracılığıyla erişim sağlanır. `getValue` fonksiyonu ise değerini okur.
+
+### 4. **Immutable Koleksiyonlar Kullanarak**
+Eğer bir `List`, `Set` veya `Map` gibi koleksiyon türlerinde değerleri değiştiremeyen bir yapı istiyorsan, immutable koleksiyonlar kullanabilirsin.
+
+```kotlin
+class MyClass {
+    private val _items: List<String> = listOf("item1", "item2", "item3")
+
+    val items: List<String>
+        get() = _items
+}
+```
+
+Bu durumda, `_items` koleksiyonu değiştirilemez (immutable) ve dışarıdan sadece okunabilir.
+
+### 5. **Delegates Kullanarak**
+Kotlin’in `by` anahtar kelimesini kullanarak değişkenler için delegate özellikleri tanımlayabilirsin. Bu, değişkenlerin erişim ve değişim davranışını özelleştirmene olanak tanır.
+
+```kotlin
+import kotlin.properties.Delegates
+
+class MyClass {
+    var value: Int by Delegates.observable(0) { _, old, new ->
+        println("Value changed from $old to $new")
+    }
+}
+```
+
+Burada `Delegates.observable` kullanarak bir `var` değişkenine get/set davranışı eklenmiş olur.
+
+### Özet
+
+`val` kelimesini kullanmadan bir `var` değişkeninin `val` gibi davranmasını sağlamak için:
+
+- **Kapsülleme** yaparak `var` değişkenine dışarıdan sadece okunabilir erişim sağla.
+- **Özel Setter** kullanarak değişkeni dışarıdan değiştirilemez hale getir.
+- **Fonksiyonlar** kullanarak değişkenin değerini kontrol altına al.
+- **Immutable Koleksiyonlar** kullanarak değiştirilemez veri yapıları oluştur.
+- **Delegates** kullanarak değişkenlerin erişim ve değişim davranışlarını özelleştir.
+
+Bu yöntemler, değişkenlerinizi kontrol altında tutmanıza ve beklenmedik değişikliklerden korumanıza yardımcı olur.
+
+### Not: kısaca private set(value) yaparak işlemi sağlıyabiliriz.
+
+================================================================================= 
 
