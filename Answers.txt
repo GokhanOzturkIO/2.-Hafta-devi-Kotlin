@@ -196,4 +196,60 @@ Kotlin'deki `val` anahtar kelimesi bir değişkenin salt okunur olduğunu belirt
 
 ### Not: val değişkenlere genelde immutable dendiğinid uyarsınız fakat bu yanlış bir tabirdir. readonly olarak tanımlanması daha doğrudur.
 
-================================================================================= 
+=================================================================================
+
+4. - "Tip Çıkarımı" (Type inference) kavramını açıklayın. Hangi durumlarda tip belirtmek kesin olarak gereklidir?
+
+"Tip çıkarımı" (type inference), bir programlama dilinde değişkenlerin veya ifadelerin tiplerini otomatik olarak belirleme sürecidir. Bu, programcıların her değişkenin veya ifadenin tipini açıkça belirtmelerine gerek kalmadan, dilin derleyicisinin veya yorumlayıcısının bu bilgiyi otomatik olarak çıkarmasını sağlar. Tip çıkarımı, birçok modern programlama dilinde kullanılır ve genellikle daha kısa, okunabilir ve bakımını kolaylaştıran kodlar yazmayı mümkün kılar.
+
+### Tip Çıkarımının Özellikleri
+
+1. **Otomatik Tip Belirleme**: Programcı, değişkenlerin ve ifadelerin tiplerini açıkça belirtmeden, derleyici veya yorumlayıcı bu bilgiyi kodun analizinden elde eder.
+   
+2. **Kısaltma ve Temizlik**: Programcılar kodda tekrar tekrar tip bilgisi yazmak zorunda kalmadan, daha kısa ve temiz kodlar yazabilirler.
+
+3. **Gelişmiş Tip Çıkarımı**: Bazı diller, daha karmaşık tip çıkarımı yapabilir, örneğin, generik tiplerde veya fonksiyonların geri dönüş türlerinde.
+
+### Hangi Durumlarda Tip Belirtmek Kesin Olarak Gereklidir?
+
+Tip çıkarımı genellikle birçok durumda oldukça yeterli olabilir, ancak bazı durumlarda tip belirtmek kesinlikle gereklidir:
+
+1. **Çok Anlamlılık (Ambiguity)**: Derleyici ya da yorumlayıcı, bir ifadenin tipini net bir şekilde çıkaramadığında, tip belirtmek gerekebilir. Örneğin, birden fazla olası tip içeren bir işlem yapıldığında, hangi tipin kullanılacağını belirtmek önemli olabilir.
+
+2. **Tip Güvenliği**: Tip güvenliğini sağlamak için, özellikle karmaşık yapıların ve fonksiyonların doğru çalışması için tiplerin açıkça belirtilmesi gerekebilir. Bu, hataların daha erken aşamalarda tespit edilmesine yardımcı olabilir.
+
+3. **Performans**: Bazı durumlarda, belirli bir türün açıkça belirtilmesi, derleyicinin kodun daha etkili bir şekilde optimize edilmesini sağlayabilir.
+
+4. **Okunabilirlik ve Bakım**: Karmaşık kodlarda, özellikle tiplerin net bir şekilde belirtilmesi, kodun okunabilirliğini ve bakımını kolaylaştırabilir.
+
+5. **Dış Kütüphaneler ve API'ler**: Bir dış kütüphaneyi veya API'yi kullanırken, doğru tiplerin belirtilmesi, kütüphanenin beklediği veri türlerini ve işlevselliği doğru bir şekilde kullanmanızı sağlar.
+
+### Örnekler
+
+- **Python** (dinamik tip çıkarımı): 
+
+  ```python
+  x = 10  # Python otomatik olarak x'in bir int olduğunu çıkarır.
+  y = "Hello"  # Python otomatik olarak y'nin bir str olduğunu çıkarır.
+  ```
+
+- **Haskell** (statik tip çıkarımı): 
+
+  ```haskell
+  double :: Int -> Int
+  double x = x * 2  -- Haskell, 'x' ve fonksiyonun döndüreceği tiplerin Int olduğunu çıkarır.
+  ```
+
+- **C++** (auto anahtar kelimesi ile tip çıkarımı):
+
+  ```cpp
+  auto x = 10;  // Derleyici x'in int olduğunu çıkarır.
+  auto y = 3.14;  // Derleyici y'nin double olduğunu çıkarır.
+  ```
+
+Tip çıkarımı, doğru kullanıldığında programlama sürecini oldukça kolaylaştırabilir, ancak programcıların tiplerin ne anlama geldiğini ve potansiyel hataları iyi anlamaları her zaman önemlidir.
+
+
+### Not: Bir değişken tipinin "=" sağ tarafında ki veriye bakarak belirlenmesi işlemidir. Ancak sayısal değerlerde verilen değer ınt içerisindeyse... int üzerindeyse long set ediliri.
+
+=================================================================================
