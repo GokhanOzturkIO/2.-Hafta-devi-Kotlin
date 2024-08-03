@@ -691,3 +691,55 @@ Cevap: Nullable bir değişkenin bir değere sahip olması ile `null` olması ar
 Sonuç olarak, `null` değerine sahip bir değişkenin bellekte yer kaplamadığı ve gerçek veri saklamadığı doğru olsa da, değişkenin kendisi bir referans alanı kaplar. Değişkenin değeri `null` olduğunda, bellek kullanımı genellikle daha düşüktür, ancak referans türleri ile ilgili bazı ek maliyetler olabilir.
 
 =================================================================================
+
+12. - Nullable bir değişkenle çalışırken hangi operatörleri kullanırız? Bu operatörlerin kullanım farkları nelerdir? Hangisini ne zaman kullanmak daha anlamlıdır?
+
+Cevap: Nullable bir değişkenle çalışırken, yani değeri `null` olabilen bir değişkenle çalışırken, genellikle aşağıdaki operatörleri kullanırız:
+
+1. **Null-Coalescing Operatörü (`??`):**
+   - **Kullanım**: Bir değişken `null` olduğunda, varsayılan bir değer döndürmek için kullanılır.
+   - **Örnek**: 
+     ```csharp
+     int? value = null;
+     int result = value ?? 10; // result 10 olur
+     ```
+   - **Açıklama**: Eğer `value` değişkeni `null` ise, `10` döndürülür. Aksi takdirde `value`'nun kendisi döndürülür. Bu, `null` durumunu kontrol etmenin ve varsayılan bir değer sağlamanın basit bir yoludur.
+
+2. **Null-Conditional Operatörü (`?.`):**
+   - **Kullanım**: Bir nesne `null` olduğunda, metot veya özellik çağrısı yapmadan önce güvenli bir şekilde kontrol etmek için kullanılır.
+   - **Örnek**:
+     ```csharp
+     Person person = null;
+     string name = person?.Name; // name değişkeni null olur, person null olduğu için
+     ```
+   - **Açıklama**: Eğer `person` nesnesi `null` ise, `Name` özelliğine erişmeye çalışmak yerine `name` değişkeni `null` olur. Bu, `null` referans hatalarını önlemek için kullanışlıdır.
+
+3. **Null-Conditional Index Operatörü (`?.[]`):**
+   - **Kullanım**: Bir koleksiyon veya dizinin `null` olup olmadığını kontrol ederek, güvenli bir şekilde öğeye erişmek için kullanılır.
+   - **Örnek**:
+     ```csharp
+     int[] numbers = null;
+     int? number = numbers?.ElementAtOrDefault(0); // number değişkeni null olur, numbers null olduğu için
+     ```
+   - **Açıklama**: Eğer `numbers` dizisi `null` ise, `ElementAtOrDefault(0)` çağrısı yapmadan `number` değişkeni `null` olur. Bu, koleksiyon erişimlerinde `null` referans hatalarını önlemeye yardımcı olur.
+
+4. **Null-Conditional Method Call (`?.Method()`):**
+   - **Kullanım**: Bir nesnenin `null` olup olmadığını kontrol ederek, metot çağrısı yapmadan önce güvenli bir şekilde çalışmak için kullanılır.
+   - **Örnek**:
+     ```csharp
+     MyClass myClass = null;
+     myClass?.DoSomething(); // DoSomething metodu çağrılmaz çünkü myClass null
+     ```
+   - **Açıklama**: Eğer `myClass` nesnesi `null` ise, `DoSomething` metodu çağrılmaz. Bu, `null` referans hatalarını engellemek için faydalıdır.
+
+**Hangisini Ne Zaman Kullanmalıyız?**
+
+- **Null-Coalescing Operatörü (`??`)**: Bir değişkenin `null` olma olasılığını kontrol ederken ve `null` olduğunda varsayılan bir değer sağlamak istiyorsanız kullanılır.
+- **Null-Conditional Operatörü (`?.`)**: Bir nesnenin `null` olup olmadığını kontrol etmek ve `null` durumunda bir işlem yapmaktan kaçınmak istiyorsanız kullanılır.
+- **Null-Conditional Index Operatörü (`?.[]`)**: Bir koleksiyon veya dizinin `null` olup olmadığını kontrol ederek öğeye güvenli bir şekilde erişmek istiyorsanız kullanılır.
+- **Null-Conditional Method Call (`?.Method()`)**: Bir nesnenin `null` olup olmadığını kontrol ederek metot çağrısı yapmadan önce güvenli bir işlem yapmak istiyorsanız kullanılır.
+
+Bu operatörler, nullable değişkenlerle çalışırken kodunuzun daha güvenli ve okunabilir olmasını sağlar.
+
+
+=================================================================================
