@@ -542,3 +542,40 @@ Cevap:
 Null güvenliği, yazılım geliştirmede önemli bir rol oynar çünkü `null` değerleri çoğu zaman program hatalarına ve güvenlik açıklarına neden olabilir. Modern programlama dilleri, `null` güvenliğini sağlamak için çeşitli mekanizmalar sunar, bu da programcıların daha güvenilir, hatasız ve bakımı daha kolay kodlar yazmalarına yardımcı olur.
 
 =================================================================================
+
+9. - Bir değişkene null değer atanır ve tip belirtilmezse Kotlin bu değişkeni nasıl yorumlar?
+
+Cevap: Kotlin'de bir değişkene `null` değer atanırsa ve değişkenin tipi belirtilmemişse, Kotlin derleyicisi bu değişkenin tipini çıkaramaz ve bu durumda derleme hatası alırsınız. Kotlin, değişkenlerin tiplerini belirlemek için sıkı kurallar uygular ve tür belirlemesi yapmadan `null` değer atanmasına izin vermez.
+
+### Kotlin’de Tip Belirtilmediğinde `null` Atama
+
+Kotlin'de, bir değişkenin tipi belirtilmeden `null` değeri atanırsa, bu durumda derleyici hata verir çünkü Kotlin, `null` değerini hangi türde bir değişkene atayacağını bilmez. Kotlin, tip güvenliği sağlar ve bu nedenle tüm değişkenlerin belirli bir türle ilişkilendirilmiş olması gerekir.
+
+**Örnek:**
+
+```kotlin
+val myVariable = null  // Derleme hatası: Null can not be a value of a non-null type Nothing
+```
+
+Bu kodda, `myVariable` değişkeninin tipi belirlenmediği için ve `null` değeri atanmış olduğundan, Kotlin derleyicisi bu değişkenin türünü belirleyemez ve bir hata verir. Kotlin, `null` değeri belirli bir türle ilişkilendirilmediğinde, türün ne olması gerektiğini bilemez ve bu nedenle `Nothing` türünü varsayar. Ancak, `Nothing` türü, bir değişkene `null` atanamayacak bir türdür.
+
+### Nullable Türler ile Çalışmak
+
+Kotlin’de `null` değerlerini kullanabilmek için, değişkenin nullable bir tür olarak tanımlanması gerekir. Bu, tipin sonuna `?` işareti eklenerek yapılır.
+
+**Örnek:**
+
+```kotlin
+var myVariable: String? = null  // Bu geçerlidir çünkü String? nullable bir türdür.
+```
+
+Bu örnekte, `myVariable` değişkeninin türü `String?` olarak belirtilmiştir, bu da değişkenin `String` türünde bir değer veya `null` olabileceği anlamına gelir.
+
+### Kotlin’de Null Güvenliği
+
+Kotlin’in null güvenliği, programcıların değişkenlerin türlerini ve `null` değerlerini açıkça belirtmelerini ve bu tür değerlerle güvenli bir şekilde çalışmayı sağlar. Bu, kodun daha güvenilir ve hatalardan arınmış olmasını sağlar. 
+
+Özetle, Kotlin’de bir değişkenin tipi belirtilmeden `null` değer atanırsa, derleyici hata verir ve değişkenin türünü belirlemez. `null` değerlerle çalışmak için türlerin açıkça belirtilmesi ve nullable türlerin kullanılması gerekir.
+
+
+=================================================================================
