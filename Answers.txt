@@ -145,3 +145,55 @@ Bu yöntemler, değişkenlerinizi kontrol altında tutmanıza ve beklenmedik de�
 
 ================================================================================= 
 
+3. - "Değişmez" (Immutable) ve "Salt Okunur" (ReadOnly) kavramlarını açıklayın. `val` değişkenler neden aslında "değişmez" değil de "salt okunur" olarak açıklanmalıdır?
+
+Cevap: Kotlin'de `val` ve `var` değişkenleri arasında önemli farklar vardır ve bu farklar genellikle "değişmez" (immutable) ve "salt okunur" (read-only) kavramlarıyla açıklanır. İşte bu kavramların açıklamaları ve neden `val` değişkenlerin "değişmez" değil, "salt okunur" olarak açıklanması gerektiği:
+
+### 1. **Değişmez (Immutable) Kavramı**
+
+**Değişmez (immutable)** bir nesne, oluşturulduktan sonra herhangi bir durumda değiştirilemeyen bir nesnedir. Değişmezlik, nesnenin durumunun değişmez olduğunu ifade eder. Bu, nesneye atanan değerlerin ve içeriğin sabit kalacağı anlamına gelir. Değişmez nesneler, genellikle uygulama durumunu daha öngörülebilir ve hatasız hale getirmek için kullanılır.
+
+- **Örnek**: Kotlin'de `String` sınıfı bir değişmez nesnedir. Bir `String` nesnesi oluşturulduğunda, bu nesnenin içeriği değiştirilemez. Ancak, yeni bir `String` nesnesi oluşturulabilir.
+
+  ```kotlin
+  val str = "Hello"
+  val newStr = str + " World"
+  // str hala "Hello", newStr ise "Hello World" olur
+  ```
+
+### 2. **Salt Okunur (Read-Only) Kavramı**
+
+**Salt okunur (read-only)** bir değişken, bir kez atandıktan sonra değiştirilemez, yani yalnızca okunabilir. Bu, değişkenin değerinin dışarıdan değiştirilemez olduğu anlamına gelir, ancak değişkenin referansının kendisi değiştirilebilir. 
+
+- **Örnek**: Kotlin'de `val` anahtar kelimesi ile tanımlanan değişkenler salt okunur olarak kabul edilir. Bu, değişkenin değerinin atandıktan sonra değiştirilemeyeceği anlamına gelir. Ancak, `val` ile tanımlanan bir değişken, değişkenin referansının kendisi değiştirilebilir.
+
+  ```kotlin
+  val list = mutableListOf("item1", "item2")
+  list.add("item3")
+  // list'in referansı değişmez, ama içeriği değişebilir.
+  ```
+
+### 3. **`val` Değişkenler Neden "Salt Okunur" Olarak Açıklanmalıdır?**
+
+Kotlin'deki `val` anahtar kelimesi bir değişkenin salt okunur olduğunu belirtir, yani değişkenin değeri bir kez atandıktan sonra değiştirilemez. Ancak, bu değişkenin referansının kendisi değişmez. Bu nedenle, `val` değişkenler aslında tamamen değişmez (immutable) değildir, çünkü:
+
+- **Nesne Referansları Değişmez**: `val` değişkeninin değeri değiştirilemez, ancak bu değişken bir nesneye referans gösteriyorsa, nesnenin içeriği değiştirilebilir. Örneğin, `val` ile tanımlanan bir `List` değişkeni, bir `mutableListOf` nesnesini referans alıyorsa, listenin içeriği değiştirilebilir.
+
+- **Yalnızca Referansın Değişmezliği**: `val` değişkenleri yalnızca referansın değiştirilemezliğini garanti eder. Eğer değişken bir değişken türü (örneğin, bir liste veya bir nesne) referans alıyorsa, bu referansın gösterdiği nesnenin içeriği değişebilir.
+
+  ```kotlin
+  val myList = mutableListOf("apple", "banana")
+  myList.add("cherry") // myList'in içeriği değişti, referansı değişmedi
+  ```
+
+### Özet
+
+- **Değişmez (Immutable)**: Bir nesnenin oluşturulduktan sonra değişmez olduğunu ifade eder. `String` gibi bazı sınıflar bu özelliğe sahiptir.
+- **Salt Okunur (Read-Only)**: Bir değişkenin değeri yalnızca okunabilir ve değiştirilemez, ancak bu değişkenin referansının kendisi değiştirilemez. `val` değişkenleri bu tür değişkenlerdir.
+
+`val` değişkenleri "değişmez" olarak açıklanmak yerine "salt okunur" olarak açıklanmalıdır, çünkü `val` değişkenlerinin referansı değişmez, ancak referansın gösterdiği nesnenin içeriği değiştirilebilir. Bu, `val` değişkenlerinin referanslarıyla ilişkili nesnelerin değiştirilebilirliğini yansıtmaz.
+
+
+### Not: val değişkenlere genelde immutable dendiğinid uyarsınız fakat bu yanlış bir tabirdir. readonly olarak tanımlanması daha doğrudur.
+
+================================================================================= 
