@@ -439,3 +439,106 @@ name = "Alice"
 Bir değişkenin nullable olmasını sağlamak, her dilde farklı şekilde yapılabilir, ancak genellikle tipin üzerine `?` işareti eklemek, `null` veya `nil` değeri kullanmak gibi işlemler gerektirir. Her dilin kendi syntax ve kurallarına göre bu işlemleri gerçekleştirirsiniz. Null değerlerinin yönetilmesi, veri güvenliği ve hataların önlenmesi açısından dikkatli bir şekilde yapılmalıdır.
 
 =================================================================================
+
+8. - "Null Güvenliği" (Null Safety) kavramını açıklayın.
+
+Cevap:
+
+"Null Güvenliği" (Null Safety), bir programlama dilinin veya sisteminin `null` değerlerle ilgili sorunları minimize etme ve programda `null` referanslarıyla ilgili hataları önleme yeteneğidir. `null` değerleri, programlama dillerinde sıklıkla hatalara ve beklenmedik davranışlara neden olabilir; bu yüzden null güvenliği, bu tür hataları önlemek ve yazılımın güvenilirliğini artırmak amacıyla geliştirilmiş bir özelliktir.
+
+### Null Güvenliğinin Temel Özellikleri
+
+1. **Null Değerlerini Engelleme**: Null güvenliği, bir değişkenin `null` değerini alıp almayacağını belirler ve bu tür değerlerin doğru bir şekilde yönetilmesini sağlar. Null güvenliği olan diller, değişkenlerin `null` olabileceğini açıkça belirtmenizi gerektirebilir.
+
+2. **Statik ve Dinamik Kontroller**: 
+   - **Statik Kontroller**: Derleme zamanında (`compile-time`) `null` değerleriyle ilgili hataları tespit eder. Bu, kodun derlenmesi sırasında `null` referans hatalarının önceden belirlenmesini sağlar.
+   - **Dinamik Kontroller**: Çalışma zamanında (`runtime`) `null` değerlerle ilgili hataları tespit eder ve yönetir. Bu, uygulamanın çalışırken `null` değerlerinden kaynaklanan hataları yakalar.
+
+3. **Null Değerlerini Yönetme**: Null güvenliği, `null` değerlerinin nasıl yönetileceğini belirler. Bu, `null` değerlerinin nasıl atanacağı, kontrol edileceği ve kullanılacağı ile ilgilidir.
+
+4. **Güvenli Null Dönüşümü ve Erişim**: Null güvenliği, değişkenlerin `null` olup olmadığını güvenli bir şekilde kontrol etmenizi sağlar ve `null` değerlerinin erişim hatalarını önler.
+
+### Null Güvenliği Sağlayan Özellikler
+
+1. **Null Kontrolü**: Bir değişkenin `null` olup olmadığını kontrol etmek için çeşitli yöntemler sağlar. Bu, programın `null` referans hatalarını önlemesine yardımcı olur.
+
+2. **Null İçin Kısıtlamalar**: Bazı diller, bir değişkenin `null` değerini alıp almayacağını açıkça belirtmenizi gerektirir. Bu, kodun daha güvenilir olmasını sağlar.
+
+3. **Opsiyonel Tipler ve Alternatifler**: Bazı diller, `null` yerine opsiyonel tipler veya güvenli `null` alternatifleri kullanır. Bu, kodun `null` değerlerinden kaynaklanan hataları azaltır.
+
+### Örnekler
+
+- **Kotlin**:
+
+  Kotlin, `null` güvenliğini dil seviyesinde sağlar. Değişkenler varsayılan olarak non-null (null olmayan) kabul edilir. Bir değişkenin `null` olmasına izin vermek için `?` işareti kullanılır.
+
+  **Örnek:**
+
+  ```kotlin
+  var name: String = "Alice"   // Non-nullable
+  var address: String? = null  // Nullable
+
+  // Null kontrolü
+  if (address != null) {
+      println(address.length)
+  }
+  ```
+
+  Kotlin, `null` değerlerle ilgili hataları derleme zamanında tespit eder ve bu tür değerlerle çalışmayı güvenli hale getirir.
+
+- **Java**:
+
+  Java, `null` güvenliğini doğrudan dil seviyesinde sağlamaz, ancak Java 14 ve sonrasında `NullPointerException` hatalarını önlemek için `Optional` sınıfı kullanılabilir.
+
+  **Örnek:**
+
+  ```java
+  import java.util.Optional;
+
+  Optional<String> name = Optional.ofNullable(null);
+  name.ifPresent(n -> System.out.println(n.length()));
+  ```
+
+  Burada, `Optional` kullanarak `null` değerlerini güvenli bir şekilde yönetebilirsiniz.
+
+- **Swift**:
+
+  Swift, `nil` güvenliğini dil seviyesinde sağlar. Bir değişkenin `nil` olabilmesi için `?` işareti kullanılır.
+
+  **Örnek:**
+
+  ```swift
+  var name: String? = nil
+  name = "Alice"
+
+  // Nil kontrolü
+  if let unwrappedName = name {
+      print(unwrappedName.count)
+  }
+  ```
+
+  Swift, `nil` değerlerini yönetme konusunda sağlam bir destek sağlar ve bu tür değerlerle güvenli bir şekilde çalışmanızı sağlar.
+
+- **TypeScript**:
+
+  TypeScript’de, bir değişkenin `null` veya `undefined` olabileceğini belirtmek için `null` ve `undefined` türleri kullanılabilir.
+
+  **Örnek:**
+
+  ```typescript
+  let name: string | null = null;
+  name = "Alice";
+
+  // Null kontrolü
+  if (name !== null) {
+      console.log(name.length);
+  }
+  ```
+
+  TypeScript, `null` ve `undefined` değerlerini kontrol etmek için çeşitli yollar sağlar.
+
+### Özet
+
+Null güvenliği, yazılım geliştirmede önemli bir rol oynar çünkü `null` değerleri çoğu zaman program hatalarına ve güvenlik açıklarına neden olabilir. Modern programlama dilleri, `null` güvenliğini sağlamak için çeşitli mekanizmalar sunar, bu da programcıların daha güvenilir, hatasız ve bakımı daha kolay kodlar yazmalarına yardımcı olur.
+
+=================================================================================
