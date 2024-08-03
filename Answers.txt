@@ -579,3 +579,67 @@ Kotlin’in null güvenliği, programcıların değişkenlerin türlerini ve `nu
 
 
 =================================================================================
+
+10. - İlkel bir değişkenin nullable olması ile null değer alamaması arasında bellek yönetimi açısından nasıl farklar vardır?
+
+Cevap: İlkel bir değişkenin nullable olması ile null değer alamaması arasında bellek yönetimi açısından bazı önemli farklar vardır. Bu farklar, hem bellek kullanımını hem de performansı etkileyebilir. İşte bu iki durum arasındaki farklar:
+
+### 1. **Bellek Kullanımı**
+
+#### Nullable İlkel Türler:
+- **Nesne ve Wrapper Sınıfları**: Bir değişken nullable olduğunda, dil tarafından nesne olarak yönetilmesi gerekebilir. Örneğin, Java'da `Integer` gibi wrapper sınıfları kullanıldığında, `null` değerini temsil edebilmek için ek bellek alanı kullanılır.
+  
+  ```java
+  Integer nullableInt = null;  // Bu bir nesnedir ve JVM'de `null` olabilir.
+  ```
+
+  Burada, `Integer` bir wrapper sınıfıdır ve `null` değeri alabilir. Bu durumda, değişken bellek üzerinde bir nesne referansı içerir ve `null` olması için ek bellek yönetimi gerektirir.
+
+- **Kotlin ve Nullable Türler**: Kotlin'de `Int?` gibi nullable türler kullanıldığında, bu türler genellikle bir wrapper nesnesi gibi yönetilir.
+
+  ```kotlin
+  var nullableInt: Int? = null
+  ```
+
+  `Int?` nullable türü, arka planda `null` değerini yönetmek için ek bellek kullanımı gerektirebilir.
+
+#### Null Olmayan İlkel Türler:
+- **Doğrudan Bellek Kullanımı**: İlkel türler (örneğin, `int`, `char`, `boolean` gibi) doğrudan bellek içinde saklanır ve `null` değeri almazlar. Bellek üzerinde yalnızca değerler saklanır ve ek bir bellek yönetimi gerekmez.
+
+  ```java
+  int nonNullableInt = 10;  // İlkel bir türdür ve null değeri almaz.
+  ```
+
+  Burada, `nonNullableInt` doğrudan bellek içinde bir değer saklar ve `null` değeri almak için ek bir bellek alanı gerekmez.
+
+### 2. **Performans**
+
+#### Nullable İlkel Türler:
+- **Nesne Referansları ve Ek İşlemler**: Nullable türler, genellikle nesne referansları olarak yönetilir ve bu nesnelerin `null` olup olmadığını kontrol etmek için ek işlemler yapılır. Bu, performans üzerinde bir etki yaratabilir çünkü her `null` kontrolü veya dönüşümü ek işlem gerektirir.
+
+- **Boxing ve Unboxing**: Nullable türlerin kullanımı, boxing ve unboxing işlemlerini içerebilir. Bu işlemler, ilkel türlerin nesne türlerine dönüştürülmesini ve geri dönüşümünü içerir ve bu da performans üzerinde ek bir yük getirebilir.
+
+#### Null Olmayan İlkel Türler:
+- **Doğrudan Erişim ve Performans**: İlkel türler doğrudan bellek içinde saklanır ve bu nedenle daha hızlı erişim ve işleme sağlarlar. `null` değerleriyle ilgili ek işlemler veya kontroller gerektirmez.
+
+- **Düşük Bellek Overhead**: İlkel türler, bellek yönetimi açısından daha verimlidir çünkü ek bir nesne referansı içermezler ve bu nedenle bellek overhead'i daha düşüktür.
+
+### 3. **Null Güvenliği ve Kod Güvenilirliği**
+
+#### Nullable İlkel Türler:
+- **Daha Fazla Güvenlik Sağlar**: Nullable türler, `null` değerlerinin açıkça belirtildiği ve yönetildiği durumlarda daha güvenli olabilir. Bu, `null` referans hatalarının kod yazımında daha iyi yönetilmesini sağlar.
+
+#### Null Olmayan İlkel Türler:
+- **Hata Riski Azaltılır**: İlkel türlerin `null` değerlerini kabul etmemesi, `null` referans hatalarını tamamen ortadan kaldırır. Bu, bazı durumlarda kodun daha güvenilir olmasına yardımcı olabilir.
+
+### Özet
+
+- **Bellek Yönetimi**: Nullable türler genellikle ek bellek yönetimi gerektirir çünkü `null` değerlerini yönetmek için nesne referansları kullanılır. İlkel türler, doğrudan bellek içinde değerleri saklar ve bu nedenle daha az bellek overhead'i ve daha hızlı erişim sağlar.
+
+- **Performans**: Nullable türlerin kullanımı, boxing, unboxing ve `null` kontrolleri gibi ek işlemleri içerdiği için performans üzerinde etkili olabilir. İlkel türler doğrudan bellek erişimi sağlar ve bu nedenle daha yüksek performans sunar.
+
+- **Kod Güvenilirliği**: Nullable türler, `null` değerlerinin yönetilmesine olanak tanır ve bu da kodun daha güvenilir ve hatasız olmasını sağlayabilir. İlkel türler, `null` referans hatalarını önleyerek bazı güvenilirlik avantajları sağlar.
+
+Her iki yaklaşımın da avantajları ve dezavantajları vardır ve hangi yaklaşımın kullanılacağı, uygulamanın gereksinimlerine ve performans hedeflerine bağlıdır.
+
+=================================================================================
