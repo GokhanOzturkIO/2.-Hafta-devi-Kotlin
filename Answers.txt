@@ -281,3 +281,69 @@ Cevap: Kotlin'de, tüm değişkenler bir sınıf olarak bulunur; ancak bu, Kotli
 Kotlin’de temel veri türleri, arka planda JVM tarafından ilkel türler olarak optimize edilir. Bu, Kotlin’in hem nesne yönelimli programlama özelliklerinden faydalandığını hem de performans için ilkel türlerin avantajlarını kullandığını gösterir. Kotlin kodunuzda değişkenler sınıf türleri olarak görünebilir, ancak bu genellikle JVM düzeyinde ilkel türlerle optimize edilir, bu da hem okunabilirlik hem de performans açısından avantaj sağlar.
 
 =================================================================================
+
+6. - "Tip Güvenliği" (Type Safety) kavramını açıklayın.
+
+Cevap:
+
+"Tip Güvenliği" (Type Safety), bir programlama dilinin veya sisteminin, tiplerle ilgili hataları önleyerek veri türlerinin beklenmedik veya yanlış kullanımlarını engelleme yeteneğidir. Bu, kodun daha güvenilir ve hata yapmaya daha az eğilimli olmasını sağlar. Tip güvenliği, türlerin doğru bir şekilde kullanıldığını ve tür uyumsuzluklarından kaynaklanan hataların minimize edildiğini garanti eder.
+
+### Tip Güvenliğinin Temel Özellikleri
+
+1. **Tür Doğrulama**: Tip güvenliği, değişkenlerin, fonksiyonların ve diğer ifadelerin beklenen türlerle uyumlu olup olmadığını kontrol eder. Bu, derleme zamanı (compile-time) veya çalışma zamanı (runtime) hatalarını önlemeye yardımcı olur.
+
+2. **Tür Dönüşümleri**: Tip güvenliği, tür dönüşümlerinin güvenli bir şekilde yapılmasını sağlar. Örneğin, bir türün başka bir türe dönüştürülmesi gerektiğinde, bu dönüşümün geçerli olup olmadığını kontrol eder.
+
+3. **Tür Güvenliği ve Hatalar**: Tip güvenliği, tür uyumsuzlukları veya hatalı tür kullanımları gibi sorunları tespit eder ve bu tür hataları derleme zamanı veya çalışma zamanı hataları olarak bildirebilir.
+
+4. **Kapsama (Encapsulation)**: Tip güvenliği, kapsama ilkesine göre, belirli bir türün iç yapısının ve işleyişinin yalnızca uygun yöntemlerle erişilmesini ve değiştirilmesini sağlar. Bu, veri bütünlüğünü korur ve kodun güvenliğini artırır.
+
+5. **Fonksiyonların ve Yöntemlerin Türleri**: Fonksiyonların ve yöntemlerin giriş ve çıkış türlerinin doğru bir şekilde tanımlanması ve bu türlerin doğru şekilde kullanılması, tip güvenliğinin bir parçasıdır.
+
+### Tip Güvenliği Sağlayan Özellikler
+
+1. **Statik ve Dinamik Tip Kontrolleri**:
+   - **Statik Tip Kontrolü**: Türler derleme zamanında kontrol edilir. Örneğin, Java ve Kotlin gibi statik tipli dillerde, tür hataları derleme zamanında tespit edilir.
+   - **Dinamik Tip Kontrolü**: Türler çalışma zamanında kontrol edilir. Python ve JavaScript gibi dinamik tipli dillerde, tür hataları çalışma zamanında ortaya çıkabilir.
+
+2. **Tür Çıkarsaması ve Güvenliği**: Modern diller, tür çıkarımı (type inference) ve tür güvenliğini birleştirerek, programcıların türleri açıkça belirtmeden tür güvenliğini sağlamalarına yardımcı olur.
+
+3. **Tür Sınırlamaları ve Kısıtlamaları**: Generics veya benzeri mekanizmalar kullanarak, belirli türlerle çalışırken tür sınırlamaları belirleyebilir ve tür uyumluluğunu garanti edebilirsiniz.
+
+### Örnekler
+
+- **Java** (Statik Tip Güvenliği):
+
+  ```java
+  public void printLength(String str) {
+      // str değişkeninin türü String olduğu için, bu fonksiyon yalnızca String türündeki argümanlarla çalışabilir.
+      System.out.println(str.length());
+  }
+  ```
+
+  Java, derleme zamanında `printLength` fonksiyonuna yalnızca `String` türündeki argümanların geçilmesini sağlar.
+
+- **Python** (Dinamik Tip Güvenliği):
+
+  ```python
+  def print_length(s):
+      if isinstance(s, str):
+          print(len(s))
+      else:
+          raise TypeError("Argument must be a string")
+  ```
+
+  Python, çalışma zamanında tür kontrolü yaparak, `print_length` fonksiyonuna yalnızca `str` türündeki argümanların geçilmesini sağlar.
+
+### Önemi ve Faydaları
+
+1. **Hata Azaltma**: Tip güvenliği, tip hatalarının erken aşamalarda tespit edilmesini sağlar, bu da kodda hata oranını azaltır.
+
+2. **Kod Okunabilirliği ve Bakımı**: Tip güvenliği, kodun hangi türde verilerle çalıştığını net bir şekilde belirler, bu da kodun okunabilirliğini ve bakımını kolaylaştırır.
+
+3. **Güvenlik**: Yanlış tür kullanımları, güvenlik açıklarına neden olabilir. Tip güvenliği, bu tür güvenlik açıklarını önlemeye yardımcı olur.
+
+Tip güvenliği, modern yazılım geliştirme süreçlerinde kritik bir rol oynar ve hem yazılım kalitesini hem de güvenliğini artıran önemli bir özelliktir.
+
+=================================================================================
+
