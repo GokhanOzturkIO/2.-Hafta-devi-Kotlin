@@ -1,0 +1,43 @@
+#Answers#
+
+1. - `val` ile `var` arasındaki fark nedir?
+
+Cevap: 
+
+Kotlin'de `val` ve `var` arasındaki farklar şunlardır:
+
+### `val` (Değişmez Değerler)
+- **Tanım**: `val`, sabit bir değişken tanımlar. Bir `val` değişkeninin değeri ilk atandıktan sonra değiştirilemez.
+- **Örnek**: Bir `val` ile değişken tanımlandığında, bu değişkenin değeri yalnızca bir kez atanabilir ve sonrasında değiştirilemez.
+
+  ```kotlin
+  val pi = 3.14
+  // pi = 3.14159 // Bu satır derleme hatasına neden olur çünkü `pi` bir `val`'dir.
+  ```
+
+- **Kullanım Durumları**: `val`, değeri bir kez atanıp değişmeyecekse veya sabit olmasını istiyorsan kullanılır. Özellikle bir nesneye referansın değişmemesi gerektiğinde veya sabit verileri temsil eden değişkenlerde tercih edilir.
+
+### `var` (Değişebilir Değerler)
+- **Tanım**: `var`, değiştirilebilir bir değişken tanımlar. Bir `var` değişkeninin değeri program çalıştığı sürece değiştirilebilir.
+- **Örnek**: Bir `var` ile değişken tanımladığında, bu değişkenin değeri programın herhangi bir yerinde değiştirilebilir.
+
+  ```kotlin
+  var age = 25
+  age = 26 // Bu geçerlidir çünkü `age` bir `var`'dır.
+  ```
+
+- **Kullanım Durumları**: `var`, değeri değiştirilebilir olan değişkenlerde kullanılır. Değişkenin değerinin farklı durumlarda veya çeşitli işlemler sonucunda değişmesi gerekiyorsa `var` tercih edilir.
+
+### Özet
+
+- **`val`**: Bir kez atandıktan sonra değişmeyen (sabit) değerler için kullanılır.
+- **`var`**: Değeri programın herhangi bir yerinde değiştirilebilen değişkenler için kullanılır.
+
+Kotlin'de `val` kullanarak kodunu daha güvenilir ve hatasız hale getirebilirsin, çünkü değişkenin değerinin değişmeyeceğini garanti edersin. `var` ise daha esneklik sağlar ancak değişkenin değerinin beklenmedik bir şekilde değişmesine neden olabilir, bu yüzden kullanım yerlerini dikkatle seçmek gerekir.
+
+### Not: 'val' ile 'var' arasında maliyet farkı var mıdır? şeklinde soru geldiğinde; performans olarak fark yok denecek kadar azdır. 
+
+'val' Value yani değer demektir.
+'var' Variable yani değişken demektir.
+
+
