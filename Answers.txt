@@ -347,3 +347,95 @@ Tip güvenliği, modern yazılım geliştirme süreçlerinde kritik bir rol oyna
 
 =================================================================================
 
+7.- Bir değişkeni nullable yapmak için ne yapmalıyız?
+
+Cevap:
+
+Bir değişkeni nullable yapmak, yani değişkenin `null` değerini alabilmesine izin vermek, çoğu modern programlama dilinde belirli bir sentaks ve kurallar gerektirir. `null` değerinin bir değişken için geçerli bir değer olmasına izin vermek, kodun null güvenliği ve veri bütünlüğü açısından dikkatle yönetilmesi gereken bir durumdur. İşte çeşitli dillerde bir değişkeni nullable yapmak için yapmanız gerekenler:
+
+### Kotlin
+
+Kotlin’de değişkenleri nullable yapmak için tiplerin sonuna `?` işareti eklenir. Bu, değişkenin belirtilen tipin yanı sıra `null` değerini de alabileceğini ifade eder.
+
+**Örnek:**
+
+```kotlin
+var name: String? = null
+name = "Alice"
+```
+
+Burada, `name` değişkeni `String` tipinde olabilir, ancak aynı zamanda `null` da olabilir.
+
+### Java
+
+Java’da nullable tipleri belirtmek için genellikle `null` değerini doğrudan kullanabilirsiniz. Java’nın dil yapısı, her referans tipinin `null` olabilmesine izin verir, bu yüzden ekstra bir sözdizimi gerekmez.
+
+**Örnek:**
+
+```java
+String name = null;
+name = "Alice";
+```
+
+Ancak, Java 14 ile gelen `NullPointerException` hatalarını önlemek için `Optional` sınıfı kullanılabilir. `Optional` bir değerin olup olmadığını belirtmek için kullanılır, ancak bu tamamen nullable davranışını değiştirmez, sadece kontrol etmenin bir yoludur.
+
+**Örnek:**
+
+```java
+import java.util.Optional;
+
+Optional<String> name = Optional.empty();
+name = Optional.of("Alice");
+```
+
+### C#
+
+C# dilinde bir değişkenin nullable olmasını sağlamak için tipin sonuna `?` işareti eklenir, benzer şekilde Kotlin’de olduğu gibi.
+
+**Örnek:**
+
+```csharp
+int? age = null;
+age = 25;
+```
+
+Burada, `int?` tipi, `int` tipiyle birlikte `null` değerini de alabilir.
+
+### Swift
+
+Swift dilinde bir değişkeni nullable yapmak için, tipin sonuna `?` işareti eklenir. Bu, değişkenin belirtilen tipin yanı sıra `nil` değerini de alabileceğini ifade eder.
+
+**Örnek:**
+
+```swift
+var name: String? = nil
+name = "Alice"
+```
+
+### TypeScript
+
+TypeScript’de bir değişkenin nullable olmasını sağlamak için tipin yanına `null` ve/veya `undefined` eklenir. TypeScript’in tip sistemi, `null` ve `undefined` ile ilgili esneklik sağlar.
+
+**Örnek:**
+
+```typescript
+let name: string | null = null;
+name = "Alice";
+```
+
+### Python
+
+Python’da değişkenler varsayılan olarak nullable’dır çünkü `None` değeri alabilirler. Bu nedenle özel bir sentaks gerekmez.
+
+**Örnek:**
+
+```python
+name: str = None
+name = "Alice"
+```
+
+### Özet
+
+Bir değişkenin nullable olmasını sağlamak, her dilde farklı şekilde yapılabilir, ancak genellikle tipin üzerine `?` işareti eklemek, `null` veya `nil` değeri kullanmak gibi işlemler gerektirir. Her dilin kendi syntax ve kurallarına göre bu işlemleri gerçekleştirirsiniz. Null değerlerinin yönetilmesi, veri güvenliği ve hataların önlenmesi açısından dikkatli bir şekilde yapılmalıdır.
+
+=================================================================================
