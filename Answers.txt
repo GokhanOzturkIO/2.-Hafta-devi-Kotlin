@@ -864,4 +864,54 @@ Kotlin, tip çıkarımını kullanarak kodunuzu daha okunabilir ve kısa hale ge
 
 =================================================================================
 
+3. - Float değişken oluştururken `F` ve `f` harfleri varken, Long değişken oluştururken neden küçük `l` harfi yoktur?
 
+Cevap: Java ve Kotlin gibi dillerde, sayısal literallerin türlerini belirtmek için kullanılan harfler ve işaretler, veri türlerinin doğru şekilde işlenmesini sağlamak için önemlidir. `Float` ve `Long` veri türleri ile ilgili kullanılan işaretlerin neden farklı olduğunu anlamak için her iki veri türünün nasıl temsil edildiğine ve sayısal literallerin nasıl işlendiğine bakmak faydalıdır.
+
+### `Float` ve `Double` Literalleri:
+
+**Java ve Kotlin'de:**
+- **`Float` Literali:** Bir sayının `Float` türünde olduğunu belirtmek için, sayının sonuna `F` veya `f` harfi eklenir. Bu, sayının kayan nokta (floating-point) temsilinin `float` türünde olduğunu belirtir. Örneğin:
+
+  ```java
+  float myFloat = 3.14F;  // veya
+  float myFloat = 3.14f;
+  ```
+
+  Burada `F` veya `f`, sayının `Float` olarak değerlendirileceğini belirtir. Eğer bu işaret kullanılmazsa, sayı varsayılan olarak `Double` türünde değerlendirilir.
+
+- **`Double` Literali:** `Double` türü için özel bir işaret gerekli değildir çünkü sayılar varsayılan olarak `Double` olarak kabul edilir. Örneğin:
+
+  ```java
+  double myDouble = 3.14;  // varsayılan olarak Double
+  ```
+
+### `Long` Literali:
+
+**Java ve Kotlin'de:**
+- **`Long` Literali:** Bir sayının `Long` türünde olduğunu belirtmek için, sayının sonuna `L` veya `l` harfi eklenir. Bu, sayının `Long` türünde olduğunu belirtir. Örneğin:
+
+  ```java
+  long myLong = 123456789L;  // veya
+  long myLong = 123456789l;
+  ```
+
+  Burada `L` veya `l`, sayının `Long` olarak değerlendirileceğini belirtir. `L` harfi genellikle büyük harf olarak kullanılır ve küçük `l` harfi kullanımı, bazı yazım hataları ve okunabilirlik sorunları yaratabilir.
+
+### Neden `Float` için `F` veya `f`, `Long` için ise `L` kullanılır?
+
+1. **Okunabilirlik ve Çakışma Önleme:**
+   - Küçük `l` harfi (küçük L), `1` rakamına benzeyebilir ve bu, kodun okunabilirliğini azaltabilir. Bu yüzden, `Long` türü için büyük `L` harfi kullanılır. `L` harfi daha belirgin olduğu için bu, kodun daha okunabilir ve hatasız olmasını sağlar.
+   - Küçük `f` harfi ise, rakamlarla çakışma riski taşımaz ve bu yüzden `Float` türü için uygun bir seçimdir.
+
+2. **Dil Tasarımı:**
+   - Java ve Kotlin'in tarihsel ve dil tasarımı gereği, `Float` ve `Double` için ayrı işaretler ve `Long` için de büyük `L` harfi kullanılır. Bu, her tür için belirli bir işaretleme standardını sağlar ve bu standart, diller arasında tutarlılığı korur.
+
+### Özet
+
+- `Float` türündeki sayılar `F` veya `f` harfi ile belirtilir, çünkü bu, sayının `Float` olarak yorumlanmasını sağlar.
+- `Long` türündeki sayılar `L` veya `l` harfi ile belirtilir, ancak genellikle büyük `L` harfi kullanılır çünkü küçük `l` harfi rakam `1` ile karışabilir ve bu, kodun okunabilirliğini azaltabilir.
+
+Bu işaretler, programcıların sayısal literallerin türlerini açıkça belirtmelerini sağlar ve derleyicinin sayıları doğru bir şekilde işlemesini destekler.
+
+=================================================================================
