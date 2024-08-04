@@ -780,3 +780,88 @@ Sonuç olarak, `Number` sınıfının alt sınıflarının değer aralıkları, 
 
 =================================================================================
 
+2. - Eğer bir değişkene tip belirtimi yapılmaz ve bir değer atanırsa, Kotlin tip çıkarımını nasıl yapar?
+
+Kotlin, tip çıkarımını (type inference) oldukça etkili bir şekilde yapabilen bir programlama dilidir. Eğer bir değişkene tip belirtimi yapılmadan değer atanırsa, Kotlin derleyicisi değişkenin tipini atanan değerin türüne göre otomatik olarak çıkarır. Bu özellik, kodun daha kısa ve okunabilir olmasını sağlar.
+
+### Tip Çıkarımının Temel Kuralları
+
+1. **Atanan Değere Göre Tip Çıkarımı:**
+   Kotlin, değişkene atanan değerin türünü baz alarak değişkenin tipini çıkarır. Örneğin:
+
+   ```kotlin
+   val number = 42
+   ```
+
+   Bu durumda, Kotlin derleyicisi `number` değişkeninin `Int` türünde olduğunu çıkarır çünkü `42` bir tam sayıdır ve varsayılan olarak `Int` olarak kabul edilir.
+
+2. **Tip Çıkarımı ile `val` ve `var`:**
+   - **`val` (Immutable Değişken):** `val` ile tanımlanan değişkenler bir kez atandıktan sonra değiştirilemez. Örneğin:
+
+     ```kotlin
+     val message = "Hello, World!"
+     ```
+
+     Burada, `message` değişkeni `String` türündedir çünkü `"Hello, World!"` bir `String` literali ile atanmıştır.
+
+   - **`var` (Mutable Değişken):** `var` ile tanımlanan değişkenler ise değiştirilebilir. Örneğin:
+
+     ```kotlin
+     var count = 10
+     ```
+
+     Burada, `count` değişkeni `Int` türündedir çünkü `10` bir tam sayı olarak atanmıştır.
+
+3. **Fonksiyonlarla Tip Çıkarımı:**
+   Fonksiyonlar da tip çıkarımı yapabilir. Bir fonksiyonun dönüş türü, fonksiyonun gövdesinde kullanılan ifadeye göre belirlenir. Örneğin:
+
+   ```kotlin
+   fun getGreeting(): String {
+       return "Hello, Kotlin!"
+   }
+   ```
+
+   Burada, Kotlin derleyicisi `getGreeting` fonksiyonunun dönüş türünü `String` olarak çıkarır çünkü fonksiyonun geri döndürdüğü değer bir `String` literali.
+
+4. **Karmaşık Tip Çıkarımları:**
+   Kotlin, daha karmaşık durumlarda da tip çıkarımı yapabilir. Örneğin, bir koleksiyon oluşturduğunuzda:
+
+   ```kotlin
+   val numbers = listOf(1, 2, 3, 4)
+   ```
+
+   Burada, `numbers` değişkeni `List<Int>` türünde olur çünkü `listOf` fonksiyonuna geçirilen değerler `Int` türündedir.
+
+### Tip Çıkarımı Örnekleri
+
+1. **Tam Sayılar ve Ondalık Sayılar:**
+
+   ```kotlin
+   val integerNumber = 123          // Int
+   val doubleNumber = 123.45        // Double
+   ```
+
+2. **Karmaşık Nesneler:**
+
+   ```kotlin
+   val person = Person("John", 30)  // Person (varsayalım ki Person sınıfı tanımlıdır)
+   ```
+
+3. **Fonksiyonlarla Tip Çıkarımı:**
+
+   ```kotlin
+   val result = 1 + 2.5          // Double, çünkü işlemin sonucu daha geniş bir tür olan Double'dır.
+   ```
+
+### Tip Çıkarımının Sınırlamaları
+
+- **Yazım Yanlışları ve Hatalar:** Tip çıkarımı bazen yazım hatalarını gizleyebilir veya beklenmedik hatalara yol açabilir. Bu nedenle, tip belirtilerinin açıkça yapıldığı yerlerde kodun ne tür veri ile çalıştığını görmek daha kolay olabilir.
+- **Genel ve Karmaşık Tipler:** Özellikle generic türlerde ve karmaşık veri yapılarına sahip durumlarda, tip çıkarımı bazen yeterli olmayabilir ve tip belirtilerinin açıkça yapılması gerekebilir.
+
+### Özet
+
+Kotlin, tip çıkarımını kullanarak kodunuzu daha okunabilir ve kısa hale getirir. Değişkenlere atanan değerler ve fonksiyonların dönüş değerleri baz alınarak değişkenlerin türleri otomatik olarak belirlenir. Ancak, bu özelliği kullanırken dikkatli olmak ve karmaşık durumlarda açık tip belirtileri kullanmak, kodunuzun daha anlaşılır ve hata riskini azaltan bir hale gelmesini sağlar.
+
+=================================================================================
+
+
