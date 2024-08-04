@@ -915,3 +915,62 @@ Cevap: Java ve Kotlin gibi dillerde, sayısal literallerin türlerini belirtmek 
 Bu işaretler, programcıların sayısal literallerin türlerini açıkça belirtmelerini sağlar ve derleyicinin sayıları doğru bir şekilde işlemesini destekler.
 
 =================================================================================
+
+4. - Tek duyarlıklı (Single precision) ve Çift duyarlıklı (Double precision) kavramlarını açıklayın.
+
+Cevap: Tek duyarlıklı (single precision) ve çift duyarlıklı (double precision) kavramları, kayan nokta (floating-point) sayıların temsilinde kullanılan iki farklı hassasiyet türünü ifade eder. Bu kavramlar, sayısal hesaplamalarda hassasiyeti ve bellek kullanımını etkileyen önemli faktörlerdir.
+
+### Tek Duyarlıklı (Single Precision) Kayan Nokta
+
+- **Bit Sayısı:** Tek duyarlıklı kayan nokta sayıları, genellikle 32 bit (4 byte) uzunluğundadır.
+- **Format:** IEEE 754 standardına göre, tek duyarlıklı kayan nokta sayısı şu şekilde temsil edilir:
+  - **1 bit** işaret biti: Sayının pozitif mi yoksa negatif mi olduğunu belirtir.
+  - **8 bit** üssel kısım (exponent): Sayının ölçeğini (büyüklüğünü) belirler.
+  - **23 bit** kesir kısmı (mantissa): Sayının hassasiyetini belirler. Bu kısım sayıdaki gerçek basamakları temsil eder.
+  
+- **Değer Aralığı:**
+  - **En Küçük Pozitif Değer:** Yaklaşık `1.4E-45` (çok küçük değerler).
+  - **En Büyük Pozitif Değer:** Yaklaşık `3.4E38` (çok büyük değerler).
+
+- **Hassasiyet:** Tek duyarlıklı sayılar genellikle 6-9 basamağa kadar hassasiyet sağlar.
+
+### Çift Duyarlıklı (Double Precision) Kayan Nokta
+
+- **Bit Sayısı:** Çift duyarlıklı kayan nokta sayıları, genellikle 64 bit (8 byte) uzunluğundadır.
+- **Format:** IEEE 754 standardına göre, çift duyarlıklı kayan nokta sayısı şu şekilde temsil edilir:
+  - **1 bit** işaret biti: Sayının pozitif mi yoksa negatif mi olduğunu belirtir.
+  - **11 bit** üssel kısım (exponent): Sayının ölçeğini (büyüklüğünü) belirler.
+  - **52 bit** kesir kısmı (mantissa): Sayının hassasiyetini belirler. Bu kısım sayıdaki gerçek basamakları temsil eder.
+  
+- **Değer Aralığı:**
+  - **En Küçük Pozitif Değer:** Yaklaşık `4.9E-324` (çok küçük değerler).
+  - **En Büyük Pozitif Değer:** Yaklaşık `1.8E308` (çok büyük değerler).
+
+- **Hassasiyet:** Çift duyarlıklı sayılar genellikle 15-17 basamağa kadar hassasiyet sağlar.
+
+### Karşılaştırma
+
+- **Bellek Kullanımı:**
+  - Tek duyarlıklı sayılar daha az bellek kullanır (4 byte), bu da bellekte daha fazla sayı depolamanıza olanak tanır.
+  - Çift duyarlıklı sayılar daha fazla bellek kullanır (8 byte), ancak daha yüksek hassasiyet ve daha geniş değer aralığı sağlar.
+
+- **Hassasiyet:**
+  - Tek duyarlıklı sayılar sınırlı bir hassasiyet sağlar ve bu, özellikle küçük ondalıklı değerlerde veya büyük sayıların temsilinde hata veya yuvarlama sorunlarına yol açabilir.
+  - Çift duyarlıklı sayılar, daha yüksek hassasiyet sağlar ve bu da daha doğru sonuçlar elde etmenize olanak tanır, ancak daha fazla bellek tüketir ve işlem süresi daha uzun olabilir.
+
+### Kullanım Durumları
+
+- **Tek Duyarlıklı (Single Precision):**
+  - Grafik işleme, oyunlar ve bazı bilimsel hesaplamalar gibi bellek ve işlem hızı açısından daha verimli olmaları gereken durumlarda kullanılır.
+  
+- **Çift Duyarlıklı (Double Precision):**
+  - Bilimsel hesaplamalar, mühendislik hesaplamaları, finansal analizler ve hassas matematiksel işlemler gibi yüksek hassasiyetin gerekli olduğu durumlarda tercih edilir.
+
+### Özet
+
+- **Tek Duyarlıklı (Single Precision):** 32 bit, yaklaşık 6-9 basamağa kadar hassasiyet, daha az bellek kullanımı.
+- **Çift Duyarlıklı (Double Precision):** 64 bit, yaklaşık 15-17 basamağa kadar hassasiyet, daha fazla bellek kullanımı.
+
+Hangi türün kullanılacağı, uygulamanın gereksinimlerine, hesaplama hassasiyetine ve bellek kısıtlamalarına bağlıdır.
+
+=================================================================================
