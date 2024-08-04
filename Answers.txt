@@ -743,3 +743,6 @@ Bu operatörler, nullable değişkenlerle çalışırken kodunuzun daha güvenli
 
 
 =================================================================================
+
+
+### Sayılar
