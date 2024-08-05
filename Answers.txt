@@ -1325,3 +1325,59 @@ Kotlin derleyicisi, sayıların değerlerini hesaplamak için alt çizgileri gö
 Bu kullanım, büyük sayıları daha okunabilir ve anlaşılır hale getirerek kodun bakımını kolaylaştırır.
 
 =================================================================================
+
+11. - `==` ile neyi karşılaştırırız? `===` ile neyi karşılaştırırız?
+
+Cevap: Kotlin'de `==` ve `===` operatörleri, nesneleri karşılaştırmak için farklı amaçlarla kullanılır. İşte her iki operatörün nasıl çalıştığını ve aralarındaki farkları açıklayan detaylar:
+
+### 1. **`==` Operatörü (Eşitlik Karşılaştırması)**
+
+- **Amaç:** İki nesnenin **değerlerini** karşılaştırır.
+- **Çalışma Şekli:** `==` operatörü, Kotlin'de Java'daki `equals()` metoduna karşılık gelir. Bu operatör, iki nesnenin içeriklerinin eşit olup olmadığını kontrol eder.
+- **Kullanım:** Değer eşitliğini kontrol etmek için kullanılır.
+
+**Örnek:**
+
+```kotlin
+data class Person(val name: String, val age: Int)
+
+fun main() {
+    val person1 = Person("Alice", 30)
+    val person2 = Person("Alice", 30)
+    val person3 = person1
+
+    println(person1 == person2) // true: `person1` ve `person2` aynı değerlere sahip
+    println(person1 == person3) // true: `person1` ve `person3` aynı nesneyi referans alıyor
+}
+```
+
+- **Not:** `==` operatörü kullanıldığında, Kotlin otomatik olarak `equals()` metodunu çağırır. Eğer `data class` gibi bir veri sınıfı kullanıyorsanız, Kotlin bu sınıflar için `equals()` metodunu varsayılan olarak, tüm özelliklerin eşitliğini kontrol edecek şekilde override eder.
+
+### 2. **`===` Operatörü (Referans Karşılaştırması)**
+
+- **Amaç:** İki nesnenin **referanslarını** (yani, aynı hafıza adresini) karşılaştırır.
+- **Çalışma Şekli:** `===` operatörü, iki nesnenin aynı nesne olup olmadığını kontrol eder. Yani, bellekte aynı yerden mi referans aldıklarını kontrol eder.
+- **Kullanım:** Referans eşitliğini kontrol etmek için kullanılır.
+
+**Örnek:**
+
+```kotlin
+fun main() {
+    val person1 = Person("Alice", 30)
+    val person2 = Person("Alice", 30)
+    val person3 = person1
+
+    println(person1 === person2) // false: `person1` ve `person2` aynı nesne değil, farklı bellek adreslerine sahip
+    println(person1 === person3) // true: `person1` ve `person3` aynı nesneyi referans alıyor
+}
+```
+
+### Özet
+
+- **`==` (Değer Karşılaştırması):** İki nesnenin içeriklerini karşılaştırır. Eğer iki nesne aynı türde ve aynı içeriğe sahipse, `true` döner. Kotlin'de bu operatör, `equals()` metodunu çağırarak çalışır.
+
+- **`===` (Referans Karşılaştırması):** İki nesnenin bellekte aynı referansı gösterip göstermediğini kontrol eder. Eğer iki referans aynı nesneyi işaret ediyorsa, `true` döner.
+
+Bu operatörler arasındaki fark, Kotlin'de nesne karşılaştırmaları yaparken hangi tür karşılaştırma yapmanız gerektiğini belirlemenize yardımcı olur. Değer karşılaştırması yapmanız gereken durumlarda `==`, referans eşitliği kontrolü yapmanız gereken durumlarda ise `===` kullanmalısınız.
+
+=================================================================================
