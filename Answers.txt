@@ -1264,3 +1264,64 @@ octal = 0o377
 Bu geleneksel notasyon biçimleri, verilerin ve bilgilerin standart bir şekilde ifade edilmesine ve anlaşılmasına yardımcı olur. Hangi bağlamda kullanıldığına göre detaylı notasyonlar ve kurallar değişebilir.
 
 =================================================================================
+
+10. - Sayısal değişkenlerde alt çizgi (underscore) nasıl kullanılır? Kotlin bunu nasıl yorumlar?
+
+Cevap: Sayısal değişkenlerde alt çizgi (underscore) kullanımı, genellikle büyük sayıları daha okunabilir hale getirmek için kullanılan bir tekniktir. Hem Kotlin hem de diğer birçok programlama dilinde bu, büyük sayıları gruplandırarak daha anlaşılır kılar. Alt çizgi (underscore) sadece sayıları ayırmak için kullanılan bir işarettir ve aritmetik işlemler üzerinde hiçbir etkisi yoktur.
+
+### 1. **Alt Çizgi Kullanımı:**
+
+**Amaç:** 
+- **Okunabilirlik:** Büyük sayıları daha okunabilir hale getirmek için kullanılır.
+- **Ayırma:** Binlik, milyonluk ayrımları daha belirgin hale getirir.
+
+**Örnekler:**
+
+```kotlin
+val oneMillion: Int = 1_000_000
+val largeNumber: Long = 1_000_000_000_000
+val hexValue: Int = 0xFF_FF_FF
+val binaryValue: Int = 0b1010_1011_1100_1100
+```
+
+### 2. **Kotlin’de Alt Çizgi Kullanımı:**
+
+Kotlin, sayısal değerlerde alt çizgi kullanımını destekler ve bu notasyon yalnızca sayıların okunabilirliğini artırmak amacıyla kullanılır. Kotlin derleyicisi alt çizgileri göz ardı eder ve onları sayının bir parçası olarak değerlendirmez. Aşağıda Kotlin’de alt çizgi kullanımının nasıl çalıştığını gösteren örnekler bulunmaktadır:
+
+**Örnekler:**
+
+```kotlin
+fun main() {
+    val billion: Long = 1_000_000_000L
+    val bytes: Int = 0b0010_0100_0110_1000
+    val hexNumber: Int = 0xAB_CD_EF
+    
+    println("Billion: $billion")       // Çıktı: Billion: 1000000000
+    println("Bytes: $bytes")           // Çıktı: Bytes: 9208
+    println("Hex Number: $hexNumber")  // Çıktı: Hex Number: 1144201743
+}
+```
+
+**Açıklamalar:**
+
+- **`1_000_000_000L`**: Bir milyar değeri, `L` işareti `Long` türünü belirtir. Alt çizgiler sadece sayının daha okunabilir olmasını sağlar.
+- **`0b0010_0100_0110_1000`**: İkilik (binary) sayı, alt çizgiler gruplama amaçlı kullanılır.
+- **`0xAB_CD_EF`**: Onaltılık (hexadecimal) sayı, alt çizgiler gruplamayı kolaylaştırır.
+
+### 3. **Kotlin Derleyicisi ve Alt Çizgi:**
+
+Kotlin derleyicisi, sayıların değerlerini hesaplamak için alt çizgileri göz ardı eder. Bu sayılar yazılımda hesaplamalar sırasında alt çizgilerle ayrılmış olarak görünse bile, bu ayrımlar aritmetik işlemler veya sayısal değerler üzerinde etkili değildir.
+
+### 4. **Genel Kullanım ve Standartlar:**
+
+- **Okunabilirlik:** Alt çizgiler genellikle çok büyük sayılarda veya uzun sayısal dizilerde kullanılır.
+- **Standartlar:** Çoğu modern programlama dili, büyük sayıları gruplamak için alt çizgi kullanımını destekler, örneğin Python, Java, C#, JavaScript gibi.
+
+### Özet:
+
+- **Kotlin:** Sayısal değişkenlerde alt çizgi kullanımı desteklenir ve okunabilirliği artırmak için kullanılır. Derleyici, alt çizgileri sayısal değeri hesaplamak için dikkate almaz.
+- **Kullanım:** Büyük sayılarda ve uzun sayısal dizilerde, binlik ayrımlarını belirginleştirmek için alt çizgi kullanımı yaygındır.
+
+Bu kullanım, büyük sayıları daha okunabilir ve anlaşılır hale getirerek kodun bakımını kolaylaştırır.
+
+=================================================================================
