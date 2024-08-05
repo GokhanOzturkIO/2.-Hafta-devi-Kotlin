@@ -1047,3 +1047,75 @@ Her iki veri tipi de belirli bir hassasiyete sahip olduğundan, ondalık kısmı
 Her iki veri tipinin de kendi avantajları ve sınırlamaları vardır. Uygulamanızın ihtiyaçlarına göre doğru veri tipini seçmek, hem performans hem de doğruluk açısından en iyi sonucu elde etmenize yardımcı olacaktır.
 
 =================================================================================
+
+7. - Ondalık(Decimal), Onaltılık (Hexadecimal) ve İkilik (Binary) değişkenleri Kotlin'de nasıl tanımlayabilirsiniz?
+
+Cevap: Kotlin'de ondalıklı (decimal), onaltılık (hexadecimal) ve ikilik (binary) sayıları tanımlamak ve kullanmak oldukça basittir. Kotlin, bu sayı sistemlerinin her biri için uygun sözdizimini sağlar. İşte bu sayı türlerini Kotlin'de nasıl tanımlayabileceğiniz:
+
+### 1. Ondalık (Decimal) Sayılar
+
+Ondalık sayılar, standart sayı formatıdır ve doğrudan yazılabilir. `Int`, `Long`, `Float`, ve `Double` veri türlerinde tanımlanabilirler.
+
+**Örnekler:**
+
+```kotlin
+val decimalInt: Int = 42
+val decimalLong: Long = 123456789L
+val decimalFloat: Float = 3.14f
+val decimalDouble: Double = 2.71828
+```
+
+- **`Int` ve `Long`**: Tam sayılar için.
+- **`Float` ve `Double`**: Ondalıklı sayılar için.
+
+### 2. Onaltılık (Hexadecimal) Sayılar
+
+Onaltılık sayılar, genellikle `0x` ile başlar ve `0`-`9`, `a`-`f` (veya `A`-`F`) karakterlerini içerir. Kotlin, onaltılık sayıların `Int` ve `Long` veri türlerinde tanımlanmasını destekler.
+
+**Örnekler:**
+
+```kotlin
+val hexInt: Int = 0x2A  // 42 ondalık
+val hexLong: Long = 0x1F4A3L  // 128563 ondalık
+```
+
+- **`0x`**: Onaltılık sayıların başladığını belirten işaret.
+- **`L`**: Uzun (`Long`) sayılar için kullanılır.
+
+### 3. İkilik (Binary) Sayılar
+
+İkilik sayılar `0b` ile başlar ve sadece `0` ve `1` karakterlerini içerir. Kotlin, ikilik sayıların `Int` ve `Long` veri türlerinde tanımlanmasını destekler.
+
+**Örnekler:**
+
+```kotlin
+val binaryInt: Int = 0b101010  // 42 ondalık
+val binaryLong: Long = 0b1101111L  // 111 ondalık
+```
+
+- **`0b`**: İkilik sayıların başladığını belirten işaret.
+- **`L`**: Uzun (`Long`) sayılar için kullanılır.
+
+### Kullanım Örnekleri
+
+Kotlin'de bu farklı sayı türlerini kullanarak çeşitli işlemler gerçekleştirebilirsiniz. İşte bazı örnekler:
+
+```kotlin
+fun main() {
+    // Ondalık Sayılar
+    val decimalValue: Int = 255
+    println("Ondalık: $decimalValue")  // Çıktı: 255
+
+    // Onaltılık Sayılar
+    val hexValue: Int = 0xFF
+    println("Onaltılık: $hexValue")  // Çıktı: 255
+
+    // İkilik Sayılar
+    val binaryValue: Int = 0b11111111
+    println("İkilik: $binaryValue")  // Çıktı: 255
+}
+```
+
+Bu kodda, `decimalValue`, `hexValue`, ve `binaryValue` hepsi 255 değerini temsil eder, fakat farklı biçimlerde tanımlanmıştır. Bu tür değerlerin yazılması, kodunuzu daha okunabilir ve anlamlı hale getirebilir, özellikle belirli bit düzeyindeki işlemlerle çalışırken.
+
+=================================================================================
