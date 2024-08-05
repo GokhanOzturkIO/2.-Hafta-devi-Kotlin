@@ -1736,3 +1736,74 @@ Bu operatörleri kullanarak bit düzeyinde işlemler yapabilir ve performans oda
 
 =================================================================================
 
+16. - Kotlin'de büyük sayılarla çalışırken hangi ek türlerden yararlanılır ve bu türlerin sınırları nelerdir?
+
+Cevap: Kotlin, büyük sayılarla çalışmak için bazı ek türler sunar. Bu türler, standart `Int` ve `Long` veri türlerinin sınırlarını aşmanıza olanak tanır. Kotlin'de büyük sayılarla çalışırken kullanabileceğiniz başlıca türler şunlardır:
+
+### 1. `BigInteger`
+
+`BigInteger`, tam sayılarla çalışmak için kullanılır ve sayının büyüklüğü yalnızca bellekle sınırlıdır. `BigInteger` sınıfı, Java'nın `java.math.BigInteger` sınıfının Kotlin'deki karşılığıdır.
+
+- **Sınırları**: Sınırsız bir büyüklük destekler; yalnızca bellek miktarına bağlıdır.
+- **Örnek Kullanım**:
+
+  ```kotlin
+  import java.math.BigInteger
+
+  fun main() {
+      val bigNum1 = BigInteger("123456789012345678901234567890")
+      val bigNum2 = BigInteger("987654321098765432109876543210")
+      val sum = bigNum1 + bigNum2
+      println("Sum: $sum") // 1111111110111111111011111111000
+  }
+  ```
+
+### 2. `BigDecimal`
+
+`BigDecimal`, ondalıklı sayılarla çalışmak için kullanılır ve yüksek doğruluk gerektiren hesaplamalarda tercih edilir. `BigDecimal`, Java'nın `java.math.BigDecimal` sınıfının Kotlin'deki karşılığıdır.
+
+- **Sınırları**: Sayının büyüklüğü ve hassasiyeti yalnızca bellek ve performans sınırlamaları ile kısıtlıdır.
+- **Örnek Kullanım**:
+
+  ```kotlin
+  import java.math.BigDecimal
+
+  fun main() {
+      val decimal1 = BigDecimal("12345.6789")
+      val decimal2 = BigDecimal("98765.4321")
+      val sum = decimal1 + decimal2
+      println("Sum: $sum") // 111111.1110
+  }
+  ```
+
+### 3. `UInt`, `ULong`, `UByte`, `UShort`
+
+Kotlin 1.3 ve sonrasında, işaretsiz (unsigned) tamsayı türleri de eklenmiştir. Bu türler, işaretli tamsayı türlerinden (örneğin, `Int` ve `Long`) daha büyük pozitif değerler alabilir.
+
+- **Sınırları**:
+  - `UInt`: 0 ile 2^32 - 1 (0 ile 4,294,967,295) arası.
+  - `ULong`: 0 ile 2^64 - 1 (0 ile 18,446,744,073,709,551,615) arası.
+  - `UByte`: 0 ile 2^8 - 1 (0 ile 255) arası.
+  - `UShort`: 0 ile 2^16 - 1 (0 ile 65,535) arası.
+
+- **Örnek Kullanım**:
+
+  ```kotlin
+  fun main() {
+      val uIntValue: UInt = 4294967295U
+      val uLongValue: ULong = 18446744073709551615UL
+
+      println("UInt Value: $uIntValue") // 4294967295
+      println("ULong Value: $uLongValue") // 18446744073709551615
+  }
+  ```
+
+### Özet
+
+- **`BigInteger`** ve **`BigDecimal`**: Bellekle sınırlı, sınırları olmayan tam ve ondalıklı sayılar için kullanılır.
+- **`UInt`, `ULong`, `UByte`, `UShort`**: Belirli aralıklarda, işaretsiz tam sayılar için kullanılır.
+
+Bu türlerin kullanımı, büyük verilerle ve yüksek hassasiyet gerektiren hesaplamalarla çalışırken esneklik ve doğruluk sağlar.
+
+=================================================================================
+
