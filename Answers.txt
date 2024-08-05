@@ -1435,3 +1435,102 @@ fun main() {
 Kotlin'deki bu özel davranış, performans ve bellek yönetimi açısından oldukça etkili olabilir. Ancak, büyük veri kümeleri veya dışarıdan gelen verilerle çalışırken `===` yerine `==` operatörünü kullanmak, genellikle değer karşılaştırmaları yapmak için daha uygundur.
 
 =================================================================================
+
+13. - Sayısal değişkenlerde hangi matematiksel operatörler kullanılabilir?
+
+Cevap: Kotlin'de sayısal değişkenlerle çalışırken kullanılabilecek temel matematiksel operatörler şunlardır:
+
+### Temel Matematiksel Operatörler
+
+1. **Toplama (`+`):**
+   - İki sayıyı toplar.
+   - **Örnek:** `val sum = 5 + 3` // `sum` değeri 8 olur.
+
+2. **Çıkarma (`-`):**
+   - Bir sayıdan diğerini çıkarır.
+   - **Örnek:** `val difference = 5 - 3` // `difference` değeri 2 olur.
+
+3. **Çarpma (`*`):**
+   - İki sayıyı çarpar.
+   - **Örnek:** `val product = 5 * 3` // `product` değeri 15 olur.
+
+4. **Bölme (`/`):**
+   - Bir sayıyı diğerine böler. Bölme sonucunda `Double` türünde bir değer elde edilir.
+   - **Örnek:** `val quotient = 10 / 3` // `quotient` değeri 3.0 (Double) olur.
+
+5. **Mod (Kalan) (`%`):**
+   - Bir sayının diğerine bölümünden kalan değeri verir.
+   - **Örnek:** `val remainder = 10 % 3` // `remainder` değeri 1 olur.
+
+### Artırma ve Azaltma Operatörleri
+
+1. **Artırma (`++`):**
+   - Bir sayının değerini 1 artırır.
+   - **Örnek:** `var x = 5` ve `x++` // `x` değeri 6 olur.
+
+2. **Azaltma (`--`):**
+   - Bir sayının değerini 1 azaltır.
+   - **Örnek:** `var y = 5` ve `y--` // `y` değeri 4 olur.
+
+### Aritmetik Operatörlerin Kullanımı
+
+- **Tam Sayılar (`Int`, `Long`):** 
+  - `Int` ve `Long` türleri üzerinde yukarıdaki tüm temel matematiksel operatörleri kullanabilirsiniz.
+  - Bölme işlemi, `Int` türüyle yapıldığında tam sayı bölmesi yapar ve kalan kısmı atar. Onaltılık (hexadecimal), ikilik (binary) ve sekizlik (octal) sayılar da bu operatörlerle kullanılabilir.
+
+**Örnek:**
+```kotlin
+fun main() {
+    val a: Int = 10
+    val b: Int = 3
+    
+    println("Toplama: ${a + b}") // Çıktı: Toplama: 13
+    println("Çıkarma: ${a - b}") // Çıktı: Çıkarma: 7
+    println("Çarpma: ${a * b}") // Çıktı: Çarpma: 30
+    println("Bölme: ${a / b}") // Çıktı: Bölme: 3
+    println("Mod: ${a % b}") // Çıktı: Mod: 1
+}
+```
+
+- **Ondalık Sayılar (`Float`, `Double`):** 
+  - `Float` ve `Double` türleri, ondalıklı matematiksel işlemler yapar. Bölme işlemleri, genellikle `Float` veya `Double` kullanılarak daha doğru sonuçlar verir.
+
+**Örnek:**
+```kotlin
+fun main() {
+    val x: Double = 10.0
+    val y: Double = 3.0
+    
+    println("Toplama: ${x + y}") // Çıktı: Toplama: 13.0
+    println("Çıkarma: ${x - y}") // Çıktı: Çıkarma: 7.0
+    println("Çarpma: ${x * y}") // Çıktı: Çarpma: 30.0
+    println("Bölme: ${x / y}") // Çıktı: Bölme: 3.3333333333333335
+    println("Mod: ${x % y}") // Çıktı: Mod: 1.0
+}
+```
+
+### Operatörlerin Karakteristikleri
+
+- **Tam Sayı Bölmesi:** `Int` veya `Long` türleriyle yapılan bölme işlemleri tam sayı bölmesi yapar. Bölme işleminin sonucunda, ondalıklı kısmı atılır.
+- **Ondalık Bölme:** `Float` veya `Double` türleriyle yapılan bölme işlemlerinde, ondalıklı değerler doğru bir şekilde hesaplanır.
+- **Mod:** Modül işlemi, bölme işleminden kalan kısmı verir ve genellikle `Int` ve `Long` türleriyle kullanılır.
+
+### Ekstra: 
+
+- **Üs Alma (`pow()`):** Kotlin'de doğrudan bir üs alma operatörü yoktur, ancak `kotlin.math.pow` fonksiyonunu kullanarak üs alma işlemi yapabilirsiniz.
+
+**Örnek:**
+```kotlin
+import kotlin.math.pow
+
+fun main() {
+    val base: Double = 2.0
+    val exponent: Double = 3.0
+    val result = base.pow(exponent)
+    println("Üs Alma: $result") // Çıktı: Üs Alma: 8.0
+}
+```
+
+Bu operatörler ve fonksiyonlar, Kotlin'de matematiksel hesaplamalar yaparken kullanılabilir ve çeşitli veri türleri üzerinde geniş bir uygulama yelpazesi sunar.
+
+=================================================================================
