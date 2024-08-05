@@ -1807,3 +1807,90 @@ Bu türlerin kullanımı, büyük verilerle ve yüksek hassasiyet gerektiren hes
 
 =================================================================================
 
+17. - Double ve Float değişkenler kullanılırken "yuvarlama" davranışı nasıldır? Bu nasıl değiştirilebilir?
+
+Cevap: Kotlin'de `Double` ve `Float` veri türleri, kayan nokta sayıları temsil eder ve bu türlerle çalışırken yuvarlama (rounding) davranışı önemli bir konu olabilir. Yuvarlama davranışı, sayının nasıl saklandığı ve hesaplandığı ile ilgilidir. İşte bu konuda bilmeniz gerekenler:
+
+### `Double` ve `Float` Türleri
+
+- **`Double`**: Çift hassasiyetli kayan nokta sayısıdır. 64 bitlik bir temsil kullanır ve yaklaşık 15-17 basamak hassasiyet sunar.
+- **`Float`**: Tek hassasiyetli kayan nokta sayısıdır. 32 bitlik bir temsil kullanır ve yaklaşık 6-9 basamak hassasiyet sunar.
+
+### Yuvarlama Davranışı
+
+`Double` ve `Float` veri türleri, kayan nokta sayıları belirli bir hassasiyetle temsil eder ve bu da bazı yuvarlama hatalarına neden olabilir. Bu türlerde saklanan sayılar, tam olarak saklanamayabilir ve bu nedenle bazı hesaplamalarda yuvarlama hataları veya yaklaşık değerler olabilir.
+
+Örneğin, bazı ondalıklı sayılar ikili sistemde tam olarak temsil edilemez, bu nedenle `0.1` gibi bir sayı `Double` veya `Float` türünde saklandığında küçük bir hata olabilir. Bu durum hesaplamalar sırasında fark edilebilir.
+
+### Yuvarlama İşlemleri ve Değiştirilmesi
+
+Kotlin'de yuvarlama işlemleri yapmak için çeşitli yöntemler ve sınıflar bulunmaktadır. En yaygın kullanılan yöntemler şunlardır:
+
+1. **`kotlin.math` Paketindeki Fonksiyonlar**:
+
+   - **`round`**: Sayıyı en yakın tam sayıya yuvarlar.
+     ```kotlin
+     import kotlin.math.round
+
+     fun main() {
+         val number = 3.6
+         val rounded = round(number) // 4.0
+         println("Rounded: $rounded")
+     }
+     ```
+
+   - **`floor`**: Sayıyı aşağıya yuvarlar.
+     ```kotlin
+     import kotlin.math.floor
+
+     fun main() {
+         val number = 3.6
+         val floored = floor(number) // 3.0
+         println("Floored: $floored")
+     }
+     ```
+
+   - **`ceil`**: Sayıyı yukarıya yuvarlar.
+     ```kotlin
+     import kotlin.math.ceil
+
+     fun main() {
+         val number = 3.6
+         val ceiled = ceil(number) // 4.0
+         println("Ceiled: $ceiled")
+     }
+     ```
+
+2. **`BigDecimal` ile Yuvarlama**:
+
+   `BigDecimal`, yüksek hassasiyetli hesaplamalar ve yuvarlama işlemleri için daha fazla kontrol sağlar. `BigDecimal` sınıfı, çeşitli yuvarlama stratejileri sunar.
+
+   ```kotlin
+   import java.math.BigDecimal
+   import java.math.RoundingMode
+
+   fun main() {
+       val bd = BigDecimal("3.14159")
+       val rounded = bd.setScale(2, RoundingMode.HALF_UP) // 3.14
+       println("Rounded: $rounded")
+   }
+   ```
+
+   `RoundingMode` sınıfı, yuvarlama davranışını belirlemek için farklı seçenekler sunar:
+   - `RoundingMode.UP`: Yukarı yuvarla
+   - `RoundingMode.DOWN`: Aşağı yuvarla
+   - `RoundingMode.CEILING`: Pozitif yönde yukarı yuvarla
+   - `RoundingMode.FLOOR`: Negatif yönde aşağı yuvarla
+   - `RoundingMode.HALF_UP`: En yakın tam sayıya yuvarla (yukarı)
+   - `RoundingMode.HALF_DOWN`: En yakın tam sayıya yuvarla (aşağı)
+   - `RoundingMode.HALF_EVEN`: En yakın çift tam sayıya yuvarla
+
+### Özet
+
+- `Double` ve `Float` türleri kayan nokta sayılarının sınırlı hassasiyeti nedeniyle yuvarlama hataları gösterebilir.
+- Yuvarlama işlemlerini kontrol etmek ve daha hassas hesaplamalar yapmak için `kotlin.math` fonksiyonları veya `BigDecimal` sınıfı kullanılabilir.
+- `BigDecimal`, hassas hesaplamalar ve yuvarlama stratejileri için daha fazla kontrol sağlar.
+
+Kullanım amacınıza göre uygun yuvarlama yöntemini seçmek, doğru sonuçlar elde etmek için önemlidir.
+
+=================================================================================
