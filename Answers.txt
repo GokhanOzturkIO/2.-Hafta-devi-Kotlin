@@ -1642,3 +1642,97 @@ Bu operatörler, değişkenlerin ve ifadelerin nasıl karşılaştırılacağın
 
 
 =================================================================================
+
+
+15. - Bit düzeyinde operatörler (Bitwise operators) nelerdir? Ne amaçla kullanılır? Kotlin'de bunları nasıl kullanabilirsiniz?
+
+Cevap: Bit düzeyinde operatörler, bir değerin bit düzeyinde manipülasyonunu sağlayan operatörlerdir. Bu operatörler, genellikle performans odaklı uygulamalarda, düşük seviyeli işlemlerde ve bazı özel algoritmalarda kullanılır. Kotlin'de de bit düzeyinde operatörler mevcuttur ve bu operatörler Java dilindeki ile uyumlu çalışır.
+
+**Bit Düzeyinde Operatörler ve Kullanım Amaçları:**
+
+1. **AND (`&`)**: İki bitin her biri için AND işlemi yapar. Her iki bit de 1 ise sonuç 1, aksi halde 0 olur. Genellikle bit maskeleme ve bit testi işlemlerinde kullanılır.
+   
+   ```kotlin
+   val a = 0b1010 // 10
+   val b = 0b1100 // 12
+   val result = a & b // 0b1000 (8)
+   ```
+
+2. **OR (`|`)**: İki bitin her biri için OR işlemi yapar. Her iki bitten biri 1 ise sonuç 1 olur. Genellikle bayrakları (flags) birleştirmek için kullanılır.
+   
+   ```kotlin
+   val a = 0b1010 // 10
+   val b = 0b1100 // 12
+   val result = a | b // 0b1110 (14)
+   ```
+
+3. **XOR (`^`)**: İki bitin her biri için XOR işlemi yapar. Bitler farklıysa sonuç 1, aynıysa 0 olur. Genellikle iki değeri karşılaştırmak veya veri şifreleme işlemlerinde kullanılır.
+   
+   ```kotlin
+   val a = 0b1010 // 10
+   val b = 0b1100 // 12
+   val result = a ^ b // 0b0110 (6)
+   ```
+
+4. **NOT (`~`)**: Bir bitin tamamlayanı (negasyonu) alır. 1 olan bit 0, 0 olan bit 1 olur. Genellikle bit düzeyinde negatif değerler oluşturmak için kullanılır.
+   
+   ```kotlin
+   val a = 0b1010 // 10
+   val result = ~a // 0b0101 (5) (Kotlin'de signed integer kullanımıyla farklı olabilir, işaretli bit işlemlerine dikkat edin)
+   ```
+
+5. **Sağ Kaydırma (`>>`)**: Bitleri sağa kaydırır. Sağ kaydırmada boş kalan bitler genellikle 0 ile doldurulur, ancak işaretli sayıların işaret biti (sign bit) korunur.
+   
+   ```kotlin
+   val a = 0b1010 // 10
+   val result = a >> 2 // 0b0010 (2)
+   ```
+
+6. **Sağ Kaydırma (Dolgu ile) (`>>>`)**: Bitleri sağa kaydırır ve boş kalan bitler her zaman 0 ile doldurulur. İşaretli bitlere dikkat edilmez.
+   
+   ```kotlin
+   val a = 0b1010 // 10
+   val result = a ushr 2 // 0b0010 (2)
+   ```
+
+7. **Sol Kaydırma (`<<`)**: Bitleri sola kaydırır. Boş kalan bitler genellikle 0 ile doldurulur.
+   
+   ```kotlin
+   val a = 0b1010 // 10
+   val result = a shl 2 // 0b101000 (40)
+   ```
+
+**Kotlin'de Bit Düzeyinde Operatörler Kullanımı:**
+
+Kotlin'de bit düzeyinde operatörleri kullanırken, genellikle `Int` veya `Long` veri tiplerini kullanırsınız. Kotlin, Java'daki gibi bit düzeyinde operatörlerin kullanılmasını destekler ve `shl`, `shr`, `ushr`, `and`, `or`, `xor` ve `inv` gibi operatör isimleriyle kullanılır.
+
+İşte Kotlin'de bu operatörlerin nasıl kullanılacağını gösteren örnekler:
+
+```kotlin
+fun main() {
+    val a = 0b1010 // 10
+    val b = 0b1100 // 12
+
+    val andResult = a and b // Bitwise AND
+    val orResult = a or b // Bitwise OR
+    val xorResult = a xor b // Bitwise XOR
+    val notResult = a.inv() // Bitwise NOT (Inverse)
+
+    val shlResult = a shl 2 // Left shift
+    val shrResult = a shr 2 // Right shift (signed)
+    val ushrResult = a ushr 2 // Right shift (unsigned)
+
+    println("AND: ${andResult.toString(2)}") // 1000
+    println("OR: ${orResult.toString(2)}") // 1110
+    println("XOR: ${xorResult.toString(2)}") // 0110
+    println("NOT: ${notResult.toString(2)}") // 0101 (negative results can vary)
+    println("SHL: ${shlResult.toString(2)}") // 101000
+    println("SHR: ${shrResult.toString(2)}") // 0010
+    println("USHR: ${ushrResult.toString(2)}") // 0010
+}
+```
+
+Bu operatörleri kullanarak bit düzeyinde işlemler yapabilir ve performans odaklı kodlar geliştirebilirsiniz.
+
+=================================================================================
+
