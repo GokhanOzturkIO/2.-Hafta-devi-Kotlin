@@ -1003,3 +1003,47 @@ Double ve Float veri tipleri, ondalıklı sayıları temsil etmek için kullanı
 Genel olarak, veri giriş ve çıkışında uyumluluk sağlamak için yerel ayarları doğru şekilde ele almak ve gerekiyorsa dönüşümler yapmak en iyi yaklaşımdır.
 
 =================================================================================
+
+6. - Double ve Float değişkenler ondalık kısımda kaç basamağa kadar işlem yaparlar? Bu sınırın üzerinde gelen ondalık bilgileri için nasıl davranırlar? Hangi durumlar için Float ve hangi durumlar için Double kullanılmalıdır?
+
+Cevap: 
+
+Double ve Float veri tipleri, ondalıklı sayıları temsil ederken farklı hassasiyetlere ve saklama kapasitelerine sahiptir. İşlem yapabilme yetenekleri ve bu yeteneklerin sınırları hakkında daha fazla bilgi aşağıda verilmiştir:
+
+### Float ve Double Hassasiyetleri
+
+#### **Float**
+- **Hassasiyet:** Genellikle 6-7 ondalık basamağa kadar hassasiyet sunar.
+- **Saklama Kapasitesi:** Float veri tipi, 32-bit (4 byte) bellek kullanır.
+- **Sınırlamalar:** Float, ondalıklı sayılarda daha az hassasiyet sunar, bu da bazı durumlarda yuvarlama hatalarına veya hassasiyet kaybına neden olabilir. Örneğin, `0.1` gibi bazı sayılar float ile tam olarak temsil edilemez.
+
+#### **Double**
+- **Hassasiyet:** Genellikle 15-16 ondalık basamağa kadar hassasiyet sunar.
+- **Saklama Kapasitesi:** Double veri tipi, 64-bit (8 byte) bellek kullanır.
+- **Sınırlamalar:** Double, float'tan daha fazla hassasiyet sunar ve daha geniş bir aralıkta değerleri doğru temsil edebilir. Ancak, double'lar da sınırsız hassasiyet sunmaz ve bazı durumlarda yuvarlama hataları meydana gelebilir.
+
+### Sınırların Üzerinde Gelen Ondalık Bilgileri
+Her iki veri tipi de belirli bir hassasiyete sahip olduğundan, ondalık kısmın belirli bir basamaktan ötesi için işlem yaparken aşağıdaki durumlarla karşılaşabilirsiniz:
+- **Yuvarlama:** Ondalık basamak sayısı sınırına ulaşıldığında, daha fazla hassasiyet kaybolur ve değer yuvarlanır.
+- **Truncation:** Bazı durumlarda, ondalık basamağın bir kısmı kesilebilir.
+- **Bilgi Kaybı:** Hassasiyet sınırını aşan bilgilerin kaybolması, sonuçların doğru olmayabileceği anlamına gelir.
+
+### Float ve Double Kullanım Senaryoları
+
+#### **Float Kullanılacak Durumlar**
+- **Bellek Kullanımı:** Bellek kısıtlaması olan sistemlerde veya büyük veri kümeleriyle çalışırken, daha az bellek kullanımı gerekebilir.
+- **Performans:** Float, bazı durumlarda daha hızlı işlem yapabilir, ancak bu genellikle modern işlemcilerde büyük bir fark yaratmaz.
+- **Yeterli Hassasiyet:** 6-7 basamak hassasiyetinin yeterli olduğu durumlarda (örneğin, grafiklerde veya bazı oyunlarda).
+
+#### **Double Kullanılacak Durumlar**
+- **Yüksek Hassasiyet Gereksinimi:** Daha fazla ondalıklı basamağa ihtiyaç duyulan matematiksel hesaplamalar, bilimsel hesaplamalar, finansal işlemler gibi durumlarda.
+- **Kesinlik ve Doğruluk:** Hataların büyük önem taşıdığı uygulamalarda, örneğin finansal hesaplamalarda ve fiziksel simülasyonlarda.
+- **Genel Kullanım:** Çoğu durumda, hassasiyet kaybını minimumda tutmak için double kullanılır, çünkü double, float’tan daha güvenilir sonuçlar sağlar.
+
+### Özet
+- **Float:** Daha az bellek kullanımı ve yeterli hassasiyet gerektiren durumlarda tercih edilir.
+- **Double:** Daha fazla hassasiyet ve doğruluk gerektiren durumlarda, genellikle tercih edilir.
+
+Her iki veri tipinin de kendi avantajları ve sınırlamaları vardır. Uygulamanızın ihtiyaçlarına göre doğru veri tipini seçmek, hem performans hem de doğruluk açısından en iyi sonucu elde etmenize yardımcı olacaktır.
+
+=================================================================================
