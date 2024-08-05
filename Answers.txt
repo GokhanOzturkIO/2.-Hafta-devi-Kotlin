@@ -1119,3 +1119,61 @@ fun main() {
 Bu kodda, `decimalValue`, `hexValue`, ve `binaryValue` hepsi 255 değerini temsil eder, fakat farklı biçimlerde tanımlanmıştır. Bu tür değerlerin yazılması, kodunuzu daha okunabilir ve anlamlı hale getirebilir, özellikle belirli bit düzeyindeki işlemlerle çalışırken.
 
 =================================================================================
+
+8. - Sekizlik (Octal) değişkenler Java'da nasıl tanımlanır? Kotlin'de Sekizlik değişken tanımlanabilir mi?
+
+Cevap: ### Sekizlik (Octal) Sayılarının Java ve Kotlin'deki Kullanımı
+
+#### **Java'da Sekizlik (Octal) Sayılar**
+
+Java'da sekizlik (octal) sayılar `0` ile başlar ve ardından sekizlik rakamları (0-7) gelir. Java'da sekizlik sayılar `int` veya `long` veri türleriyle tanımlanabilir. Sekizlik sayıları `0` ile başlar ve bu sayı sistemi için özel bir işaret gerektirir.
+
+**Örnekler:**
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int octalInt = 075;   // Sekizlik sayı: 75 (ondalık olarak 61)
+        long octalLong = 01234567L;  // Sekizlik sayı: 1234567 (ondalık olarak 342391)
+
+        System.out.println("Sekizlik int: " + octalInt);   // Çıktı: 61
+        System.out.println("Sekizlik long: " + octalLong); // Çıktı: 342391
+    }
+}
+```
+
+- **`0`**: Sekizlik sayının başladığını belirtir.
+- **`L`**: Uzun (`Long`) sayılar için kullanılır.
+
+#### **Kotlin'de Sekizlik (Octal) Sayılar**
+
+Kotlin'de sekizlik (octal) sayıların doğrudan bir sözdizimi desteği yoktur. Yani, Kotlin dilinde sekizlik sayıları tanımlamak için özel bir sözdizimi bulunmaz. Ancak, sekizlik sayıları doğrudan `Int` veya `Long` veri türleriyle tanımlanabilir. Sekizlik sayıların değerlerini bu türlerle manuel olarak tanımlayarak kullanabilirsiniz.
+
+**Kotlin'de Sekizlik Sayıları Kullanma:**
+
+Sekizlik sayıları Kotlin'de kullanılmak istendiğinde, bu sayıları önce ondalıklı değere dönüştürüp sonra bu değeri kullanabilirsiniz.
+
+**Örnek:**
+
+```kotlin
+fun main() {
+    val octalInt = 0b101010 // İkilik sayı, burada örnek olarak 0o075 (sekizlik) değerinin ikilik karşılığı verilmiştir
+    println("Sekizlik int: $octalInt")  // Çıktı: 42 (ondalık)
+    
+    // Sekizlik sayıyı ondalıklı değere dönüştürmek
+    val octalValue = 0o75 // Sekizlik sayı, ondalıklı karşılığı 61
+    println("Sekizlik int: $octalValue")  // Çıktı: 61
+}
+```
+
+- **`0o`**: Kotlin'de sekizlik (octal) sayılar için kullanılan işaret.
+
+### Özet
+
+- **Java'da:** Sekizlik sayılar `0` ile başlar ve `int` veya `long` veri türleri ile kullanılabilir.
+- **Kotlin'de:** Sekizlik sayılar doğrudan desteklenmez, fakat sekizlik sayılar ondalıklı değere dönüştürülerek kullanılabilir ve `0o` işareti ile tanımlanabilir.
+
+Bu bilgiler, Java ve Kotlin'de sekizlik sayıların nasıl tanımlanabileceği ve kullanılabileceği hakkında temel bir anlayış sağlar.
+
+
+=================================================================================
