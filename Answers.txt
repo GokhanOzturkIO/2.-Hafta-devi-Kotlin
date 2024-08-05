@@ -1534,3 +1534,111 @@ fun main() {
 Bu operatörler ve fonksiyonlar, Kotlin'de matematiksel hesaplamalar yaparken kullanılabilir ve çeşitli veri türleri üzerinde geniş bir uygulama yelpazesi sunar.
 
 =================================================================================
+
+14. - Sayısal değişkenlerde hangi karşılaştırma operatörleri kullanılabilir?
+
+Cevap: Kotlin'de sayısal değişkenlerle çalışırken, çeşitli karşılaştırma operatörleri kullanarak değerlerin birbirleriyle nasıl ilişkili olduğunu belirleyebilirsiniz. İşte Kotlin'de kullanılabilecek temel karşılaştırma operatörleri ve ne işe yaradıkları:
+
+### 1. **Eşitlik Karşılaştırması (`==`)**
+
+- **Amaç:** İki değerin eşit olup olmadığını kontrol eder.
+- **Çalışma Şekli:** Kotlin'de `==` operatörü, Java'daki `equals()` metoduna karşılık gelir. Yani, iki değerin içerik olarak eşit olup olmadığını kontrol eder.
+- **Örnek:**
+  ```kotlin
+  val a: Int = 5
+  val b: Int = 5
+  val c: Int = 10
+  
+  println(a == b) // true: a ve b eşit
+  println(a == c) // false: a ve c eşit değil
+  ```
+
+### 2. **Farklılık Karşılaştırması (`!=`)**
+
+- **Amaç:** İki değerin farklı olup olmadığını kontrol eder.
+- **Çalışma Şekli:** `!=` operatörü, iki değerin içerik olarak farklı olup olmadığını belirler.
+- **Örnek:**
+  ```kotlin
+  val x: Int = 7
+  val y: Int = 8
+  
+  println(x != y) // true: x ve y farklı
+  ```
+
+### 3. **Büyüklük Karşılaştırması (`>`)**
+
+- **Amaç:** Bir değerin diğerinden büyük olup olmadığını kontrol eder.
+- **Çalışma Şekli:** `>` operatörü, sol operandın sağ operanddan büyük olup olmadığını kontrol eder.
+- **Örnek:**
+  ```kotlin
+  val a: Int = 10
+  val b: Int = 5
+  
+  println(a > b) // true: a b'den büyük
+  ```
+
+### 4. **Küçüklük Karşılaştırması (`<`)**
+
+- **Amaç:** Bir değerin diğerinden küçük olup olmadığını kontrol eder.
+- **Çalışma Şekli:** `<` operatörü, sol operandın sağ operanddan küçük olup olmadığını kontrol eder.
+- **Örnek:**
+  ```kotlin
+  val a: Int = 3
+  val b: Int = 7
+  
+  println(a < b) // true: a b'den küçük
+  ```
+
+### 5. **Büyüklük veya Eşitlik Karşılaştırması (`>=`)**
+
+- **Amaç:** Bir değerin diğerinden büyük veya ona eşit olup olmadığını kontrol eder.
+- **Çalışma Şekli:** `>=` operatörü, sol operandın sağ operanddan büyük veya ona eşit olup olmadığını kontrol eder.
+- **Örnek:**
+  ```kotlin
+  val a: Int = 10
+  val b: Int = 10
+  
+  println(a >= b) // true: a b'ye eşit veya ondan büyük
+  ```
+
+### 6. **Küçüklük veya Eşitlik Karşılaştırması (`<=`)**
+
+- **Amaç:** Bir değerin diğerinden küçük veya ona eşit olup olmadığını kontrol eder.
+- **Çalışma Şekli:** `<=` operatörü, sol operandın sağ operanddan küçük veya ona eşit olup olmadığını kontrol eder.
+- **Örnek:**
+  ```kotlin
+  val a: Int = 4
+  val b: Int = 6
+  
+  println(a <= b) // true: a b'den küçük veya ona eşit
+  ```
+
+### Karşılaştırma Operatörleri ile İlgili Ekstra Bilgiler
+
+- **`==` ve `===`:** 
+  - `==` operatörü, değer eşitliğini kontrol eder.
+  - `===` operatörü ise referans eşitliğini kontrol eder. İki değişkenin bellekte aynı nesneyi referans alıp almadığını kontrol eder.
+
+- **NaN Karşılaştırmaları:** 
+  - `Double` ve `Float` türlerinde `NaN` (Not-a-Number) özel bir değer olup, kendisiyle bile eşit değildir. `NaN` ile karşılaştırmalarda `==` ve `!=` operatörleri beklenmedik sonuçlar verebilir. `Double.NaN` ile karşılaştırmalarda dikkatli olunmalıdır.
+  - **Örnek:**
+    ```kotlin
+    val nanValue: Double = Double.NaN
+    println(nanValue == nanValue) // false: NaN kendisiyle eşit değildir
+    println(nanValue != nanValue) // true: NaN kendisiyle farklıdır
+    ```
+
+### Genel Özet
+
+Kotlin'de sayısal değişkenlerde kullanılabilecek temel karşılaştırma operatörleri şunlardır:
+- **`==`**: Eşitlik
+- **`!=`**: Farklılık
+- **`>`**: Büyüklük
+- **`<`**: Küçüklük
+- **`>=`**: Büyüklük veya eşitlik
+- **`<=`**: Küçüklük veya eşitlik
+
+Bu operatörler, değişkenlerin ve ifadelerin nasıl karşılaştırılacağını belirlemede kullanılır ve çeşitli koşullar altında kararlar almanıza olanak tanır.
+
+
+=================================================================================
