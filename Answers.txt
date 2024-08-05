@@ -1177,3 +1177,90 @@ Bu bilgiler, Java ve Kotlin'de sekizlik sayıların nasıl tanımlanabileceği v
 
 
 =================================================================================
+
+9.- "Geleneksel Notasyon" (Conventional Notation) gösterimi nasıl yapılır?
+
+Cevap:"Geleneksel Notasyon" (Conventional Notation) terimi genellikle sayıları, matematiksel ifadeleri, veya özel işaretleme biçimlerini standart, yaygın olarak kabul edilen formatlarda ifade etmek için kullanılır. Ancak bu terim bağlamına göre farklı anlamlara gelebilir. Bu notasyonlar genellikle belirli bir bağlamda sayıları veya ifadeleri standart bir şekilde yazma yöntemidir. Aşağıda farklı bağlamlarda geleneksel notasyonların nasıl kullanıldığını açıklayacağım.
+
+### 1. Sayılar İçin Geleneksel Notasyon
+
+**Ondalık Notasyon:**
+- **Geleneksel Notasyon:** Bu, sayıları standart ondalıklı biçimde ifade eder. Örneğin, 1234, 56.78 gibi.
+- **Kullanım:** Sayılar günlük hesaplamalarda, finansal raporlama ve genel veri sunumunda kullanılır.
+
+**Örnek:**
+```plaintext
+1234 (ondalık sayı)
+56.78 (ondalık sayı)
+```
+
+### 2. Matematiksel İfadeler İçin Geleneksel Notasyon
+
+**Matematiksel İşlemler:**
+- **Geleneksel Notasyon:** Matematiksel işlemler genellikle standart sembollerle gösterilir. Örneğin, toplama (+), çıkarma (-), çarpma (× veya *), bölme (÷ veya /) gibi.
+- **Kullanım:** Bu notasyonlar matematiksel hesaplamalar ve denklemler için kullanılır.
+
+**Örnek:**
+```plaintext
+Toplama: 3 + 5 = 8
+Çıkarma: 10 - 2 = 8
+Çarpma: 4 × 7 = 28
+Bölme: 20 ÷ 4 = 5
+```
+
+### 3. Bilgisayarlarda Sayı Sistemleri İçin Geleneksel Notasyon
+
+**İkilik, Onaltılık ve Sekizlik Sistemler:**
+- **İkilik Notasyon:** Sayılar `0` ve `1` ile temsil edilir. Genellikle `0b` öneki ile gösterilir.
+- **Onaltılık Notasyon:** Sayılar `0-9` ve `A-F` ile temsil edilir. Genellikle `0x` öneki ile gösterilir.
+- **Sekizlik Notasyon:** Sayılar `0-7` ile temsil edilir. Genellikle `0` öneki ile gösterilir.
+
+**Örnekler:**
+```plaintext
+İkilik: 0b1010 (ikilik) = 10 (ondalık)
+Onaltılık: 0x1F (onaltılık) = 31 (ondalık)
+Sekizlik: 075 (sekizlik) = 61 (ondalık)
+```
+
+### 4. Bilgisayar Programlama Dillerinde Geleneksel Notasyon
+
+**Kotlin, Java, Python gibi dillerde geleneksel notasyon:**
+- **Ondalık:** Standart ondalıklı biçim.
+- **İkilik, Onaltılık ve Sekizlik:** Belirli öneklerle (Kotlin ve Java'da `0b`, `0x`, `0` önekleri gibi).
+
+**Örnekler:**
+
+**Kotlin:**
+```kotlin
+val decimal: Int = 255
+val binary: Int = 0b11111111
+val hexadecimal: Int = 0xFF
+val octal: Int = 0o377
+```
+
+**Java:**
+```java
+int decimal = 255;
+int binary = 0b11111111;
+int hexadecimal = 0xFF;
+int octal = 0377;
+```
+
+**Python:**
+```python
+decimal = 255
+binary = 0b11111111
+hexadecimal = 0xFF
+octal = 0o377
+```
+
+### 5. Genel Kullanımda Geleneksel Notasyon
+
+**Genel Notasyon Kuralları:**
+- **Zaman:** Saat ve dakika genellikle `HH:MM` formatında yazılır. Örneğin, 14:30.
+- **Tarih:** Tarihler genellikle `DD/MM/YYYY` veya `YYYY-MM-DD` formatında yazılır. Örneğin, 05/08/2024 veya 2024-08-05.
+- **Para Birimi:** Para birimleri genellikle `£100`, `$50` veya `€75` formatında yazılır.
+
+Bu geleneksel notasyon biçimleri, verilerin ve bilgilerin standart bir şekilde ifade edilmesine ve anlaşılmasına yardımcı olur. Hangi bağlamda kullanıldığına göre detaylı notasyonlar ve kurallar değişebilir.
+
+=================================================================================
