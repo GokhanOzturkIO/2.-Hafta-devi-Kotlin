@@ -2299,3 +2299,114 @@ Bu yaklaşımlar, Kotlin'deki işaretsiz türlerle Java API'leri arasında uyuml
 
 
 ### Tür Dönüşümü
+
+
+1. - `is` ve `!is` operatörlerinin kullanımını açıklayın.
+
+Cevap: Kotlin'de `is` ve `!is` operatörleri, bir nesnenin belirli bir türde olup olmadığını kontrol etmek için kullanılır. Bu operatörler, tür kontrolü ve tür dönüşümü işlemlerini daha kolay ve güvenli hale getirir. 
+
+### `is` Operatörü
+
+`is` operatörü, bir nesnenin belirli bir türe sahip olup olmadığını kontrol eder. Eğer nesne belirtilen türe sahipse, `true` döner; aksi takdirde `false` döner.
+
+**Kullanım:**
+
+```kotlin
+fun checkType(obj: Any) {
+    if (obj is String) {
+        println("Object is a String with length ${obj.length}")
+    } else {
+        println("Object is not a String")
+    }
+}
+
+fun main() {
+    val str = "Hello, World!"
+    val number = 123
+
+    checkType(str)     // Çıktı: Object is a String with length 13
+    checkType(number)  // Çıktı: Object is not a String
+}
+```
+
+### `!is` Operatörü
+
+`!is` operatörü, `is` operatörünün tersidir. Bir nesnenin belirli bir türe sahip olmadığını kontrol eder. Eğer nesne belirtilen türe sahip değilse, `true` döner; aksi takdirde `false` döner.
+
+**Kullanım:**
+
+```kotlin
+fun checkNotType(obj: Any) {
+    if (obj !is String) {
+        println("Object is not a String")
+    } else {
+        println("Object is a String with length ${obj.length}")
+    }
+}
+
+fun main() {
+    val str = "Hello, World!"
+    val number = 123
+
+    checkNotType(str)     // Çıktı: Object is a String with length 13
+    checkNotType(number)  // Çıktı: Object is not a String
+}
+```
+
+### Akıllı Dönüşüm (Smart Cast)
+
+Kotlin, `is` kontrolünden sonra otomatik olarak tür dönüşümünü gerçekleştirir. Bu özellik, kodun daha temiz ve güvenli olmasını sağlar.
+
+**Örnek:**
+
+```kotlin
+fun smartCastExample(obj: Any) {
+    if (obj is String) {
+        // Burada obj, String olarak otomatik olarak dönüştürülür
+        println("String'in uzunluğu: ${obj.length}")
+    }
+}
+
+fun main() {
+    val str = "Kotlin"
+    smartCastExample(str)  // Çıktı: String'in uzunluğu: 6
+}
+```
+
+### Birden Çok Tür Kontrolü
+
+`is` operatörünü kullanarak bir nesnenin birden fazla türe sahip olup olmadığını kontrol edebilirsiniz. Bu, daha karmaşık tür kontrolü işlemleri için kullanışlıdır.
+
+**Örnek:**
+
+```kotlin
+fun multipleTypeCheck(obj: Any) {
+    when (obj) {
+        is String -> println("Object is a String with length ${obj.length}")
+        is Int -> println("Object is an Int with value $obj")
+        is Double -> println("Object is a Double with value $obj")
+        else -> println("Object is of another type")
+    }
+}
+
+fun main() {
+    multipleTypeCheck("Hello")   // Çıktı: Object is a String with length 5
+    multipleTypeCheck(123)       // Çıktı: Object is an Int with value 123
+    multipleTypeCheck(3.14)      // Çıktı: Object is a Double with value 3.14
+    multipleTypeCheck(true)      // Çıktı: Object is of another type
+}
+```
+
+### Özet
+
+- `is` operatörü: Bir nesnenin belirli bir türe sahip olup olmadığını kontrol eder.
+- `!is` operatörü: Bir nesnenin belirli bir türe sahip olmadığını kontrol eder.
+- Akıllı dönüşüm (smart cast): `is` kontrolünden sonra, Kotlin otomatik olarak tür dönüşümü yapar.
+- Birden çok tür kontrolü: `when` ifadesi ile bir nesnenin birden fazla türe sahip olup olmadığını kontrol edebilirsiniz.
+
+Bu operatörler, Kotlin'de güvenli ve temiz kod yazmayı kolaylaştırır.
+
+
+=================================================================================
+
+
