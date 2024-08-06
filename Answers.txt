@@ -2713,3 +2713,52 @@ Bu yaklaşım, Kotlin kodunun daha okunabilir ve güvenli olmasını sağlar.
 
 
 =================================================================================
+
+5. - "`val b: Byte = 1` ile `val i: Int = b` ve son olarak `print(b == i)` gibi bir kod yazıldığında çıktı ne olur? Neden böyle bir çıktı aldığınızı açıklayın.
+
+Cevap: Kotlin'de, farklı türlerdeki değişkenleri karşılaştırmak ve atamak belirli kurallara göre yönetilir. Sorunuzdaki kodu incelediğimizde, şu işlemler yapılmaktadır:
+
+```kotlin
+val b: Byte = 1
+val i: Int = b
+print(b == i)
+```
+
+### Çıktı
+
+Bu kod parçasının çıktısı `false` olacaktır.
+
+### Neden?
+
+1. **Byte ve Int Türleri:**
+   - `b` değişkeni bir `Byte` türündedir ve `1` değeri içerir.
+   - `i` değişkeni bir `Int` türündedir ve `b` değişkeninin değerini `Int` türüne dönüştürerek alır.
+
+2. **Tür Dönüşümü:**
+   - Kotlin'de `Byte` türündeki bir değeri `Int` türüne atadığınızda, `Byte` değeri `Int` türüne genişletilir. Yani, `b` değişkeninin değeri `Int` türündeki `i` değişkenine dönüştürülür, bu dönüşüm `1` olarak gerçekleşir.
+
+3. **Karşılaştırma:**
+   - `b == i` ifadesi `Byte` türündeki `b` ile `Int` türündeki `i` değişkenlerini karşılaştırmak ister.
+   - Kotlin, `==` operatörü ile karşılaştırma yaparken iki operatörü önce aynı türde değerlendirmeye çalışır. Bu durumda, `b` ve `i` farklı türlerdedir (`Byte` ve `Int`).
+
+4. **Tür Güvenliği:**
+   - Kotlin, iki değişken arasındaki tür farkını göz önüne alır ve türler arasında doğrudan bir karşılaştırma yapmaz. `b` bir `Byte` ve `i` bir `Int` olduğundan, `b == i` ifadesi `false` döner çünkü Kotlin bu iki değişkenin türlerinin eşit olduğunu varsaymaz.
+
+### Özet
+
+- **`b`** bir `Byte` türüdür.
+- **`i`** bir `Int` türüdür ve `b`'nin değerini `Int` türüne dönüştürerek alır.
+- **`b == i`** ifadesi `false` döner çünkü Kotlin farklı türlerdeki değişkenleri doğrudan karşılaştırmaz; türlerin aynı olması gerekir.
+
+Eğer türlerin aynı olmasını istiyorsanız, değişkenlerin her iki tarafını da aynı türde olmalıdır. Aşağıdaki örnekte, `b` ve `i` değişkenlerinin türlerini eşitlemek için uygun dönüşümleri yapabilirsiniz:
+
+```kotlin
+val b: Byte = 1
+val i: Int = b.toInt() // veya: val i: Int = 1
+
+print(b.toInt() == i)  // Çıktı: true
+```
+
+Bu durumda, her iki değişken de `Int` türüne dönüştürülmüş olur ve karşılaştırma `true` döner.
+
+=================================================================================
