@@ -2103,3 +2103,40 @@ val longValue: Long = 123456789L
 
 =================================================================================
 
+6. - "İşaretsiz" değişkenlerin kullanım amaçları nelerdir?
+
+Cevap: Kotlin'deki işaretsiz değişkenlerin (unsigned variables) kullanım amaçları ve avantajları şunlardır:
+
+1. **Pozitif Değerler İçin Ekstra Alan**: İşaretsiz değişkenler sadece pozitif değerleri temsil eder, bu nedenle aynı bit genişliğinde daha büyük pozitif değer aralığı sunarlar. Örneğin, `UInt` (işaretsiz 32-bit tamsayı) 0 ile 4,294,967,295 arasında değerler alabilirken, `Int` (işaretli 32-bit tamsayı) -2,147,483,648 ile 2,147,483,647 arasında değerler alabilir. Eğer sadece pozitif değerlerle çalışıyorsanız, işaretsiz değişkenler daha geniş bir değer aralığı sağlar.
+
+2. **Bit Manipülasyonlarında Kolaylık**: İşaretsiz değişkenler bit manipülasyonlarında ve bit seviyesinde işlemlerde daha öngörülebilir davranışlar sergiler. İşaret bitine sahip olmadıkları için, bit kaydırma gibi işlemler daha doğrudan ve beklenen sonuçlar verir.
+
+3. **Doğal Uyumluluk**: İşaretsiz değişkenler, özellikle ağ protokolleri, dosya formatları ve diğer ikili (binary) veri yapılarını işlerken kullanışlıdır çünkü bu yapılar genellikle işaretsiz değerler kullanır. İşaretsiz tamsayılar, bu tür veri yapılarını temsil etmek için daha uygundur.
+
+4. **Matematiksel ve Finansal Hesaplamalar**: Negatif değerlerin mantıksız veya geçersiz olduğu uygulamalarda işaretsiz değişkenler tercih edilir. Örneğin, indeksler, sayaçlar, döngü sayaçları, ve mali hesaplamalar (örneğin, pozitif para miktarları) gibi durumlarda işaretsiz değişkenler kullanılır.
+
+Örnek kullanımlar:
+
+```kotlin
+fun main() {
+    val positiveCount: UInt = 100u
+    val maxUShort: UShort = 65535u
+    val largeNumber: ULong = 12345678901234567890uL
+
+    // Bit seviyesinde işlem
+    val shiftedValue: UInt = positiveCount shl 1 // Bit kaydırma
+
+    // Döngü sayacı olarak kullanımı
+    for (i in 0u until 10u) {
+        println("Current index: $i")
+    }
+
+    println("Max UShort: $maxUShort")
+    println("Shifted Value: $shiftedValue")
+    println("Large Number: $largeNumber")
+}
+```
+
+Bu örneklerde işaretsiz değişkenlerin nasıl tanımlandığını ve kullanıldığını görebilirsiniz. İşaretsiz değişkenler, yalnızca pozitif değerlerle çalışmanız gereken durumlar için idealdir.
+
+=================================================================================
