@@ -1894,3 +1894,6 @@ Kotlin'de yuvarlama işlemleri yapmak için çeşitli yöntemler ve sınıflar b
 Kullanım amacınıza göre uygun yuvarlama yöntemini seçmek, doğru sonuçlar elde etmek için önemlidir.
 
 =================================================================================
+
+### İşaretsiz Sayılar
+
