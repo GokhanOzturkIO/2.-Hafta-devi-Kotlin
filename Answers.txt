@@ -2981,3 +2981,41 @@ Bu, `Long` türündeki bölme işlemlerinin ve karşılaştırmalarının nasıl
 
 =================================================================================
 
+
+11. - "`val x = 5 / 2.toDouble()` `println(x == 2.5)`" gibi bir işlemin sonucu ve tipi nedir? Neden böyle olduğunu açıklayın.
+
+Cevap: Kotlin'de tam sayı ve ondalıklı sayı türleri arasında yapılan işlemler, tür dönüşüm kurallarına göre değerlendirilir. Kodunuzu ele alalım:
+
+```kotlin
+val x = 5 / 2.toDouble()
+println(x == 2.5)
+```
+
+### Sonuç ve Açıklama
+
+- **Sonuç Değeri:** `true`
+- **Sonuç Tipi:** `Boolean`
+
+### Neden Böyle?
+
+1. **Tür Dönüşümü ve Bölme İşlemi:**
+   - `2.toDouble()` ifadesi, `2` tam sayı değerini `Double` türüne dönüştürür. Bu dönüşüm `2.0` sonucunu verir ve bu `Double` türündedir.
+   - `5 / 2.toDouble()` ifadesi, `5` tam sayısını `2.0` (yani `Double` türünde) ile böler. Burada `5` önce `Double` türüne dönüştürülür ve ardından `2.0` ile bölme işlemi gerçekleştirilir. Sonuç, `Double` türünde olur.
+
+2. **Bölme Sonucu:**
+   - `5 / 2.0` işlemi `2.5` sonucunu verir çünkü `5` bir `Double` türü olarak değerlendirilir ve `2.0` ile bölme işlemi yapılır. Bu durumda sonuç `Double` türünde `2.5` olur.
+
+3. **Karşılaştırma:**
+   - `println(x == 2.5)` ifadesi, `x` değişkeninin `2.5` olup olmadığını kontrol eder.
+   - `x` değişkeninin değeri `2.5` olduğu için, bu karşılaştırma `true` döner.
+
+### Özet
+
+- **Sonuç Tipi:** `Boolean` (karşılaştırma işleminin sonucu olarak `true` veya `false` döner).
+- **Sonuç Değeri:** `true` (çünkü `x` değişkeninin değeri `2.5` ve `x == 2.5` ifadesi `true` döner).
+
+Bu işlemde, `Double` türündeki bir sayıya bölme yapıldığında, sonuç `Double` türünde olur ve ondalıklı kısımlar da korunur.
+
+
+=================================================================================
+
