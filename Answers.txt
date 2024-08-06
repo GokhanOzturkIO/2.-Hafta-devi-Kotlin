@@ -2194,3 +2194,30 @@ Kotlin'in bu davranışları, taşma ve taşma olmaması durumlarını anlamanı
 
 =================================================================================
 
+8. - "İşaretsiz" değişkenlerin sınırlamaları nelerdir?
+
+Cevap: Kotlin'deki işaretsiz değişkenlerin bazı sınırlamaları ve dikkat edilmesi gereken noktaları şunlardır:
+
+1. **Sınırlı Veri Tipi Desteği**:
+   - Kotlin'de işaretsiz değişkenler için sadece `UByte`, `UShort`, `UInt`, ve `ULong` veri tipleri bulunmaktadır. Bu sınırlı veri tipi yelpazesi, diğer işaretli tamsayı türleri veya kayan nokta sayıları gibi veri tipleriyle çalışırken karışıklıklara neden olabilir.
+
+2. **Interoperability (Geçişlilik)**:
+   - Java ve diğer JVM dilleri, işaretsiz değişkenleri desteklemez. Bu nedenle, Kotlin'de işaretsiz değişkenlerle çalışırken Java kodu ile geçişlilik (interoperability) sorunları yaşanabilir. İşaretsiz değişkenler, Java ile yazılmış kütüphaneler veya kodlarla uyumlu olmayabilir.
+
+3. **Matematiksel İşlemler ve Dönüşümler**:
+   - İşaretsiz değişkenlerle yapılan matematiksel işlemler sırasında beklenmeyen taşma (overflow) ve taşma olmaması (underflow) durumlarıyla karşılaşılabilir. Bu durumlar, dikkat edilmezse hesaplama hatalarına yol açabilir.
+   - İşaretsiz ve işaretli tamsayılar arasında dönüşüm yaparken dikkatli olunmalıdır. Doğrudan dönüşümler, veri kaybına veya beklenmeyen sonuçlara neden olabilir.
+
+4. **Sınırlı Fonksiyon ve Operatör Desteği**:
+   - Kotlin'de işaretsiz değişkenlerle ilgili bazı fonksiyon ve operatörler sınırlı olabilir. Örneğin, bazı standart kütüphane fonksiyonları işaretsiz değişkenler için aşırı yüklenmemiş (overloaded) olabilir ve bu nedenle beklenen şekilde çalışmayabilir.
+
+5. **Kullanım Alanlarının Sınırlılığı**:
+   - İşaretsiz değişkenler genellikle belirli kullanım senaryoları için uygundur. Bu değişkenler, pozitif değerlerin ve bit manipülasyonlarının yaygın olduğu durumlarda tercih edilir. Genel yazılım geliştirme süreçlerinde, işaretli değişkenler daha yaygın olarak kullanılır ve daha geniş bir yelpazede uygulamalara uygundur.
+
+6. **Debugging ve Hata Ayıklama**:
+   - İşaretsiz değişkenlerle çalışırken hata ayıklama yapmak bazen zor olabilir. Taşma ve taşma olmaması durumlarının neden olduğu beklenmedik sonuçlar, hata ayıklama sürecinde karmaşıklık yaratabilir.
+
+Özetle, işaretsiz değişkenler belirli senaryolarda faydalı olabilirken, sınırlamaları ve dikkat edilmesi gereken noktaları göz önünde bulundurmak önemlidir. İşaretsiz değişkenleri kullanmadan önce, uygulama gereksinimlerinizi dikkatlice değerlendirmeli ve olası sınırlamaları göz önünde bulundurmalısınız.
+
+
+=================================================================================
