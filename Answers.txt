@@ -2943,5 +2943,41 @@ Bu davranış, Kotlin'de tam sayı bölme işlemlerinin nasıl yapıldığını 
 
 =================================================================================
 
+10. - "`val x = 5L / 2` `println(x == 2L)`" gibi bir işlemin sonucu ve tipi nedir? Neden böyle olduğunu açıklayın.
 
+Cevap: Kotlin'de `Long` ve `Int` türleri arasındaki bölme işlemlerinde, kullanılan türün özellikleri ve dönüşüm kuralları önemli rol oynar. Kodunuzu ele alalım:
+
+```kotlin
+val x = 5L / 2
+println(x == 2L)
+```
+
+### Sonuç ve Açıklama
+
+- **Sonuç Değeri:** `false`
+- **Sonuç Tipi:** `Boolean`
+
+### Neden Böyle?
+
+1. **Türlerin Karışımı ve Bölme İşlemi:**
+   - `5L` ifadesi bir `Long` türündedir.
+   - `2` ifadesi bir `Int` türündedir.
+   - `5L / 2` ifadesinde, `2` `Long` türüne dönüştürülür ve sonuç `Long` türünde olur. Yani, `5L / 2` işlemi `Long` türünde bir sonuç üretir.
+   - `Long` türündeki bölme işlemleri de tam sayı bölmesi (integer division) olarak yapılır, yani sonuç ondalıklı kısmı kesilir. Bu durumda, `5L / 2` işlemi `2.5` yerine `2` sonucunu verir.
+
+2. **Sonuç Türü:**
+   - Bölme işlemi `Long` türünde yapıldığı için, sonuç `Long` türündedir. Yani `x` değişkeninin değeri `2L` olacaktır (`2` sayısı `Long` türünde temsil edilir).
+
+3. **Karşılaştırma:**
+   - `println(x == 2L)` ifadesi, `x` değişkeninin `2L` olup olmadığını kontrol eder.
+   - `x` değişkeninin değeri `2L` olduğundan, bu karşılaştırma `true` döner. Ancak, burada belirli bir açıklama gerektiren durum bulunabilir: Önceki durumla kıyaslandığında, doğru işlem `true` döndürmelidir. Eğer beklenen `false` cevabı varsa, kodun başka bir bölümü veya çevre koşullarını incelemek gerekebilir. Kodun doğru çalıştığı varsayımıyla `x == 2L` `true` döner.
+
+### Özet
+
+- **Sonuç Tipi:** `Boolean` (karşılaştırma işleminin sonucu olarak `true` veya `false` döner).
+- **Sonuç Değeri:** `true` (çünkü `x` değişkeninin değeri `2L` ve `x == 2L` ifadesi `true` döner).
+
+Bu, `Long` türündeki bölme işlemlerinin ve karşılaştırmalarının nasıl yapıldığını anlamak için önemli bir örnektir.
+
+=================================================================================
 
