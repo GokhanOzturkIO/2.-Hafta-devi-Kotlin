@@ -2063,3 +2063,43 @@ Kotlin'de türlerin bu şekilde otomatik olarak belirlenmesi, doğru veri tipini
 
 =================================================================================
 
+5. - "İşaretsiz" "Long" harf gösterimi nasıl yapılır?
+
+Cevap: Kotlin'de işaretsiz tamsayılar ve `Long` tipinde değerler için özel veri tipleri ve gösterimler kullanılır. İşaretsiz tamsayılar için `UByte`, `UShort`, `UInt`, ve `ULong` tipleri bulunur. İşte bu tiplerin nasıl kullanıldığına dair örnekler:
+
+1. **İşaretsiz Tamsayılar (Unsigned Integers)**:
+   - `UByte`: 8-bit işaretsiz tamsayı (`0` ile `255` arası değerler alır).
+   - `UShort`: 16-bit işaretsiz tamsayı (`0` ile `65535` arası değerler alır).
+   - `UInt`: 32-bit işaretsiz tamsayı (`0` ile `2^32 - 1` arası değerler alır).
+   - `ULong`: 64-bit işaretsiz tamsayı (`0` ile `2^64 - 1` arası değerler alır).
+
+Örnek kullanımlar:
+
+```kotlin
+val uByte: UByte = 255u
+val uShort: UShort = 65535u
+val uInt: UInt = 4294967295u
+val uLong: ULong = 18446744073709551615uL
+```
+
+2. **`Long` Tipinde Değerler**:
+   - `Long`: 64-bit işaretli tamsayı (`-2^63` ile `2^63 - 1` arası değerler alır).
+
+`Long` tipinde bir değeri belirtmek için `L` harfi kullanılır:
+
+```kotlin
+val longValue: Long = 123456789L
+```
+
+**Not:** İşaretsiz tamsayılar için Kotlin'de `u` veya `U` soneki, `Long` tipinde değerler için ise `L` veya `l` soneki kullanılır. İşaretsiz `Long` (ULong) için `uL` veya `UL` kullanılır.
+
+Özetle, işaretsiz ve `Long` tipinde değerler için sonekleri aşağıdaki gibi kullanabilirsiniz:
+- `UByte`: `val uByte: UByte = 255u`
+- `UShort`: `val uShort: UShort = 65535u`
+- `UInt`: `val uInt: UInt = 4294967295u`
+- `ULong`: `val uLong: ULong = 18446744073709551615uL`
+- `Long`: `val longValue: Long = 123456789L`
+
+
+=================================================================================
+
