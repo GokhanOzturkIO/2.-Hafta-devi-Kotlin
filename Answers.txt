@@ -2842,3 +2842,34 @@ Bu dönüşüm fonksiyonları, farklı türler arasında güvenli ve açık dön
 
 
 =================================================================================
+
+7. - "`val result = 1L + 3`" // "Long + Int" gibi bir işlemin sonucunda "result" değişkeninin tipi ve değeri ne olur? Neden böyle olduğunu açıklayın.
+
+Cevap: Kotlin'de `Long` ve `Int` türlerinde iki sayıyı topladığınızda, Kotlin'in tür dönüşüm kuralları devreye girer. Kodunuzu ele alalım:
+
+```kotlin
+val result = 1L + 3
+```
+
+### Sonuç ve Açıklama
+
+- **Sonuç Değeri:** `4`
+- **Sonuç Tipi:** `Long`
+
+### Neden Böyle?
+
+1. **Tür Genişletme (Widening):**
+   - `1L` ifadesi bir `Long` türündedir.
+   - `3` ifadesi bir `Int` türündedir.
+   - Matematiksel işlemler sırasında, Kotlin otomatik olarak daha dar türleri (bu durumda `Int`) daha geniş türlere (`Long`) dönüştürür. Bu, veri kaybını önler ve uyumlu sonuçlar sağlar.
+
+2. **Dönüşüm Kuralları:**
+   - `Long` ve `Int` arasında bir işlem yapıldığında, `Int` türü `Long` türüne dönüştürülür. Bu dönüşüm `Int` değerinin `Long` türüne genişletilmesini sağlar.
+   - Yani, `3` sayısı `Long` türüne dönüştürülür ve toplama işlemi `Long` türünde gerçekleştirilir.
+
+3. **Sonuç Türü:**
+   - Sonuç, `Long` türünde olur çünkü işlem `Long` türündeki değerler arasında yapılır.
+   - `result` değişkeni `Long` türünde bir değere sahip olur. Ancak, `1L + 3` ifadesindeki `3` sayısı `Long` türüne dönüştürülüp işlem yapılır, bu nedenle `result` `Long` türündedir.
+
+=================================================================================
+
