@@ -2140,3 +2140,57 @@ fun main() {
 Bu örneklerde işaretsiz değişkenlerin nasıl tanımlandığını ve kullanıldığını görebilirsiniz. İşaretsiz değişkenler, yalnızca pozitif değerlerle çalışmanız gereken durumlar için idealdir.
 
 =================================================================================
+
+7. - "İşaretsiz" değişkenlerle yapılan matematiksel işlemlerde, özellikle büyük sayılarla çalışırken karşılaşılabilecek taşma (overflow) ve taşma olmaması (underflow) durumları için Kotlin nasıl bir yönetim sağlar?
+
+Cevap: Kotlin'de işaretsiz değişkenlerle yapılan matematiksel işlemler sırasında taşma (overflow) ve taşma olmaması (underflow) durumları işaretli değişkenlerle yapılan işlemlerle benzer şekilde yönetilir. Ancak, işaretsiz değişkenler sadece pozitif değerler aldığından, taşma ve taşma olmaması durumları biraz farklı şekilde ele alınır.
+
+### Taşma (Overflow)
+Bir işaretsiz değişkenin maksimum değerini aşan bir değere ulaştığında, değer sıfırdan yeniden başlar (modulo aritmetiği uygulanır). Bu, işaretsiz değişkenin bit genişliğiyle belirlenen maksimum değeri aştığında gerçekleşir.
+
+Örneğin, `UInt` tipindeki bir değişkenin maksimum değeri `2^32 - 1` (4,294,967,295) olduğunda, bu değeri aşan herhangi bir değer sıfırdan yeniden başlar:
+
+```kotlin
+fun main() {
+    val maxUInt: UInt = UInt.MAX_VALUE
+    val overflowedUInt = maxUInt + 1u // Bu işlem taşma yaratır ve değer sıfırdan başlar
+
+    println("Max UInt: $maxUInt")
+    println("Overflowed UInt: $overflowedUInt") // Çıktı: 0
+}
+```
+
+### Taşma Olmaması (Underflow)
+Bir işaretsiz değişkenin minimum değeri olan sıfırın altına düşen bir değere ulaştığında, değer maksimum değerden başlar (modulo aritmetiği uygulanır).
+
+Örneğin, `UInt` tipindeki bir değişkenin minimum değeri sıfır olduğunda, bu değerden daha küçük herhangi bir değer maksimum değerden başlar:
+
+```kotlin
+fun main() {
+    val minUInt: UInt = UInt.MIN_VALUE
+    val underflowedUInt = minUInt - 1u // Bu işlem taşma olmaması yaratır ve değer maksimum değerden başlar
+
+    println("Min UInt: $minUInt")
+    println("Underflowed UInt: $underflowedUInt") // Çıktı: 4294967295
+}
+```
+
+### Taşma ve Taşma Olmaması Durumlarını Yönetme
+Kotlin, bu durumları yönetmek için bazı yardımcı işlevler sağlar. Örneğin, `plus`, `minus`, `times`, ve `div` işlevleri ile `toULong`, `toUInt` gibi dönüşüm işlevleri kullanılabilir.
+
+Örnek:
+
+```kotlin
+fun main() {
+    val largeNumber: ULong = 18446744073709551615uL
+    val result = largeNumber.plus(1uL) // Bu işlem taşma yaratır ve sıfırdan başlar
+
+    println("Large Number: $largeNumber")
+    println("Result: $result") // Çıktı: 0
+}
+```
+
+Kotlin'in bu davranışları, taşma ve taşma olmaması durumlarını anlamanızı ve yönetmenizi kolaylaştırır. Ancak, matematiksel işlemler sırasında beklenmeyen sonuçlar elde etmemek için her zaman dikkatli olmanız önemlidir.
+
+=================================================================================
+
