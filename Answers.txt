@@ -2298,3 +2298,4 @@ Bu yaklaşımlar, Kotlin'deki işaretsiz türlerle Java API'leri arasında uyuml
 =================================================================================
 
 
+### Tür Dönüşümü
