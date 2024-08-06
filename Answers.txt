@@ -2873,3 +2873,36 @@ val result = 1L + 3
 
 =================================================================================
 
+8. - "`val result = Int.MAX_VALUE + Int.MAX_VALUE`" gibi bir işlemin sonucunda "result" değişkeninin tipi ve değeri ne olur? Neden böyle olduğunu açıklayın.
+
+Cevap : Kotlin'de `Int.MAX_VALUE` sabiti, `Int` türünün alabileceği en yüksek değeri temsil eder. Bu değeri iki kez topladığınızda, şu kodu ele alalım:
+
+```kotlin
+val result = Int.MAX_VALUE + Int.MAX_VALUE
+```
+
+### Sonuç ve Açıklama
+
+- **Sonuç Değeri:** `-2`
+- **Sonuç Tipi:** `Int`
+
+### Neden Böyle?
+
+1. **Taşma (Overflow):**
+   - `Int.MAX_VALUE` değeri, `Int` türünün alabileceği en yüksek değerdir ve değeri `2,147,483,647`'dir.
+   - Bu iki değeri topladığınızda, `2,147,483,647 + 2,147,483,647 = 4,294,967,294` gibi bir sonuç elde edersiniz.
+   - Ancak, `Int` türü 32-bit'lik bir tam sayı türüdür ve bu türün temsil edebileceği maksimum değer `2,147,483,647`'dir. Bu nedenle, toplam değer `Int` türünün sınırlarını aşar ve taşma (overflow) meydana gelir.
+
+2. **Taşmanın Sonucu:**
+   - Taşma durumunda, hesaplanan değer `Int` türünün sınırlarını aştığı için, sonuç `Int`'in aralığına göre döner.
+   - 32-bit'lik bir tamsayıda taşma sonucu dönen değer, `4,294,967,294` sayısının `Int` türündeki karşılığıdır. Bu durumda, taşma sonucu bu değer `-2`'ye dönüşür. Çünkü `Int` türü negatif değerleri de temsil edebilir ve taşma durumunda bu tür dönüşümler bu şekilde gerçekleşir.
+
+### Özet
+
+- **Sonuç Tipi:** `Int` (toplama işlemi `Int` türünde yapıldığı için sonuç da `Int` türündedir).
+- **Sonuç Değeri:** `-2` (taşma nedeniyle sonuç `Int` türünün sınırlarını aştığı için bu değere dönüşür).
+
+Kotlin'de taşma durumlarında bu tür hesaplamalar yapılırken dikkatli olunmalıdır. Taşma, sayısal hesaplamalarda beklenmeyen sonuçlara yol açabilir.
+
+=================================================================================
+
