@@ -1941,3 +1941,38 @@ Cevap: "İşaretsiz" (unsigned) ve "işaretli" (signed) değişkenler, bilgisaya
 
 =================================================================================
 
+2. - "İşaretsiz" değişkenler nasıl bir sınıf yapısında tutulurlar? Bu neden önemlidir?
+
+Cevap: Tabii, işaretsiz değişkenleri daha basit bir dille açıklayayım:
+
+### İşaretsiz Değişkenler Nedir?
+
+**İşaretsiz** değişkenler, sadece pozitif sayıları (ve sıfırı) saklamak için kullanılan bir tür veri değişkenidir. İşaretsiz değişkenlerde, sayıları temsil eden tüm bitler sayının kendisi için kullanılır. 
+
+### İşaretli ve İşaretsiz Değişkenler Arasındaki Temel Farklar
+
+- **İşaretli Değişkenler:** Hem pozitif hem de negatif sayıları temsil edebilir. Örneğin, `int` veri türü işaretli bir değişkendir. Bir işaretli değişkende, bazı bitler negatiflik işareti için kullanılır, bu yüzden pozitif değerler için daha az bit kalır.
+
+- **İşaretsiz Değişkenler:** Sadece pozitif sayıları (ve sıfırı) temsil eder. İşaret bitine gerek olmadığı için, tüm bitler sayı için kullanılır ve bu, daha geniş bir pozitif değer aralığı sağlar.
+
+### Basit Örnekler
+
+1. **8-bit İşaretli Değişken:**
+   - Değer aralığı: -128 ile 127
+   - Bu durumda 1 bit işaret bitini temsil eder, geri kalan 7 bit değeri temsil eder.
+
+2. **8-bit İşaretsiz Değişken:**
+   - Değer aralığı: 0 ile 255
+   - Burada tüm 8 bit değeri temsil eder, çünkü işaret bitine gerek yoktur.
+
+### Neden Önemlidir?
+
+1. **Daha Geniş Aralık:** İşaretsiz değişkenler, aynı bit genişliğinde daha büyük pozitif sayıları temsil edebilir. Örneğin, 8-bit işaretsiz bir değişken 0'dan 255'e kadar olan sayıları saklayabilirken, 8-bit işaretli bir değişken -128'den 127'ye kadar olan sayıları saklar.
+
+2. **Doğru Veri Saklama:** İşaretsiz değişkenler, negatif değerlerle karışıklığı önler ve pozitif sayılarla daha güvenilir çalışabilir. Özellikle sayılar sadece pozitif olduğunda kullanışlıdır.
+
+### Özetle
+
+İşaretsiz değişkenler, sayının işaretini (pozitif mi negatif mi olduğunu) göstermek için bir bit kullanmaz, bu yüzden daha geniş bir pozitif değer aralığı sağlar. Bu, pozitif sayılarla çalışırken size daha fazla esneklik ve doğru veri saklama olanağı sunar.
+
+=================================================================================
