@@ -2906,3 +2906,42 @@ Kotlin'de taşma durumlarında bu tür hesaplamalar yapılırken dikkatli olunma
 
 =================================================================================
 
+9. - "`val x = 5 / 2` `println(x == 2)`" gibi bir işlemin sonucu ve tipi nedir? Neden böyle olduğunu açıklayın.
+
+Cevap: Kotlin'de tam sayı bölme işlemleri belirli kurallara göre gerçekleşir. Sorunuzdaki kodu ele alalım:
+
+```kotlin
+val x = 5 / 2
+println(x == 2)
+```
+
+### Sonuç ve Açıklama
+
+- **Sonuç Değeri:** `true`
+- **Sonuç Tipi:** `Boolean`
+
+### Neden Böyle?
+
+1. **Tam Sayı Bölmesi:**
+   - Kotlin'de `5 / 2` ifadesi `Int` türündedir ve bu türdeki bölme işlemleri tam sayı bölmesi (integer division) olarak yapılır.
+   - Tam sayı bölmesinde, bölme sonucu tam sayı olarak hesaplanır ve ondalıklı kısım kesilir. Yani, `5 / 2` işlemi `2.5` yerine `2` sonucunu verir.
+
+2. **Değişkenin Türü:**
+   - `x` değişkeni `5 / 2` işleminin sonucudur ve bu sonuç `Int` türündedir.
+   - Dolayısıyla, `x` değişkeninin değeri `2` olacaktır.
+
+3. **Karşılaştırma:**
+   - `println(x == 2)` ifadesi, `x` değişkeninin `2` olup olmadığını kontrol eder.
+   - `x` değişkeninin değeri `2` olduğu için, bu karşılaştırma `true` olarak değerlendirilir ve `println` ifadesi `true` yazdırır.
+
+### Özet
+
+- **Sonuç Tipi:** `Boolean` (karşılaştırma işleminin sonucu olarak `true` veya `false` döner).
+- **Sonuç Değeri:** `true` (çünkü `x` değişkeninin değeri `2` ve `x == 2` ifadesi `true` döner).
+
+Bu davranış, Kotlin'de tam sayı bölme işlemlerinin nasıl yapıldığını ve sonuçların nasıl değerlendirildiğini anlamak için önemlidir.
+
+=================================================================================
+
+
+
