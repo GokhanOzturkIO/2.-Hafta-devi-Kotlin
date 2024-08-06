@@ -1976,3 +1976,63 @@ Cevap: Tabii, işaretsiz değişkenleri daha basit bir dille açıklayayım:
 İşaretsiz değişkenler, sayının işaretini (pozitif mi negatif mi olduğunu) göstermek için bir bit kullanmaz, bu yüzden daha geniş bir pozitif değer aralığı sağlar. Bu, pozitif sayılarla çalışırken size daha fazla esneklik ve doğru veri saklama olanağı sunar.
 
 =================================================================================
+
+3. - "İşaretsiz" değişkenlerin harf gösterimi nasıldır?
+
+Cevap: Kotlin'de, işaretsiz (unsigned) değişkenler ve türler biraz farklı bir yaklaşım sergiler. Kotlin, işaretsiz (unsigned) veri türlerini destekler, ancak Java ile uyumluluk sağlamak için bazı farklılıklar vardır. Kotlin'deki işaretsiz türler şunlardır:
+
+### Kotlin'de İşaretsiz Değişkenler
+
+1. **`UByte`**: İşaretsiz 8-bit tam sayı
+2. **`UShort`**: İşaretsiz 16-bit tam sayı
+3. **`UInt`**: İşaretsiz 32-bit tam sayı
+4. **`ULong`**: İşaretsiz 64-bit tam sayı
+
+Bu türler Kotlin 1.3 ve sonrasında eklenmiştir ve Kotlin'in `kotlin.u` paketinde bulunur.
+
+### Örnek Kullanım
+
+İşaretsiz değişkenleri tanımlamak ve kullanmak için şu şekilde yapabilirsiniz:
+
+```kotlin
+fun main() {
+    // İşaretsiz 8-bit tam sayı
+    val uByteValue: UByte = 255u // `u` sufiksi işaretsiz olduğunu belirtir
+    
+    // İşaretsiz 16-bit tam sayı
+    val uShortValue: UShort = 65535u
+    
+    // İşaretsiz 32-bit tam sayı
+    val uIntValue: UInt = 4294967295u
+    
+    // İşaretsiz 64-bit tam sayı
+    val uLongValue: ULong = 18446744073709551615u
+
+    // İşaretsiz değişkenlerle aritmetik işlemler
+    val result: UInt = uIntValue + 1u // `u` sufiksi sonucu işaretsiz olarak tutar
+
+    println("uByteValue: $uByteValue")
+    println("uShortValue: $uShortValue")
+    println("uIntValue: $uIntValue")
+    println("uLongValue: $uLongValue")
+    println("Result of addition: $result")
+}
+```
+
+### Neden İşaretsiz Değişkenler?
+
+1. **Geniş Pozitif Aralık:** İşaretsiz değişkenler, aynı bit genişliğinde daha büyük pozitif sayıları temsil edebilir. Örneğin, `UInt` türü 0 ile 4,294,967,295 arasındaki değerleri temsil edebilir, işaretli bir `Int` türü ise -2,147,483,648 ile 2,147,483,647 arasındaki değerleri temsil eder.
+
+2. **Bellek Verimliliği:** İşaretsiz türler, bazı durumlarda daha verimli bellek kullanımı sağlayabilir. Özellikle düşük seviyeli işlemler veya büyük veri kümeleri ile çalışırken işaretsiz değişkenler tercih edilebilir.
+
+3. **Doğru Veri Temsili:** İşaretsiz değişkenler, sadece pozitif değerlerle çalışmak için idealdir. Bu, özellikle bit düzeyinde işlem yaparken veya sayılarda negatif değerlerin anlamlı olmadığı durumlarda kullanışlıdır.
+
+### Kotlin'de İşaretsiz Türlerle İlgili Notlar
+
+- **Java ile Uyumluluk:** Kotlin'de işaretsiz değişkenler, Java'nın standart veri türlerinden farklı olarak işaret bitini kullanmaz. Bu, bazı Java kodları ile uyumluluk sorunlarına yol açabilir. Kotlin'in işaretsiz türleri genellikle arka planda `Long` gibi işaretli türler kullanılarak uygulanır.
+
+- **Arithmetik İşlemler:** İşaretsiz türlerle yapılan aritmetik işlemler, sonuçları da işaretsiz türlerde tutar. İşlemler sırasında taşma (overflow) gibi durumlar dikkatlice ele alınmalıdır.
+
+Kotlin'de işaretsiz değişkenler, büyük ve sadece pozitif sayılarla çalışırken verimli ve doğru sonuçlar sağlar. İşaretsiz türler, işaretli türlerin sınırlarını aşmak veya işaret bitini kullanmadan daha geniş bir değer aralığına sahip olmak isteyen durumlarda idealdir.
+
+=================================================================================
