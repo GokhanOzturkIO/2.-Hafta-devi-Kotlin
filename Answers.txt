@@ -2036,3 +2036,30 @@ fun main() {
 Kotlin'de işaretsiz değişkenler, büyük ve sadece pozitif sayılarla çalışırken verimli ve doğru sonuçlar sağlar. İşaretsiz türler, işaretli türlerin sınırlarını aşmak veya işaret bitini kullanmadan daha geniş bir değer aralığına sahip olmak isteyen durumlarda idealdir.
 
 =================================================================================
+
+4. - "`val a1 = 42u` ve `val a2 = 0xFFFF_FFFF_FFFFu`" değişkenlerin tipleri ne olur? Neden?
+
+Cevap: Kotlin'de `val` ile tanımlanan işaretsiz değişkenlerin türleri, verilen değerlerin büyüklüğüne bağlı olarak belirlenir. İşaretsiz (unsigned) türler Kotlin'de `UByte`, `UShort`, `UInt`, ve `ULong` olarak tanımlanmıştır. Değişkenin türü, tanımlanan değerin bit genişliği ve aralığına göre otomatik olarak belirlenir.
+
+### Değişkenlerin Türleri
+
+1. **`val a1 = 42u`**
+
+   - **Türü:** `UInt`
+   - **Neden:** `42u` ifadesi işaretsiz 32-bit tam sayı (unsigned integer) anlamına gelir. Kotlin, `42u` değerinin 0 ile 4,294,967,295 arasında olduğunu ve bu aralığın `UInt` (32-bit işaretsiz tam sayı) türüyle temsil edildiğini bilir. Bu nedenle, `a1` değişkeninin türü `UInt` olarak belirlenir.
+
+2. **`val a2 = 0xFFFF_FFFF_FFFFu`**
+
+   - **Türü:** `ULong`
+   - **Neden:** `0xFFFF_FFFF_FFFFu` ifadesi, işaretsiz 64-bit tam sayı anlamına gelir. Bu hexadecimal (onaltılık) değer 2^64 - 1 yani 18,446,744,073,709,551,615'dir. Bu değer `UInt` türünün temsil edebileceğinden daha büyüktür, çünkü `UInt` sadece 0 ile 4,294,967,295 arası değerleri temsil edebilir. Dolayısıyla, `0xFFFF_FFFF_FFFFu` değeri `ULong` (64-bit işaretsiz tam sayı) türü ile temsil edilir.
+
+### Özet
+
+- **`val a1 = 42u`**: Kotlin, `42u` ifadesinin `UInt` türünde olduğunu belirler çünkü 42, `UInt` türünün temsil edebileceği bir değerdir.
+
+- **`val a2 = 0xFFFF_FFFF_FFFFu`**: Bu değer, `UInt` türünün sınırlarını aştığı için, `ULong` türü ile temsil edilir.
+
+Kotlin'de türlerin bu şekilde otomatik olarak belirlenmesi, doğru veri tipini seçmek ve sayısal değerleri verimli bir şekilde işlemek için önemlidir. İşaretsiz türler belirli bir bit genişliğinde daha geniş pozitif değer aralıkları sağlar, bu da büyük değerlerle çalışma gereksinimlerinde faydalıdır.
+
+=================================================================================
+
