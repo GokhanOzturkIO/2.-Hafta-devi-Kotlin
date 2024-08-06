@@ -1897,3 +1897,47 @@ Kullanım amacınıza göre uygun yuvarlama yöntemini seçmek, doğru sonuçlar
 
 ### İşaretsiz Sayılar
 
+1. - "İşaretsiz" (Unsigned) değişkenler ne demektir? İşaretli olanlarla aralarındaki fark nedir?
+
+Cevap: "İşaretsiz" (unsigned) ve "işaretli" (signed) değişkenler, bilgisayar programlamasında veri türlerini ifade eden iki ana kategoriye girer. Bu iki tür arasındaki fark, sayının negatif olup olamayacağı ve nasıl depolandığı ile ilgilidir.
+
+### İşaretli (Signed) Değişkenler
+
+- **Tanım:** İşaretli değişkenler, hem pozitif hem de negatif değerleri temsil edebilir. Bu tür değişkenler genellikle bir bit işareti olarak kullanılır.
+  
+- **Örnek:** `int` veri türü çoğu programlama dilinde işaretli olarak tanımlanır. 32-bit bir `int` değişken, -2,147,483,648 ile 2,147,483,647 arasındaki değerleri temsil edebilir.
+
+- **Temsil:** İşaretli değişkenlerde, bir bit sayının işaretini belirtir (genellikle en yüksek bit). Örneğin, bir 8-bit işaretli değişkenin ilk biti genellikle işaret biti olarak kullanılır: 0 pozitif, 1 negatif.
+
+### İşaretsiz (Unsigned) Değişkenler
+
+- **Tanım:** İşaretsiz değişkenler sadece pozitif değerleri ve sıfırı temsil edebilir. İşaret biti kullanılmaz, dolayısıyla tüm bitler sayıların değerini belirtir.
+
+- **Örnek:** `unsigned int` veri türü işaretsiz olarak tanımlanabilir. 32-bit bir `unsigned int` değişkeni 0 ile 4,294,967,295 arasındaki değerleri temsil edebilir.
+
+- **Temsil:** İşaretsiz değişkenlerde, tüm bitler değeri temsil etmek için kullanılır. Bu, daha geniş bir pozitif değer aralığı sağlar çünkü işaret bitine yer kalmaz.
+
+### Farklar
+
+1. **Değer Aralığı:**
+   - **İşaretli:** -2^(n-1) ile 2^(n-1)-1 arası. (n = bit sayısı)
+   - **İşaretsiz:** 0 ile 2^n-1 arası.
+
+   Örneğin, 8-bit bir işaretli değişken -128 ile 127 arasında değerler alabilirken, 8-bit bir işaretsiz değişken 0 ile 255 arasında değerler alabilir.
+
+2. **Temsil:** 
+   - İşaretli değişkenlerde, bir bit işaret bitini temsil eder ve bu bit pozitif veya negatif olmayı belirler.
+   - İşaretsiz değişkenlerde, tüm bitler sayısal değeri temsil eder.
+
+3. **Kullanım Senaryoları:**
+   - İşaretli değişkenler negatif değerler gerektiren hesaplamalar için kullanılır.
+   - İşaretsiz değişkenler genellikle sadece pozitif değerlerin kullanıldığı durumlarda tercih edilir, örneğin bir bayt olarak saklanan verilerde veya sayısal hesaplamalarda.
+
+4. **Hafıza ve Performans:**
+   - İşaretsiz değişkenler genellikle aynı bit genişliği için daha geniş bir pozitif değer aralığı sağlar.
+   - Performans farkları genellikle işaretli ve işaretsiz türler arasında minimaldir, ancak bazı işlemler veya donanımlar işaretsiz hesaplamalarda daha verimli olabilir.
+
+İşaretli ve işaretsiz değişkenlerin doğru kullanımı, özellikle hafıza sınırları ve veri doğruluğu açısından önemli olabilir. Programlamada bu farkları anlamak, doğru veri türlerini seçmek ve olası hatalardan kaçınmak için kritiktir.
+
+=================================================================================
+
