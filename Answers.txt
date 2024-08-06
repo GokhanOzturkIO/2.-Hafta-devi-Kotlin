@@ -2409,4 +2409,144 @@ Bu operatörler, Kotlin'de güvenli ve temiz kod yazmayı kolaylaştırır.
 
 =================================================================================
 
+2. - "Akıllı Dönüşüm" (Smart Cast) ne demektir? Farklı kod örnekleri ile açıklayın. Bu özelliğin sınırlamaları nelerdir?
 
+Cevap: ### Akıllı Dönüşüm (Smart Cast) Nedir?
+
+Akıllı dönüşüm (smart cast), Kotlin'de bir değişkenin türü kontrol edildikten sonra, Kotlin derleyicisinin bu değişkenin türünü otomatik olarak dönüştürmesini sağlayan bir özelliktir. Bu, tür dönüşümünü manuel olarak yapmaya gerek kalmadan değişkeni doğrudan kontrol edilen türde kullanmanıza olanak tanır. 
+
+### Örnekler
+
+#### 1. Basit Tür Kontrolü ve Kullanımı
+
+```kotlin
+fun printLength(obj: Any) {
+    if (obj is String) {
+        // obj artık String olarak dönüştürülür ve String'in length özelliğine erişilebilir
+        println("String length: ${obj.length}")
+    } else {
+        println("Not a String")
+    }
+}
+
+fun main() {
+    val text = "Hello, Kotlin!"
+    printLength(text)  // Çıktı: String length: 14
+    printLength(123)   // Çıktı: Not a String
+}
+```
+
+#### 2. `when` İfadesi ile Tür Kontrolü
+
+```kotlin
+fun identifyType(obj: Any) {
+    when (obj) {
+        is String -> println("String length: ${obj.length}")
+        is Int -> println("Int value: $obj")
+        is Double -> println("Double value: $obj")
+        else -> println("Unknown type")
+    }
+}
+
+fun main() {
+    identifyType("Hello")   // Çıktı: String length: 5
+    identifyType(123)       // Çıktı: Int value: 123
+    identifyType(3.14)      // Çıktı: Double value: 3.14
+    identifyType(true)      // Çıktı: Unknown type
+}
+```
+
+### Sınırlamaları
+
+#### 1. Değişkenin Yeniden Atanması
+
+Eğer bir değişken `var` olarak tanımlanmışsa ve tür kontrolünden sonra değeri değiştirilmişse, Kotlin akıllı dönüşümü gerçekleştiremez.
+
+**Örnek:**
+
+```kotlin
+fun example(var obj: Any) {
+    if (obj is String) {
+        println("String length: ${obj.length}")  // Akıllı dönüşüm burada çalışır
+        obj = 42
+        // obj'nin türü değiştirildiği için akıllı dönüşüm artık çalışmaz
+        // println("String length: ${obj.length}") // Derleme hatası
+    }
+}
+```
+
+#### 2. Nullable Türler
+
+Nullable (`null` olabilen) türlerle çalışırken akıllı dönüşüm dikkatli kullanılmalıdır. `null` değerler için güvenli çağrı operatörü (`?.`) veya güvenli cast operatörü (`as?`) kullanılması gerekebilir.
+
+**Örnek:**
+
+```kotlin
+fun printLengthIfNotNull(obj: Any?) {
+    if (obj is String) {
+        // obj'nin null olmadığından emin olmalıyız
+        println("String length: ${obj.length}")
+    }
+}
+
+fun main() {
+    val text: String? = "Hello, Kotlin!"
+    printLengthIfNotNull(text)  // Çıktı: String length: 14
+    printLengthIfNotNull(null)  // Çıktı: (Hiçbir şey yazdırmaz)
+}
+```
+
+#### 3. Lambda İfadeleri ve Anonim Fonksiyonlar
+
+Lambda ifadeleri ve anonim fonksiyonlar içinde akıllı dönüşüm her zaman çalışmayabilir. Bu tür durumlarda, tür dönüşümünü manuel olarak yapmanız gerekebilir.
+
+**Örnek:**
+
+```kotlin
+fun process(obj: Any, action: (String) -> Unit) {
+    if (obj is String) {
+        action(obj)  // Akıllı dönüşüm burada çalışır
+    }
+}
+
+fun main() {
+    val text = "Hello, Kotlin!"
+    process(text) { println("String length: ${it.length}") }  // Çıktı: String length: 14
+}
+```
+
+#### 4. Nesne Özellikleri
+
+Eğer bir nesnenin özelliği kontrol edilirse, bu özellik üzerinde akıllı dönüşüm yapılamaz. Bu durumda, özellik türünün elle dönüştürülmesi gerekir.
+
+**Örnek:**
+
+```kotlin
+class Example {
+    var property: Any = "Hello"
+}
+
+fun checkProperty(example: Example) {
+    if (example.property is String) {
+        // example.property üzerinde akıllı dönüşüm yapılamaz
+        // println("String length: ${example.property.length}") // Derleme hatası
+        val property = example.property as String
+        println("String length: ${property.length}")
+    }
+}
+
+fun main() {
+    val example = Example()
+    checkProperty(example)  // Çıktı: String length: 5
+}
+```
+
+### Özet
+
+- Akıllı dönüşüm, bir değişkenin türü kontrol edildikten sonra otomatik olarak bu türe dönüştürülmesini sağlar.
+- `var` değişkenlerinde, nullable türlerde, lambda ifadeleri ve anonim fonksiyonlarda bazı sınırlamaları vardır.
+- Nesne özellikleri üzerinde akıllı dönüşüm yapılamaz, bu tür durumlarda manuel tür dönüşümü gereklidir.
+
+Akıllı dönüşüm, Kotlin'de kodunuzu daha güvenli ve okunabilir hale getiren güçlü bir özelliktir. Ancak sınırlamalarını bilmek ve gerektiğinde alternatif yöntemler kullanmak önemlidir.
+
+=================================================================================
