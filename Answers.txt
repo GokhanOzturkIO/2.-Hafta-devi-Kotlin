@@ -224,3 +224,8 @@ var number2 = 1000f // tipi Float olarak belirlenir
 var number3 = 55F // tipi Float olarak belirlenir
 var number4 = 3.14 // tipi Double olaral belirlenir
 var number5 = 90 // tipi Int olaral belirlenir
+
+
+15) Float değişken oluştururken F ve f harfleri varken, Long değişken oluştururken neden küçük l harfi yoktur?
+
+Bazı fontlarda l ile 1 birbirine çok benzediği için l harfi yoktur.
