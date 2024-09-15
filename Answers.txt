@@ -248,3 +248,20 @@ Double daha fazla bellek kullanır, ancak daha yüksek hassasiyet ve geniş bir 
 17) Double ve Float değişkenlerle çalışırken ondalık ayıracı olarak hangi işaretler kullanılır? Bu ayıraçların kullanımında nelere dikkat etmek gerekir?
 
 Bazı dillerde ondalık ayracı .(nokta) iken bazı dillerde ,(virgül) kullanılmaktadır. Bu yüzden bu ayıraçlara göre herhangi bir işlem(split vs) yapılıyorsa , veya . kullanımına dikkat edilmesi gerekir.
+
+
+
+18) Double ve Float değişkenler ondalık kısımda kaç basamağa kadar işlem yaparlar? Bu sınırın üzerinde gelen ondalık bilgileri için nasıl davranırlar? Hangi durumlar için Float ve hangi durumlar için Double kullanılmalıdır?
+
+Float -> 6-7 basamağa kadar işlem yaparlar, Daha küçük bellek alanı kullandığı için hassasiyeti daha düşüktür ve daha büyük sayılarla çalışırken doğruluk kaybına neden olabilir.
+Double -> 15-16 basamağa kadar işlem yaparlar, Daha geniş bellek alanı kullandığı için çok daha büyük ya da çok daha küçük sayılarla çalışırken daha doğru sonuçlar elde edilir.
+
+Float ve Double basamak sınırı dışına çıkıldığında, basamakları yuvarlayarak veya keserek kaybeder. Bu nedenle daha büyük sayılarda doğruluk kaybı yaşanır.
+
+örn:
+
+val num: Float = 3.1415926535F
+println(num)  // Çıktı: 3.1415927
+
+val num: Double = 3.14159265358979323846
+println(num)  // Çıktı: 3.141592653589793
