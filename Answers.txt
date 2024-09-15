@@ -146,3 +146,13 @@ fun main() {
  8) "Null Güvenliği" (Null Safety) kavramını açıklayın.
 
  Bir değişkenin veya nesnenin null olmasından dolayı oluşabilecek hataları önlemek için özelliktir. Bir değişkenin veya nesnenin null olup olmadığını kontrol etmeden üzerinde işlem yapmaya çalıştığımızda meydana gelir. Java da null safety olmadığı için en çok hatalardan biri NullPointerException hatasıdır.
+
+
+
+ 9) Bir değişkene null değer atanır ve tip belirtilmezse Kotlin bu değişkeni nasıl yorumlar?
+
+ Ide tarafından boş bir class olan Nothing? tipinde bir tip ataması yapılır. Bu, değişkenin yalnızca null olabileceği anlamına gelir.
+
+ örn:
+
+ val example = null  // Türü Nothing?
