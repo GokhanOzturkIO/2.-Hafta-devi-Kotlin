@@ -300,3 +300,16 @@ Kotlin’de, bilimsel notasyon (conventional notation) kullanarak sayıları tan
 örn:
 val largeNumber = 3.6e6  // 3.6 x 10^6
 val smallNumber = 4.5e-5 // 4.5 x 10^-5
+
+
+
+22) Sayısal değişkenlerde alt çizgi (underscore) nasıl kullanılır? Kotlin bunu nasıl yorumlar?
+
+Büyük sayıları daha okunabilir hale getirmek için kullanılabilir. Bu, özellikle çok haneli sayılarda veya karmaşık ondalık sayılarda büyük kolaylık sağlar. Kotlin’de alt çizgi, sayıların değeri üzerinde hiçbir etkisi yoktur. Derleme aşamasında Kotlin, alt çizgileri yok sayar.
+
+örn:
+val largeNumber = 1_000_000  // 1 milyon
+val creditCardNumber = 1234_5678_9012_3456  // Kredi kartı numarası gibi uzun sayılar
+val pi = 3.1415_9265_3589  // Pi sayısının okunabilirliği artar
+val binaryNumber = 0b1101_0101_1110_0001  // İkilik sayılar için daha anlaşılır
+val hexNumber = 0xFF_EC_DE_5E  // Onaltılık sayılarda daha iyi okunabilirlik
