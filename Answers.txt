@@ -131,3 +131,13 @@ fun main() {
  örn:
  var name: String = "Kotlin"
  name = 123 // bu şekilde atama yaptığımızda name String tipinde olduğı halde int tipinde bir değer ataması olduğu için derleme zamanında hata verir.
+
+
+
+ 7) Bir değişkeni nullable yapmak için ne yapmalıyız?
+
+ Bir değişkeni null yapmak için değişken tipinin sonuna ? işaretini koymamız gerekir.
+
+ örn:  nullable bir değişken hem null hem de değere sahip olabilir demektir.
+ var number1: Int? = 10
+ number1 = null
