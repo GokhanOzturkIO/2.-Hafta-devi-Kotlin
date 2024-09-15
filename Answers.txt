@@ -156,3 +156,19 @@ fun main() {
  örn:
 
  val example = null  // Türü Nothing?
+
+
+
+ 10) İlkel bir değişkenin nullable olması ile null değer alamaması arasında bellek yönetimi açısından nasıl farklar vardır?
+
+ Normalde Kotlin de ilkel tipler birer class olsada yapılan özel optimizasyonlar ile primitive typelara çevrilir. Fakat primitive bir tipi nullable yaparsak artık referans tipli bir değişken haline gelir. Bu durum kritik bir öneme sahiptir. Gereksiz yere ? kullanmamaya dikkat etmemiz gerekir.
+
+ - değişkenin kapladığı alanı
+ - erişebilirliği
+ - yapabildiği işe
+ - hızına
+
+ etki eder. Primitive tipler daha az alan kaplar, daha kolay erişebilir, daha az iş yapar ve daha hızlıdır.
+
+ Nullable olmayan ilkel tipler, bellek yönetimi açısından daha verimli ve hızlıdır çünkü doğrudan makine seviyesinde işlenir ve sabit boyutta veri tipleriyle temsil edilir.
+ Nullable ilkel tipler, ilkel veri tiplerinin nesne olarak sarılması (boxing) nedeniyle daha fazla bellek kullanır ve performans açısından daha maliyetlidir, çünkü her işlemde boxing/unboxing işlemleri yapılabilir.
