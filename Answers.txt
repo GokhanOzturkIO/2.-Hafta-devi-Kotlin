@@ -326,3 +326,16 @@ val hexNumber = 0xFF_EC_DE_5E  // Onaltılık sayılarda daha iyi okunabilirlik
 24) === operatörü ile karşılaştırma yaparken Byte değer aralığı neden önemlidir? Kotlin bu aralığa göre neden özel bir davranış sergiler?
 
 === operatörü, iki değişkenin referanslarını karşılaştırmak için kullanılır. Yani, iki değişkenin bellekte aynı yeri işaret edip etmediğini kontrol eder. Kotlin, Byte türündeki sayılar için belirli bir aralıkta (değer aralığı: -128 ile 127) bulunan değerleri cache’ler (ön bellekte tutar). Bu optimizasyon, sık kullanılan küçük sayıların tekrar tekrar bellekte yer kaplamasını önlemek ve performansı artırmak amacıyla yapılır.
+
+örn:
+val a: Byte = 127
+val b: Byte = 127
+val c: Byte = -128
+val d: Byte = -128
+val e: Byte = 128.toByte()
+
+println(a === b)  // true, çünkü a ve b -128 ile 127 aralığında
+println(c === d)  // true, çünkü c ve d -128 ile 127 aralığında
+println(a == b)   // true, çünkü == değeri karşılaştırır, referansı değil
+println(e === 128.toByte())  // false, çünkü 128 aralığın dışında ve farklı referanslar kullanılıyor
+
