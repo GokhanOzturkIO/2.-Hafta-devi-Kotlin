@@ -232,6 +232,19 @@ Bazı fontlarda l ile 1 birbirine çok benzediği için l harfi yoktur.
 
 
 
+16) Tek duyarlıklı (Single precision) ve Çift duyarlıklı (Double precision) kavramlarını açıklayın.
+
+Tek duyarlıklı (Single precision) -> Float ile temsil edilir. 32 bitlik alan kullanılır. Daha küçük bellek alanı kullandığı için hassasiyeti daha düşüktür ve daha büyük sayılarla çalışırken doğruluk kaybına neden olabilir.
+
+Çift duyarlıklı (Double precision) -> Double ile temsil edilir. 64 bitlik alan kullanılır. Daha geniş bellek alanı kullandığı için çok daha büyük ya da çok daha küçük sayılarla çalışırken daha doğru sonuçlar elde edilir.
+
+Sonuç olarak ;
+
+Float daha az bellek kullanır, ancak hassasiyeti düşüktür.
+Double daha fazla bellek kullanır, ancak daha yüksek hassasiyet ve geniş bir değer aralığı sunar.
+
+
+
 17) Double ve Float değişkenlerle çalışırken ondalık ayıracı olarak hangi işaretler kullanılır? Bu ayıraçların kullanımında nelere dikkat etmek gerekir?
 
 Bazı dillerde ondalık ayracı .(nokta) iken bazı dillerde ,(virgül) kullanılmaktadır. Bu yüzden bu ayıraçlara göre herhangi bir işlem(split vs) yapılıyorsa , veya . kullanımına dikkat edilmesi gerekir.
