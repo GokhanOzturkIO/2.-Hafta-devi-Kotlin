@@ -1,0 +1,36 @@
+1) val ile var arasındaki fark nedir?
+
+val ->  değeri sonradan değiştirilemeyen değişkendir. Value(sabit) kelimesinin kısaltmasıdır. Genellikle "immutable" olarak bilinsede "immutable" değil "read-only" değişkendir. "read-only" demek ilk değer atamasından sonra tekrar değer atanamaz demektir. "immutable" ise bir değişkenin veya nesnenin durumu ilk değerden farklı olamaz demektir.
+var -> değeri sonradan değiştirilebilen değişkendir. Variable(değişken) kelimesinin kısaltmasıdır.
+
+örn :
+var a = 12
+a = 14 // değerini sonradan değiştirebildik
+
+val b = 12
+b = 14 // hata alacaktır değeri sonradan değiştirilemez
+
+**immutable değilde read-only denilen durum için
+-> fullname'i val olarak tanımlasakta get fonk sabit bir değere değilde değişebilen parametrelere bağlı olduğu için farklı değerler için farklı sonuçlar üretebildi.
+
+class Person {
+    var name = "Cansel"
+    var surname = "Değdaş"
+
+    val fullName : String
+        get() {
+            return name + surname
+        }
+}
+
+fun getFullNameOfPerson() {
+    val person = Person()
+    person.name = "İlyas"
+    person.surname = "Yüregir"
+    print(person.fullName) // sonucu İlyas Yüregir olarak print eder
+
+    val person = Person()
+    person.name = "Seher"
+     person.surname = "Değdaş"
+     print(person.fullName) // sonucu Seher Değdaş olarak print eder
+}
