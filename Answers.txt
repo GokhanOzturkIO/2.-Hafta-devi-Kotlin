@@ -111,3 +111,13 @@ fun main() {
  Bir değişkenin tanımlandığı anda açıkça(explicit) tip belirtilmediğinde atanan değer doğrultusunda ide'nin değişkenin tipini belirlemesidir.
 
  Eğer bir değişken tanımlandığı anda değer ataması yapılmayacaksa tip belirtmek gerekir. Çünkü ide'nin değişkeni tanımlayabilmesi ve ram'de uygun yer ayırabilmesi için değişkenin tipine ihtiyacı vardır. Tip'e göre ram'de ayrılan yerin boyutu değişiklik gösterir.
+
+
+
+ 5) Kotlin'de tüm değişkenlerin sınıf olarak bulunması, "ilkel tip" (primitive type) olmadıkları anlamına gelir mi? Arka planda neler oluyor?
+
+ Kotlinde değişken tipleri sınıf olarak bulunsalarda çalışma zamanda yapılan özel optimizasyonlarla javadaki primitive tiplere karşılık gelirler. Show kotlin Byte kod ile bakıldığında gözlemlenebilir.
+
+ örn:
+ Kotlin -> val a: Int = 10 bu koda show kotlin byte kod ile decompile ettiğimizde aşağıdaki gibi javada olan primitive karşılığını göreceğiz.
+ Java -> int a = 10
