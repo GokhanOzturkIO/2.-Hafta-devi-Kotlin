@@ -204,3 +204,9 @@ fun main() {
 
  ?. -> var nullableValue: String? = null
        val length = nullableValue?.length // length değeri null olacak
+
+
+ 13) Kaç farklı tipte "number" sınıfı miras alan "alt sınıf" (child class) vardır? Bunların değer aralıkları neden önemlidir?
+
+ Byte, Short, Int, Long, Float, Double olmak üzere 6 alt sınıf vardır.
+ Değer aralıkları bellek kullanımını ve performans açısından önemlidir. Daha küçük değer aralığına sahip tipler(Byte, Short) daha az bellek tüketir. Kullanılacak veriye göre doğru veri tipini kullanmak performs açısından önemlidir.
