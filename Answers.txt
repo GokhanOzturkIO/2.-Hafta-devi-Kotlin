@@ -290,3 +290,13 @@ Kotlin’de doğrudan sekizlik (octal) sayılar için bir destek yoktur. Kotlin,
 
 örn:
 int octalNumber = 0757;
+
+
+
+21) "Geleneksel Notasyon" (Conventional Notation) gösterimi nasıl yapılır?
+
+Kotlin’de, bilimsel notasyon (conventional notation) kullanarak sayıları tanımlamak için E veya e (exponent) sembolü kullanılır. Bu, sayıların 10’un üsleriyle ifade edilmesini sağlar. Bu notasyon sayesinde çok büyük ya da çok küçük sayılar daha kolay ifade edilebilir ve sayıların okunabilirliğini arttırır.
+
+örn:
+val largeNumber = 3.6e6  // 3.6 x 10^6
+val smallNumber = 4.5e-5 // 4.5 x 10^-5
