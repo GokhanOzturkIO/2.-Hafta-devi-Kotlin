@@ -347,3 +347,22 @@ Aritmetik operatörler -> +, -, /, *, %
 Atama operatörler -> =, +=, -=, /=, *=, %=
 
 Artırma ve Azaltma operatörler -> ++, --
+
+
+
+26) Sayısal değişkenlerde hangi karşılaştırma operatörleri kullanılabilir?
+
+Eşitlik Karşılaştırma Operatörleri -> ==, =!
+
+Büyüklük Karşılaştırma Operatörleri -> >, <, <=, >=
+
+örn:
+    val a = 5
+    val b = 3
+
+    println(a == b)       // false
+    println(a != b)       // true
+    println(a > b)        // true
+    println(a < b)        // false
+    println(a >= b)       // true
+    println(a <= b)       // false
