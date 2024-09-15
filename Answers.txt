@@ -172,3 +172,9 @@ fun main() {
 
  Nullable olmayan ilkel tipler, bellek yönetimi açısından daha verimli ve hızlıdır çünkü doğrudan makine seviyesinde işlenir ve sabit boyutta veri tipleriyle temsil edilir.
  Nullable ilkel tipler, ilkel veri tiplerinin nesne olarak sarılması (boxing) nedeniyle daha fazla bellek kullanır ve performans açısından daha maliyetlidir, çünkü her işlemde boxing/unboxing işlemleri yapılabilir.
+
+
+
+ 11) Nullable bir değişkenin bir değere sahip olması ile null olması arasında bellek yönetimi açısından nasıl bir fark vardır? Null değer almış bir değişken bellekte yer kaplamaz diyebilir miyiz?
+
+ Null bir değişken  hiç yer kaplamaz diyemeyiz. Değişkenin kendisi bellekte yer tutmaya devam eder, ancak referans edilen bir nesne olmadığı için veri kısmı bellekte kullanılmaz. Yani, null bir referans, değere sahip bir nesneden çok daha az bellek kullanır, ancak tamamen sıfır bellek tükettiğini söylemek mümkün değildir.
