@@ -34,3 +34,44 @@ fun getFullNameOfPerson() {
      person.surname = "Değdaş"
      print(person.fullName) // sonucu Seher Değdaş olarak print eder
 }
+
+2) Bir var değişkeni val gibi davranmasını nasıl sağlayabiliriz val kelimesini kullanmadan? Bunu neden yapmak isteriz? Örnek bir senaryo verin.
+
+Değişkenin set fonksiyonunu private yaparak val gibi davranmasını sağlayabiliriz. Çünkü bir değişkene değer atamamızı sağlayan değişkenin set fonksiyonuna bağlıdır. var değişkenin set fonksiyonunu private yapıp "show kotlin bytecode" ile decompile ettiğimizde set fonklsiyonu oluşturmadığına bakabiliriz.
+
+Val kullanmak yerine bunu neden kullanmak isteriz sorusuna cevap olarak, değişkeni ilgili class içerisinde değiştirmek isteyipte dışarıdan başka bir class veya fonk içerisinde değiştirilmesine izin vermek istemiyorsak kullanabiliriz.
+
+örn:
+
+Elimizde bir kullanıcı ismi var ve private set olarak ayarlandı ve sadece belirli bir validasyon ile değiştirilmesi isteniyor, bunu dışarıdan direkt erişim verirsek validasyona bağlı olmaksızın istemediğimiz şekilde değiştirilebilir. Bu yüzden private set yaparsak kullanıcı adı ilgili classta bu validasyonu sağladığı dıurumda güncellenmesi sağlanır.
+
+class User(private var _username: String) {
+    var username: String
+        get() = _username
+        private set(value) {
+            if (validateUsername(value)) {
+                _username = value
+            }
+        }
+
+    private fun validateUsername(username: String): Boolean {
+        // Kullanıcı adı geçerlilik kontrolü (örneğin minimum uzunluk vs.)
+        return username.length >= 5
+    }
+
+    fun updateUsername(newUsername: String) {
+        if (validateUsername(newUsername)) {
+            _username = newUsername
+        }
+    }
+}
+
+fun main() {
+    val user = User("JohnDoe")
+    println(user.username)  // JohnDoe
+
+    // user.username = "NewName" // Dışarıdan değiştirme yapılamaz (compile error)
+
+    user.updateUsername("NewName")
+    println(user.username)  // NewName
+}
