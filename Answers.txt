@@ -339,3 +339,11 @@ println(c === d)  // true, çünkü c ve d -128 ile 127 aralığında
 println(a == b)   // true, çünkü == değeri karşılaştırır, referansı değil
 println(e === 128.toByte())  // false, çünkü 128 aralığın dışında ve farklı referanslar kullanılıyor
 
+
+25) Sayısal değişkenlerde hangi matematiksel operatörler kullanılabilir?
+
+Aritmetik operatörler -> +, -, /, *, %
+
+Atama operatörler -> =, +=, -=, /=, *=, %=
+
+Artırma ve Azaltma operatörler -> ++, --
