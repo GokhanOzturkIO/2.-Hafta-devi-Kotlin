@@ -210,3 +210,17 @@ fun main() {
 
  Byte, Short, Int, Long, Float, Double olmak üzere 6 alt sınıf vardır.
  Değer aralıkları bellek kullanımını ve performans açısından önemlidir. Daha küçük değer aralığına sahip tipler(Byte, Short) daha az bellek tüketir. Kullanılacak veriye göre doğru veri tipini kullanmak performs açısından önemlidir.
+
+
+
+14) Eğer bir değişkene tip belirtimi yapılmaz ve bir değer atanırsa, Kotlin tip çıkarımını nasıl yapar?
+
+Değişkenin verilen değer f veya F olarak belirtildiyse Float, L olarak belirtildiyse Long, ondalıklı sayı olarak belirtildiyse Double, bunlardan hiçbiri belirtilmediyse tipi optimal olarak Int olarak belirlenir.
+
+örn:
+
+var number1 = 10L // tipi Long olarak belirlenir
+var number2 = 1000f // tipi Float olarak belirlenir
+var number3 = 55F // tipi Float olarak belirlenir
+var number4 = 3.14 // tipi Double olaral belirlenir
+var number5 = 90 // tipi Int olaral belirlenir
