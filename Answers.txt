@@ -282,3 +282,11 @@ val hexNumber = 0xFF  // Onaltılık sistemde FF, ondalık sistemde 255'e eşitt
 val hexNumber2 = 0x1A3  // Onaltılık sistemde 1A3, ondalıkta 419'a eşittir
 val binaryNumber = 0b101010  // İkilik sistemde 101010, ondalık sistemde 42'ye eşittir
 val binaryNumber2 = 0b1101  // İkilik sistemde 1101, ondalıkta 13'e eşittir
+
+
+20) Sekizlik (Octal) değişkenler Java'da nasıl tanımlanır? Kotlin'de Sekizlik değişken tanımlanabilir mi?
+
+Kotlin’de doğrudan sekizlik (octal) sayılar için bir destek yoktur. Kotlin, ondalık (decimal), onaltılık (hexadecimal) ve ikilik (binary) sayılar için yerleşik destek sağlasa da sekizlik sayılar için özel bir önek (Java’daki gibi 0) sunmaz.
+
+örn:
+int octalNumber = 0757;
