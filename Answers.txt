@@ -229,3 +229,9 @@ var number5 = 90 // tipi Int olaral belirlenir
 15) Float değişken oluştururken F ve f harfleri varken, Long değişken oluştururken neden küçük l harfi yoktur?
 
 Bazı fontlarda l ile 1 birbirine çok benzediği için l harfi yoktur.
+
+
+
+17) Double ve Float değişkenlerle çalışırken ondalık ayıracı olarak hangi işaretler kullanılır? Bu ayıraçların kullanımında nelere dikkat etmek gerekir?
+
+Bazı dillerde ondalık ayracı .(nokta) iken bazı dillerde ,(virgül) kullanılmaktadır. Bu yüzden bu ayıraçlara göre herhangi bir işlem(split vs) yapılıyorsa , veya . kullanımına dikkat edilmesi gerekir.
