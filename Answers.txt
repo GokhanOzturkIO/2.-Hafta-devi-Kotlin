@@ -105,3 +105,9 @@ fun main() {
       person.surname = "Değdaş"
       print(person.fullName) // sonucu Seher Değdaş olarak print eder
  }
+
+ 4) "Tip Çıkarımı" (Type inference) kavramını açıklayın. Hangi durumlarda tip belirtmek kesin olarak gereklidir?
+
+ Bir değişkenin tanımlandığı anda açıkça(explicit) tip belirtilmediğinde atanan değer doğrultusunda ide'nin değişkenin tipini belirlemesidir.
+
+ Eğer bir değişken tanımlandığı anda değer ataması yapılmayacaksa tip belirtmek gerekir. Çünkü ide'nin değişkeni tanımlayabilmesi ve ram'de uygun yer ayırabilmesi için değişkenin tipine ihtiyacı vardır. Tip'e göre ram'de ayrılan yerin boyutu değişiklik gösterir.
