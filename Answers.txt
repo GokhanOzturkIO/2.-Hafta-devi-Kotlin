@@ -320,3 +320,9 @@ val hexNumber = 0xFF_EC_DE_5E  // Onaltılık sayılarda daha iyi okunabilirlik
 == ile değişkenlerin değerini,
 
 === ile değişkenlerin referansını karşılaştırırız.
+
+
+
+24) === operatörü ile karşılaştırma yaparken Byte değer aralığı neden önemlidir? Kotlin bu aralığa göre neden özel bir davranış sergiler?
+
+=== operatörü, iki değişkenin referanslarını karşılaştırmak için kullanılır. Yani, iki değişkenin bellekte aynı yeri işaret edip etmediğini kontrol eder. Kotlin, Byte türündeki sayılar için belirli bir aralıkta (değer aralığı: -128 ile 127) bulunan değerleri cache’ler (ön bellekte tutar). Bu optimizasyon, sık kullanılan küçük sayıların tekrar tekrar bellekte yer kaplamasını önlemek ve performansı artırmak amacıyla yapılır.
