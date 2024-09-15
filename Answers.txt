@@ -121,3 +121,13 @@ fun main() {
  örn:
  Kotlin -> val a: Int = 10 bu koda show kotlin byte kod ile decompile ettiğimizde aşağıdaki gibi javada olan primitive karşılığını göreceğiz.
  Java -> int a = 10
+
+
+
+6) "Tip Güvenliği" (Type Safety) kavramını açıklayın.
+
+ Her değişkenin ve ifadenin yalnızca belirli bir türle çalışmasını garanti altına alan bir kavramdır.
+
+ örn:
+ var name: String = "Kotlin"
+ name = 123 // bu şekilde atama yaptığımızda name String tipinde olduğı halde int tipinde bir değer ataması olduğu için derleme zamanında hata verir.
