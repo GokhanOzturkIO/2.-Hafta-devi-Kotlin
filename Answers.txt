@@ -313,3 +313,10 @@ val creditCardNumber = 1234_5678_9012_3456  // Kredi kartı numarası gibi uzun 
 val pi = 3.1415_9265_3589  // Pi sayısının okunabilirliği artar
 val binaryNumber = 0b1101_0101_1110_0001  // İkilik sayılar için daha anlaşılır
 val hexNumber = 0xFF_EC_DE_5E  // Onaltılık sayılarda daha iyi okunabilirlik
+
+
+23) == ile neyi karşılaştırırız? === ile neyi karşılaştırırız?
+
+== ile değişkenlerin değerini,
+
+=== ile değişkenlerin referansını karşılaştırırız.
