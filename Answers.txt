@@ -178,3 +178,29 @@ fun main() {
  11) Nullable bir değişkenin bir değere sahip olması ile null olması arasında bellek yönetimi açısından nasıl bir fark vardır? Null değer almış bir değişken bellekte yer kaplamaz diyebilir miyiz?
 
  Null bir değişken  hiç yer kaplamaz diyemeyiz. Değişkenin kendisi bellekte yer tutmaya devam eder, ancak referans edilen bir nesne olmadığı için veri kısmı bellekte kullanılmaz. Yani, null bir referans, değere sahip bir nesneden çok daha az bellek kullanır, ancak tamamen sıfır bellek tükettiğini söylemek mümkün değildir.
+
+
+
+ 12) Nullable bir değişkenle çalışırken hangi operatörleri kullanırız? Bu operatörlerin kullanım farkları nelerdir? Hangisini ne zaman kullanmak daha anlamlıdır?
+
+ Nullable değişkenlerle çalışırken 3 farklı operatör kullanabiliriz.
+
+ Safe Call Operator (?.) -> Bu operatör, nullable bir değişkenin null olup olmadığını kontrol eder. Eğer null değilse, ardından gelen işlemi gerçekleştirir.
+ Not-null Assertion Operator (!!.) -> Bu operatör, nullable bir değişkenin kesinlikle null olmadığını varsayar. Eğer değişken null ise, NullPointerException fırlatır.
+ Elvis Operator (?:) -> Bu operatör, nullable bir değerin null olup olmadığını kontrol eder ve null ise varsayılan bir değer döner.
+
+
+ ** eğer bir değişkenin null olması kritik bir öneme sahip değilse null olsa bile kullanıcı işlemleri doğru bir şekilde ilerletebiliyorsa ?. kullanılabilir.
+  Ama bir değişkenin değerinin null olması yapılan bir hesaplama vs etkiliyor ise !!. kullanmak daha sağlıklı olacaktır.
+  Elimizde verebileceğimiz bir varsayılan değer var ise ?: elvis operatörünü kullanabiliriz.
+
+
+ örn :
+ ?: -> var nullableValue: String? = null
+       val value = nullableValue ?: "Varsayılan Değer"
+
+ !!. -> var nullableValue: String? = "Merhaba"
+        val value = nullableValue!! // value "Merhaba" olacak
+
+ ?. -> var nullableValue: String? = null
+       val length = nullableValue?.length // length değeri null olacak
