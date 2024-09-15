@@ -75,3 +75,33 @@ fun main() {
     user.updateUsername("NewName")
     println(user.username)  // NewName
 }
+
+
+3) "Değişmez" (Immutable) ve "Salt Okunur" (ReadOnly) kavramlarını açıklayın. val değişkenler neden aslında "değişmez" değil de "salt okunur" olarak açıklanmalıdır?
+
+ "read-only" -> bir değişkene değer atamasından sonra tekrar değer atanamaz demektir.
+ "immutable" -> bir değişkenin veya nesnenin durumu ilk değerden farklı olamaz demektir.
+
+ -> fullname'i val olarak tanımlasakta get fonk sabit bir değere değilde değişebilen parametrelere bağlı olduğu için farklı değerler için farklı sonuçlar üretebildi.
+
+ class Person {
+     var name = "Cansel"
+     var surname = "Değdaş"
+
+     val fullName : String
+         get() {
+             return name + surname
+         }
+ }
+
+ fun getFullNameOfPerson() {
+     val person = Person()
+     person.name = "İlyas"
+     person.surname = "Yüregir"
+     print(person.fullName) // sonucu İlyas Yüregir olarak print eder
+
+     val person = Person()
+     person.name = "Seher"
+      person.surname = "Değdaş"
+      print(person.fullName) // sonucu Seher Değdaş olarak print eder
+ }
