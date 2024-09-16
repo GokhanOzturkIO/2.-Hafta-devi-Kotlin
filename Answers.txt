@@ -420,3 +420,11 @@ Ide bu işlemlerin sonucunun sorumluluğunu bize bırakır otomatik olarak bir t
 
 Kotlin’de iki tamsayı bölündüğünde sonuç yine tamsayı olur, bu durumda ondalık kısmı atılır. 5 / 2 = 2.5 olmasına rağmen, tamsayı bölme işleminde ondalık kısım atılır ve sadece tam sayı kısmı alınır. Int / Int = Int, Long / Long = Long, Long / Int = Long, Int / Long = Long
 İşleme sokulan değerlerin tipinden büyük olanın tipi sonucun tipi olacaktır. Nu yüzden sonuç true olacaktır.
+
+
+
+49) "val x = 5L / 2 println(x == 2L)" gibi bir işlemin sonucu ve tipi nedir? Neden böyle olduğunu açıklayın.
+
+Kotlin'de işleme sokulan değerlerin tipinden büyük olanın tipi sonucun tipi olacaktır. Long / Int -> Long, Int’ten daha büyük bir türdür, bu yüzden 2 otomatik olarak Long türüne dönüştürülür.
+
+5L / 2L = 2.5L olsada tamsayı bölmelerinde ondalık kısmı atılır bu yüzden sonuç 2L olacaktır ve x değerinin tipi Long olup değeri 2L olduğundan spnmuç true olacaktır.
