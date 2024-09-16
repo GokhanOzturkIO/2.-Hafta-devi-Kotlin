@@ -406,3 +406,10 @@ val charValue = i.toChar() // unicode karakterini d harfidir
 
 Kotlin, sayısal işlemlerde daha büyük veri türüne genişletme yaparak sonuçları daha büyük türde saklar, bu yüzden burada Long daha büyük değer aralığına sahip olduğu için result değişkenin tipi Long olup değeri 4L olur.
 
+
+
+
+47) "val result = Int.MAX_VALUE + Int.MAX_VALUE" gibi bir işlemin sonucunda "result" değişkeninin tipi ve değeri ne olur? Neden böyle olduğunu açıklayın.
+
+Kotlin, sayısal işlemlerde daha büyük veri türüne genişletme yaparak sonuçları daha büyük türde saklar. Burada işleme sokulan en büyük değer aralığı Int türünde olduğu için result değişkenin tipi Int olarak belirlenir fakat Int max değerleri toplandığı için sonuç Int değer aralağının dışına çıktığı için sonuç anlamsız bir değer olacaktır.
+Ide bu işlemlerin sonucunun sorumluluğunu bize bırakır otomatik olarak bir tür dönüşümü yapmaz. Yani Int + Int = Long değer aralığına gelen bir değer ise Long'a çevirmez. Tür dönüşümünü açıkça bizden bekler.
