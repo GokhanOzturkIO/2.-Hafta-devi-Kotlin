@@ -372,7 +372,7 @@ Büyüklük Karşılaştırma Operatörleri -> >, <, <=, >=
 27) Bit düzeyinde operatörler (Bitwise operators) nelerdir? Ne amaçla kullanılır? Kotlin'de bunları nasıl kullanabilirsiniz?
 
 
-28) is ve !is operatörlerinin kullanımını açıklayın.
+39) is ve !is operatörlerinin kullanımını açıklayın.
 
 Kotlin’de is ve !is operatörleri, bir nesnenin belirli bir türde olup olmadığını kontrol etmek için kullanılır. Bu operatörler, tür güvenliğini sağlamak ve tür dönüşümlerini güvenli bir şekilde yapmak için önemli araçlardır
 
@@ -393,7 +393,7 @@ Kotlin’de is ve !is operatörleri, bir nesnenin belirli bir türde olup olmad�
 
 
 
-29) "Akıllı Dönüşüm" (Smart Cast) ne demektir? Farklı kod örnekleri ile açıklayın. Bu özelliğin sınırlamaları nelerdir?
+40) "Akıllı Dönüşüm" (Smart Cast) ne demektir? Farklı kod örnekleri ile açıklayın. Bu özelliğin sınırlamaları nelerdir?
 
 Smart Cast, bir nesnenin türü kontrol edildiğinde, o türü güvenli bir şekilde kullanmamıza olanak tanır. Eğer bir nesnenin türü, bir kontrol ifadesi (örneğin, is operatörü) ile doğrulanırsa, Kotlin, o nesnenin o türde olduğunu varsayar ve otomatik olarak o türe dönüştürür. Bu sayede, tür dönüşümlerini açıkça belirtmemize gerek kalmaz.
 Değişkenin mutable olması durumunda veya kontrol ifadesi dışındaki kullanımlarda sınırlamaları vardır.
@@ -441,7 +441,7 @@ Mutable (Değiştirilebilir) Değişkenler
 
 
 
-30) Güvenli & Güvensiz" operatörler nelerdir?
+41) Güvenli & Güvensiz" operatörler nelerdir?
 
 Güvenli Tür Dönüşüm (as?): Eğer dönüşüm başarılı olmazsa, null döner ve hatadan kaçınılır.
 Güvensiz Tür Dönüşüm (as): Eğer dönüşüm başarısız olursa, ClassCastException hatası fırlatır.
