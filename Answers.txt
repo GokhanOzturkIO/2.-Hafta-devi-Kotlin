@@ -372,6 +372,20 @@ Büyüklük Karşılaştırma Operatörleri -> >, <, <=, >=
 27) Bit düzeyinde operatörler (Bitwise operators) nelerdir? Ne amaçla kullanılır? Kotlin'de bunları nasıl kullanabilirsiniz?
 
 
+
+
+
+28) Kotlin'de büyük sayılarla çalışırken hangi ek türlerden yararlanılır ve bu türlerin sınırları nelerdir?
+
+ BigInteger ve BigDecimal gibi ek türlerden yararlanılır. Bu türler, büyük tam sayılar ve ondalıklı sayılarla hassas hesaplamalar yapmak için kullanılır.
+
+BigInteger, bellekle sınırlı olarak herhangi bir boyutta tam sayıları temsil edebilir. Bu nedenle, teorik olarak, bu türün sınırı yoktur; yalnızca sistemin belleği ile sınırlıdır.
+
+BigDecimal da bellekle sınırlı olarak herhangi bir boyutta ondalıklı sayıları temsil edebilir. Ancak, BigDecimal ile çalışırken, kesinlik ve yuvarlama stratejileri önemlidir. BigDecimal’in kesirli kısmının maksimum uzunluğu, kullanılacak olan MathContext ile sınırlıdır.
+
+
+
+
 29) Double ve Float değişkenler kullanılırken "yuvarlama" davranışı nasıldır? Bu nasıl değiştirilebilir?
 
 Kotlin’de Double ve Float değişkenler kullanılırken yuvarlama davranışı standart kurallara dayanır, ancak kullanıcılar farklı yuvarlama yöntemleri veya özel fonksiyonlar ile bu davranışı değiştirebilir.
