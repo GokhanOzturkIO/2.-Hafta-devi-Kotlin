@@ -444,6 +444,11 @@ işaretsiz veri tipleri, pozitif değerlerin kullanılacağı ve daha geniş bir
 
 
 
+36) "İşaretsiz" değişkenlerle yapılan matematiksel işlemlerde, özellikle büyük sayılarla çalışırken karşılaşılabilecek taşma (overflow) ve taşma olmaması (underflow) durumları için Kotlin nasıl bir yönetim sağlar?
+
+İşaretsiz değişkenlerle yapılan matematiksel işlemlerde taşma (overflow) durumu ortaya çıkabilir. Taşma gerçekleştiğinde, değer sıfırdan başlayarak devam eder. Kotlin, taşma durumlarını otomatik olarak algılamaz ve bu durumların kontrolü kullanıcıya bırakılmıştır.
+
+
 
 Mantıksal olarak negatif sayıların geçerli olmadığı durumlarda işaretsiz veri tipleri daha anlamlı bir veri yapısı sağlar. Bu, hata riskini azaltır ve kodun daha net olmasını sağlar.
 
