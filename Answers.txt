@@ -372,6 +372,12 @@ Büyüklük Karşılaştırma Operatörleri -> >, <, <=, >=
 27) Bit düzeyinde operatörler (Bitwise operators) nelerdir? Ne amaçla kullanılır? Kotlin'de bunları nasıl kullanabilirsiniz?
 
 
+29) Double ve Float değişkenler kullanılırken "yuvarlama" davranışı nasıldır? Bu nasıl değiştirilebilir?
+
+Kotlin’de Double ve Float değişkenler kullanılırken yuvarlama davranışı standart kurallara dayanır, ancak kullanıcılar farklı yuvarlama yöntemleri veya özel fonksiyonlar ile bu davranışı değiştirebilir.
+Standart yuvarlama kuralı, 0.5 ve üzeri değerlerin bir üst tam sayıya, altındaki değerlerin ise bir alt tam sayıya yuvarlanmasıdır.
+
+
 30) "İşaretsiz" (Unsigned) değişkenler ne demektir? İşaretli olanlarla aralarındaki fark nedir?
 
 Pozitif sayı değerlerini temsil eden veri türleridir. İşaretsiz değişkenlerde negatif sayılar desteklenmez. Aynı bit uzunluğunda işaretli (signed) ve işaretsiz (unsigned) türler karşılaştırıldığında, işaretsiz türler negatif sayılara yer ayırmadıkları için daha geniş bir pozitif sayı aralığına sahip olurlar.
