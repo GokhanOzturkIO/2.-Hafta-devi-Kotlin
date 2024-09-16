@@ -441,6 +441,32 @@ Mutable (Değiştirilebilir) Değişkenler
 
 
 
+30) Güvenli & Güvensiz" operatörler nelerdir?
+
+Güvenli Tür Dönüşüm (as?): Eğer dönüşüm başarılı olmazsa, null döner ve hatadan kaçınılır.
+Güvensiz Tür Dönüşüm (as): Eğer dönüşüm başarısız olursa, ClassCastException hatası fırlatır.
+
+örn:
+
+val obj: Any = "Kotlin"
+val str: String? = obj as? String  // Güvenli dönüşüm
+println(str)  // Çıktı: "Kotlin"
+
+val obj: Any = 123
+val str: String? = obj as? String  // Başarısız dönüşüm, sonuç null
+println(str)  // Çıktı: null
+
+val obj: Any = "Kotlin"
+val str: String = obj as String  // Güvensiz dönüşüm
+println(str)  // Çıktı: "Kotlin"
+
+val obj: Any = 123
+val str: String = obj as String  // Başarısız dönüşüm, ClassCastException fırlatır
+println(str)  // Bu satır çalışmaz, uygulama çöker
+
+
+
+
 43) "val b: Byte = 1 ile val i: Int = b ve son olarak print(b == i) gibi bir kod yazıldığında çıktı ne olur? Neden böyle bir çıktı aldığınızı açıklayın.
 
 Çıktı olarak type mismatch hatası alırız. Kotlinde kapalı tür dönüşümü olmadığı için byte tipinde bir değeri int tipinde bir değere atayabilmek için açıkça tür dönüşümü yapmamız gerekir.
