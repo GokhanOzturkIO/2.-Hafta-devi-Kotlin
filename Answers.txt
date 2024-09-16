@@ -401,6 +401,20 @@ Kotlin, JVM üzerinde çalıştığı için, Java’nın sunduğu işaretli tür
 
 
 
+
+32) "İşaretsiz" değişkenlerin harf gösterimi nasıldır?
+
+İşaretsiz veri tipleri (UByte, UShort, UInt, ULong) tanımlanırken, değerlerin sonuna küçük “u” harfi eklenir. Bu, sayının işaretsiz olduğunu belirten bir notasyondur.
+
+örn :
+val byteValue: UByte = 100u      // UByte işaretsiz değişken
+val shortValue: UShort = 30000u  // UShort işaretsiz değişken
+val intValue: UInt = 100000u     // UInt işaretsiz değişken
+val longValue: ULong = 10000000000uL  // ULong işaretsiz değişken
+
+
+
+
 39) is ve !is operatörlerinin kullanımını açıklayın.
 
 Kotlin’de is ve !is operatörleri, bir nesnenin belirli bir türde olup olmadığını kontrol etmek için kullanılır. Bu operatörler, tür güvenliğini sağlamak ve tür dönüşümlerini güvenli bir şekilde yapmak için önemli araçlardır
