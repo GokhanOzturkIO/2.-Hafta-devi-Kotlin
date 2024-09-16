@@ -430,6 +430,23 @@ val unsignedLongValue: ULong = 10000000000uL  // İşaretsiz Long (ULong) tipi
 
 
 
+35) "İşaretsiz" değişkenlerin kullanım amaçları nelerdir?
+
+işaretsiz veri tipleri, pozitif değerlerin kullanılacağı ve daha geniş bir değer aralığının gerekli olduğu durumlarda kullanılır.
+
+    Yalnızca pozitif değerleri temsil ettiğinden, negatif değerlere izin vermeyen durumlarda kullanılır. Örneğin, negatif bir değer alması mümkün olmayan sayısal verilerle çalışırken daha anlamlı olabilir.
+
+    İşaretsiz veri tipleri işaretli veri tiplerine kıyasla daha geniş bir pozitif değer aralığı sunar.
+
+    Donanım seviyesinde çalışırken veya bit düzeyinde manipülasyon gerektiren durumlarda kullanışlıdır. Bellek adresleme, ağ paketlerinde kullanılan değerler, bayt manipülasyonları gibi işlemler genellikle işaretsiz tiplerle yapılır.
+
+    İşaretsiz veri tipleri, işaretli tiplerle aynı belleği kullanırken daha büyük pozitif aralık sağladıkları için bellek verimliliğini artırabilir. Özellikle veri yoğun uygulamalarda, belleği daha verimli kullanmak için işaretsiz tipler kullanılabilir.
+
+
+
+
+Mantıksal olarak negatif sayıların geçerli olmadığı durumlarda işaretsiz veri tipleri daha anlamlı bir veri yapısı sağlar. Bu, hata riskini azaltır ve kodun daha net olmasını sağlar.
+
 39) is ve !is operatörlerinin kullanımını açıklayın.
 
 Kotlin’de is ve !is operatörleri, bir nesnenin belirli bir türde olup olmadığını kontrol etmek için kullanılır. Bu operatörler, tür güvenliğini sağlamak ve tür dönüşümlerini güvenli bir şekilde yapmak için önemli araçlardır
