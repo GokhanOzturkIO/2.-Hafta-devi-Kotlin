@@ -371,8 +371,44 @@ Büyüklük Karşılaştırma Operatörleri -> >, <, <=, >=
 
 27) Bit düzeyinde operatörler (Bitwise operators) nelerdir? Ne amaçla kullanılır? Kotlin'de bunları nasıl kullanabilirsiniz?
 
+and, or, xor, not, shl(sola kaydırma), shr(sağa kaydırma), ushr(işaretsiz sağa kaydırma) bit düzeyinde operatörlerdir.
+
+Sayıları bitlerine ayırarak bit düzeyinde mantıksal veya matematiksel işlemler gerçekleştirmemizi sağlar.
 
 
+örn:
+
+val a = 0b1100 // 12
+val b = 0b1010 // 10
+val result = a and b // 0b1000 (8)
+println(result) // 8
+
+
+val a = 0b1100 // 12
+val b = 0b1010 // 10
+val result = a or b // 0b1110 (14)
+println(result) // 14
+
+val a = 0b1100 // 12
+val b = 0b1010 // 10
+val result = a xor b // 0b0110 (6)
+println(result) // 6
+
+val a = 0b1100 // 12
+val result = inv(a) // 0b0011 (-13, çünkü işaretli bir tam sayı)
+println(result) // -13
+
+val a = 0b0001 // 1
+val result = a shl 2 // 0b0100 (4)
+println(result) // 4
+
+val a = -8 // -8 (0b11111000)
+val result = a shr 2 // -2 (0b11111110)
+println(result) // -2
+
+val a = -8 // -8 (0b11111000)
+val result = a ushr 2 // 1073741822 (0b00111111111111111111111111111110)
+println(result) // 1073741822
 
 
 28) Kotlin'de büyük sayılarla çalışırken hangi ek türlerden yararlanılır ve bu türlerin sınırları nelerdir?
