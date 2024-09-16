@@ -388,6 +388,19 @@ Pozitif sayı değerlerini temsil eden veri türleridir. İşaretsiz değişkenl
     	•	Negatif sayılar desteklenmediği için pozitif sayıların aralığı genişler.
 
 
+
+31) "İşaretsiz" değişkenler nasıl bir sınıf yapısında tutulurlar? Bu neden önemlidir?
+
+Kotlin, JVM üzerinde çalıştığı için, Java’nın sunduğu işaretli türlerin (Byte, Short, Int, Long) üzerine inşa edilmiştir. Ancak işaretsiz türler Java’da doğal olarak yer almadığı için, Kotlin bu veri türlerini sınıflar aracılığıyla sağlar. Bu sınıflar, işaretsiz matematiksel işlemleri, karşılaştırmaları ve dönüşümleri destekler. Kotlin, işaretsiz işlemleri bu sınıfların üzerine inşa eder.
+İşaretsiz veri tipleri, Kotlin’de boxed (kutulanmış) tiplerdir. Yani, primitive veri tipleri gibi direkt bellekte değil, bir sınıf yapısı içinde yönetilirler. Bu durum performans açısından küçük bir fark yaratabilir ancak Kotlin’in tür güvenliğini ve esnekliğini artırır.
+İşaretsiz sınıflar, aritmetik işlemlerde negatif değerlerin oluşmasını engeller. Bu, örneğin indeksleme gibi sadece pozitif değerlerin mantıklı olduğu işlemlerde önemlidir. İşaretsiz veri tipleri ile yapılan matematiksel işlemler, hatalı negatif sonuçlardan kaçınmayı sağlar.
+İşaretli ve işaretsiz türler arasında dönüşüm yapılırken Kotlin belirli işlevler sunar. İşaretsiz türler, işaretli türlere doğrudan dönüştürülemez, bu nedenle sınıf yapıları bu dönüşüm işlemleri için özel işlevler sağlar:
+	•	toUInt(), toULong(), toUShort(), toUByte() gibi fonksiyonlar işaretli ve işaretsiz türler arasında dönüşüm yapmaya yardımcı olur.
+
+Örneğin, UInt sınıfı, Java’daki int tipine dayalıdır, ancak sınıf bazlıdır ve sadece pozitif sayılarla çalışır.
+
+
+
 39) is ve !is operatörlerinin kullanımını açıklayın.
 
 Kotlin’de is ve !is operatörleri, bir nesnenin belirli bir türde olup olmadığını kontrol etmek için kullanılır. Bu operatörler, tür güvenliğini sağlamak ve tür dönüşümlerini güvenli bir şekilde yapmak için önemli araçlardır
