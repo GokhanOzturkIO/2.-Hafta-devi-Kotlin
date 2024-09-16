@@ -467,6 +467,22 @@ println(str)  // Bu satır çalışmaz, uygulama çöker
 
 
 
+42) Sayısal değişkenlerde örtük tip genişletme (implicit widening conversions) ne demektir? Kotlin'de bu neden yapılamaz?
+
+Örtük tip genişletme (implicit widening conversions), bir veri türünün, daha geniş bir veri türüne otomatik olarak dönüştürülmesi anlamına gelir.
+
+Kotlin’de örtük tip genişletme yapılmaz çünkü dil, tür güvenliğini sağlamak, belirsizlikleri önlemek ve kodun daha açık ve anlaşılır olmasını sağlamak ister. Daha küçük veri türlerinin daha geniş veri türlerine dönüştürülmesi gerektiğinde, açık dönüşüm fonksiyonları kullanılır.
+
+örn:
+
+val i: Int = 42
+val l: Long = i  // Hata! Kotlin'de örtük tip genişletme yapılamaz
+
+val i: Int = 42
+val l: Long = i.toLong() // Açık bir şekilde tür dönüşümü ile Int -> Long a çevirmiş olduk
+
+
+
 43) "val b: Byte = 1 ile val i: Int = b ve son olarak print(b == i) gibi bir kod yazıldığında çıktı ne olur? Neden böyle bir çıktı aldığınızı açıklayın.
 
 Çıktı olarak type mismatch hatası alırız. Kotlinde kapalı tür dönüşümü olmadığı için byte tipinde bir değeri int tipinde bir değere atayabilmek için açıkça tür dönüşümü yapmamız gerekir.
