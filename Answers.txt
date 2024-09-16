@@ -372,6 +372,22 @@ Büyüklük Karşılaştırma Operatörleri -> >, <, <=, >=
 27) Bit düzeyinde operatörler (Bitwise operators) nelerdir? Ne amaçla kullanılır? Kotlin'de bunları nasıl kullanabilirsiniz?
 
 
+30) "İşaretsiz" (Unsigned) değişkenler ne demektir? İşaretli olanlarla aralarındaki fark nedir?
+
+Pozitif sayı değerlerini temsil eden veri türleridir. İşaretsiz değişkenlerde negatif sayılar desteklenmez. Aynı bit uzunluğunda işaretli (signed) ve işaretsiz (unsigned) türler karşılaştırıldığında, işaretsiz türler negatif sayılara yer ayırmadıkları için daha geniş bir pozitif sayı aralığına sahip olurlar.
+
+	İşaretli (Signed) Değişkenler:
+        •	Hem pozitif hem de negatif değerleri tutabilir.
+        •	En yüksek bit, işaret biti olarak kullanılır. Eğer bu bit 0 ise sayı pozitif, 1 ise sayı negatiftir.
+            0000 0101 pozitif = 5, 1111 1011 negatif = -5
+        •	Pozitif ve negatif değerlerin tutulabilmesi için negatif sayılara da alan ayrıldığından pozitif sayılar için daha dar bir aralık sunar.
+
+	İşaretsiz (Unsigned) Değişkenler:
+    	•	Sadece pozitif sayıları tutabilir.
+    	•	İşaret biti yoktur, tüm bitler sayı değeri için kullanılır.
+    	•	Negatif sayılar desteklenmediği için pozitif sayıların aralığı genişler.
+
+
 39) is ve !is operatörlerinin kullanımını açıklayın.
 
 Kotlin’de is ve !is operatörleri, bir nesnenin belirli bir türde olup olmadığını kontrol etmek için kullanılır. Bu operatörler, tür güvenliğini sağlamak ve tür dönüşümlerini güvenli bir şekilde yapmak için önemli araçlardır
