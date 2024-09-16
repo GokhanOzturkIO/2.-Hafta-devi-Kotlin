@@ -413,3 +413,10 @@ Kotlin, sayısal işlemlerde daha büyük veri türüne genişletme yaparak sonu
 
 Kotlin, sayısal işlemlerde daha büyük veri türüne genişletme yaparak sonuçları daha büyük türde saklar. Burada işleme sokulan en büyük değer aralığı Int türünde olduğu için result değişkenin tipi Int olarak belirlenir fakat Int max değerleri toplandığı için sonuç Int değer aralağının dışına çıktığı için sonuç anlamsız bir değer olacaktır.
 Ide bu işlemlerin sonucunun sorumluluğunu bize bırakır otomatik olarak bir tür dönüşümü yapmaz. Yani Int + Int = Long değer aralığına gelen bir değer ise Long'a çevirmez. Tür dönüşümünü açıkça bizden bekler.
+
+
+
+48) "val x = 5 / 2 println(x == 2)" gibi bir işlemin sonucu ve tipi nedir? Neden böyle olduğunu açıklayın.
+
+Kotlin’de iki tamsayı bölündüğünde sonuç yine tamsayı olur, bu durumda ondalık kısmı atılır. 5 / 2 = 2.5 olmasına rağmen, tamsayı bölme işleminde ondalık kısım atılır ve sadece tam sayı kısmı alınır. Int / Int = Int, Long / Long = Long, Long / Int = Long, Int / Long = Long
+İşleme sokulan değerlerin tipinden büyük olanın tipi sonucun tipi olacaktır. Nu yüzden sonuç true olacaktır.
