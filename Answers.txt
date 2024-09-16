@@ -450,6 +450,12 @@ işaretsiz veri tipleri, pozitif değerlerin kullanılacağı ve daha geniş bir
 
 
 
+37) "İşaretsiz" değişkenlerin sınırlamaları nelerdir?
+
+Kotlin’de işaretsiz değişkenlerin avantajları olmasına rağmen, negatif değerlerin olmaması, taşma durumlarının yönetimi ve belirli matematiksel işlemlerdeki sınırlamalar gibi dezavantajları vardır. Bu sınırlamaları göz önünde bulundurarak, işaretsiz değişkenlerin uygun kullanımı önemlidir.
+
+
+
 Mantıksal olarak negatif sayıların geçerli olmadığı durumlarda işaretsiz veri tipleri daha anlamlı bir veri yapısı sağlar. Bu, hata riskini azaltır ve kodun daha net olmasını sağlar.
 
 39) is ve !is operatörlerinin kullanımını açıklayın.
