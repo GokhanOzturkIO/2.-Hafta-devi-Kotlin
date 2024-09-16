@@ -372,6 +372,24 @@ Büyüklük Karşılaştırma Operatörleri -> >, <, <=, >=
 27) Bit düzeyinde operatörler (Bitwise operators) nelerdir? Ne amaçla kullanılır? Kotlin'de bunları nasıl kullanabilirsiniz?
 
 
+28) is ve !is operatörlerinin kullanımını açıklayın.
+
+Kotlin’de is ve !is operatörleri, bir nesnenin belirli bir türde olup olmadığını kontrol etmek için kullanılır. Bu operatörler, tür güvenliğini sağlamak ve tür dönüşümlerini güvenli bir şekilde yapmak için önemli araçlardır
+
+    is: Bir nesnenin belirtilen türde olup olmadığını kontrol eder ve tür doğrulandığında nesneyi o türde kullanmanıza izin verir.
+
+  	!is: Bir nesnenin belirtilen türde olmadığını kontrol eder.
+
+  	örn:
+
+  	val obj: Number = 42
+
+     when (obj) {
+            is Float -> println("Obj bir Float: $obj")
+            is Int -> println("Obj bir Int: $obj") // obj Int tipini alır optimal olarak çıktı olarak Obj bir Int: 42 değerini basar
+            is Double -> println("Obj bir Double: $obj")
+            else -> println("Obj bilinmeyen bir tür: $obj")
+        }
 
 43) "val b: Byte = 1 ile val i: Int = b ve son olarak print(b == i) gibi bir kod yazıldığında çıktı ne olur? Neden böyle bir çıktı aldığınızı açıklayın.
 
