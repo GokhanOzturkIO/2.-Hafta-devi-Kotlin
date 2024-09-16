@@ -413,6 +413,10 @@ val intValue: UInt = 100000u     // UInt işaretsiz değişken
 val longValue: ULong = 10000000000uL  // ULong işaretsiz değişken
 
 
+33) "val a1 = 42u ve val a2 = 0xFFFF_FFFF_FFFFu" değişkenlerin tipleri ne olur? Neden?
+
+a1 değeri ULong değer aralığından küçük olduğundan default olarak UInt olarak belirlenir. (0 ile 4,294,967,295 aralığı)
+a2 değeri UInt değer aralığından büyük olup ULong değer aralığından olduğundan ULong olarak belirlenir.
 
 
 39) is ve !is operatörlerinin kullanımını açıklayın.
