@@ -419,6 +419,17 @@ a1 değeri ULong değer aralığından küçük olduğundan default olarak UInt 
 a2 değeri UInt değer aralığından büyük olup ULong değer aralığından olduğundan ULong olarak belirlenir.
 
 
+34) "İşaretsiz" "Long" harf gösterimi nasıl yapılır?
+
+Kotlin’de işaretsiz Long veri tipi olan ULong için sayının sonuna hem u hem de L harfleri eklenir. Bu, sayının işaretsiz Long (ULong) olduğunu belirtir.
+
+örn:
+
+val unsignedLongValue: ULong = 10000000000uL  // İşaretsiz Long (ULong) tipi
+
+
+
+
 39) is ve !is operatörlerinin kullanımını açıklayın.
 
 Kotlin’de is ve !is operatörleri, bir nesnenin belirli bir türde olup olmadığını kontrol etmek için kullanılır. Bu operatörler, tür güvenliğini sağlamak ve tür dönüşümlerini güvenli bir şekilde yapmak için önemli araçlardır
