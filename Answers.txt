@@ -215,7 +215,7 @@ fun main() {
 
 14) Eğer bir değişkene tip belirtimi yapılmaz ve bir değer atanırsa, Kotlin tip çıkarımını nasıl yapar?
 
-Değişkenin verilen değer f veya F olarak belirtildiyse Float, L olarak belirtildiyse Long, ondalıklı sayı olarak belirtildiyse Double, bunlardan hiçbiri belirtilmediyse tipi optimal olarak Int olarak belirlenir.
+Değişkenin verilen değer f veya F olarak belirtildiyse Float, L olarak belirtildiyse veya verilen değer Long değer aralığında ise Long, ondalıklı sayı olarak belirtildiyse Double, bunlardan hiçbiri belirtilmediyse tipi optimal olarak Int olarak belirlenir.
 
 örn:
 
@@ -366,3 +366,7 @@ Büyüklük Karşılaştırma Operatörleri -> >, <, <=, >=
     println(a < b)        // false
     println(a >= b)       // true
     println(a <= b)       // false
+
+
+
+27) Bit düzeyinde operatörler (Bitwise operators) nelerdir? Ne amaçla kullanılır? Kotlin'de bunları nasıl kullanabilirsiniz?
