@@ -436,3 +436,45 @@ Kotlin'de işleme sokulan değerlerin tipinden büyük olanın tipi sonucun tipi
 Kotlin'de işleme sokulan değerlerin tipinden büyük olanın tipi sonucun tipi olacaktır. Int / Double -> Double, Int’ten daha büyük bir türdür, bu yüzden 5 otomatik olarak Double türüne dönüştürülür.
 
 val x = 5 / 2.toDouble() tamsayı bölmesi değilde ondalıklı sayı bölmesi gerçekleştirir -> 5.0 / 2.0 = 2.5 olacaktır, bu durumda sonuç true olacaktır.
+
+
+
+51) Kotlin'de tür dönüşümü yapılırken, dönüşümün başarısız olması durumunda TypeCastException nasıl ele alınır ve bu tür hataların önüne geçmek için hangi önlemler alınabilir?
+
+    val longValue: Long = 300
+    val byteValue: Byte = longValue as Byte // Bu satır TypeCastException fırlatır
+
+	1.	Güvenli tür dönüşümü (as?) kullanarak null değer dönebilir.
+	    val longValue: Long = 300
+        val byteValue: Byte? = longValue as? Byte  // Güvenli dönüşüm, sonuç null olabilir
+        println(byteValue)  // Çıktı: null
+
+	2.	Tür kontrolü yaparak dönüşüm gerçekleştirebilirsiniz.
+	    val longValue: Long = 300
+
+        if (longValue in Byte.MIN_VALUE.toLong()..Byte.MAX_VALUE.toLong()) {
+            val byteValue: Byte = longValue.toByte() // Dönüşüm güvenli
+            println("Dönüşüm başarılı: $byteValue")
+        } else {
+            println("Dönüşüm başarısız: Değer Byte aralığını aşıyor.")
+        }
+
+	3.	Açık dönüşüm ile kontrol yaparak dönüşüm gerçekleştirebilirsiniz.
+	    val longValue: Long = 300
+
+        if (longValue in Byte.MIN_VALUE.toLong()..Byte.MAX_VALUE.toLong()) {
+            val byteValue: Byte = longValue.toByte() // Güvenli dönüşüm
+            println("Dönüşüm başarılı: $byteValue")
+        } else {
+            println("Dönüşüm başarısız: Değer Byte aralığını aşıyor.")
+        }
+
+	4.	try-catch bloğu kullanarak hata yakalayabilir ve uygun şekilde yönetebilirsiniz.
+        val longValue: Long = 300
+
+        try {
+            val byteValue: Byte = longValue as Byte  // Bu satır TypeCastException fırlatabilir
+            println("Dönüşüm başarılı: $byteValue")
+        } catch (e: TypeCastException) {
+            println("Tür dönüşümü hatası: ${e.message}")
+        }
