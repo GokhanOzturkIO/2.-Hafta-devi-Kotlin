@@ -384,3 +384,18 @@ val i: Int = b.toInt() dersek bu kodu düzeltmiş oluruz, bu şekilde düzeltti�
 44) "val b: Byte = 1 ile val i: Int = b.toInt() ve son olarak print(b == i) gibi bir kod yazıldığında çıktı ne olur? Neden böyle bir çıktı aldığınızı açıklayın.
 
 Açıkça tür dönüşümü olduğu için byte değeri int değişkenine doğru bir şekilde atanmış olur.  == değer karşılaştırması yaptığı için i ve b değerleri eşit ve 1 olduğu için true çıktısını alırız.
+
+
+
+45) Sayısal değişkenlerde açık dönüşüm (Explicit Type Conversion) yaparken hangi fonksiyonları kullanabilirsiniz?
+
+toByte(), toShort(), toInt(), toFloat(), toDouble(), toLong(), toChar() fonksiyonlarını kullanabiliriz.
+
+örn :
+val i: Int = 100
+val b: Byte = i.toByte()
+val s: Short = i.toShort()
+val l: Long = i.toLong()
+val f: Float = i.toFloat()
+val d: Double = i.toDouble()
+val charValue = i.toChar() // unicode karakterini d harfidir
